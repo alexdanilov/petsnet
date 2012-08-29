@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('pharmacies') }} &mdash; PetsNet - Сообщество владельцев домашних животных{% endblock %}
+
+{% block main %}
+<div class="navigation">
+    <div class="navigationBorder">
+        <div class="navigationInner">
+            <a href="/">Главная</a>
+            <span>{{ _('pharmacies') }}</span>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="mainLeft">
+        <div class="contentBlock">
+            <div class="headBlock">Поиск по аптекам</div>
+            <form action="" method="get" class="inner search">
+                <a class="showHide" href="#">Свернуть блок поиска</a>
+
+                <div class="label">Название аптеки:</div>
+                <input class="searchClinic" type="text" name="search" />
+                <div class="clear"></div>
+
+                <div class="label">Укажите регион:</div>
+                <div class="state">
+                    <select id="searchState" name="region">
+                        <option value="">Все регионы</option>
+                        {% for region in regions %}<option value="{{ region.id }}"{% if filter.region == region.id %} selected{% endif %}>{{ region.region__region }}</option>{% endfor %}
+                    </select>
+                </div>
+                <i class="sep">-</i>
+                <div class="city">
+                    <select id="searchCity" name="city">
+                        <option value="0">Все города</option>
+                        {% for city in cities %}<option value="{{ city.id }}"{% if filter.city == city.id %} selected{% endif %}>{{ city.city }}</option>{% endfor %}
+                    </select>
+                </div>
+                <div class="clear"></div>
+
+                <div class="clear"></div>
+
+                <button type="submit" name="searchButton"></button>
+                <div class="clear"></div>
+            </form>
+            <br />
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#searchState').change(function() {
+                        alert($('#searchState').val());
+                        $('#searchCity').load('/ajax/get-cities/', 'r='+$(this).val());
+                    });
+                })
+            </script>
+
+            <div class="headBlock">{{ _('pharmacies') }}</div>
+            <div class="inner">
+                <div class="cats">
+                    <span>Сортировать:</span>
+                    <a{% if filter.order_by == 'begin_date' %} class="active"{% endif %} href="?{{ url }}&sort=begin_date">По дате</a>
+                    <a{% if filter.order_by == 'name' %} class="active"{% endif %} href="?{{ url }}&sort=name">По имени</a>
+                </div>
+                {% for item in object_list %}
+                <div class="preview items-list{% if forloop.last %} lastPreview{% endif %}">
+                    <div class="link" href="{{ item.url }}">
+                        <div class="middle">
+                            <a class="name" href="{{ item.url }}">{{ item.name }}</a>
+                            {% if item.is_top %}<img align="top" src="/static/img/best_clinic.png" alt="{{ _('best') }}" />{% endif %}
+                            {% if item.is_sale %}<img align="top" src="/static/img/sales_system.png" alt="{{ _('sale') }}" />{% endif %}
+                            <div class="clear"></div>
+                            <div class="address">{{ item.region }}, {{ item.address }}</div>
+                            <div class="clear"></div>
+                            <ul>
+                                <li>Пн-Пт {{ item.working_hours }}</li>
+                                <li>Сб {{ item.working_hours_sartuday }}</li>
+                                <li>Вс {{ item.working_hours_sanday }}</li>
+                            </ul>
+                            <ul class="last">
+                                {% for phone in item.phones_list %}<li>{{ phone }}</li>{% endfor %}
+                                {% if item.email %}<li>{{ item.email }}</li>{% endif %}
+                                {% if item.website %}<li>{{ item.website }}</li>{% endif %}
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="right">
+                            <ul>
+                                <li><a href="{{ item.url }}#sales">Скидки</a></li>
+                                <li><a href="{{ item.url }}#about">Об аптеке</a></li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% if is_paginated %}{% include "blocks/paginator.html" %}{% endif %}
+            </div>
+        </div>
+    </div>
+    <div id="mainRight">
+        {% include "blocks/user-cabinet.html" %}
+        <div class="rightBanner">
+            {% banner "clinics-right" %}
+        </div>
+        {% include "blocks/social.html" %}
+    </div>
+    <div class="clear"></div>
+    <div class="banner">{% banner "site-bottom" %}</div>
+</div>
+{% endblock %}

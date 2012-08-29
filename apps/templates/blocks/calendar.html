@@ -1,0 +1,20 @@
+{% from '_macros.html' import select %}
+<div class="box borders">
+    <h2 class="header">{{ _('calendar') }}</h2>
+    <div class="box-content">
+        <div class="calendar">
+            <select name="month" id="calendar-month">{{ select(monthes, month) }}</select>
+            <select name="year" id="calendar-year">{{ select(years, year) }}</select>
+            <table class="calendar-tbl">
+                {% for day in week_days %}<th>{{ day }}</th>{% endfor %}
+                <tr>
+                {% for day in calendar %}
+                <td>{% if items[day] %}<a href="?d={{ day }}">{{ day }}</a>{% else %}{{ day }}{% endif %}</td>
+                {% if day != 0 and day % 7 == 0 %}</tr><tr>{% endif %}
+                {% endfor %}
+                </tr>
+            </table>
+        </div>
+        <a href="/events/">{{ _('events-all') }}</a>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+                <div id="leftcol">
+                    {% include "users/user-menu.html" %}
+                    {% block leftcol %}{% endblock %}
+                </div>
+
+                <div id="rightcol">
+                    {% block rightcol %}{% endblock %}
+                    {% include "blocks/social.html" %}
+                </div>
+
+                <div id="centercol" class="borders">
+                    <div id="centercol-cont">
+                        {% block centercol %}{% endblock %}
+                    </div>
+                </div>
+{% endblock %}

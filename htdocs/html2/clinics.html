@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="css/cusel.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="css/jquery.fancybox-1.3.4.css" type="text/css" media="screen, projection" />
+	<!--[if IE 7]><link rel="stylesheet" href="css/ie7.css" type="text/css" media="screen, projection" /><![endif]-->
+	<!--[if IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
+
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/cusel-min-2.4.1.js"></script>
+	<script src="js/jquery.mousewheel.js"></script>
+	<script src="js/jScrollPane.js"></script>
+	<script src="js/jquery.fancybox-1.3.4.pack.js"></script>
+	<script src="js/jcarousellite.js"></script>
+	<script src="js/checkbox.js"></script>
+	<script src="js/main.js"></script>
+
+	<!--[if IE 6]><script src="js/DD_belatedPNG_0.0.8a-min.js"></script><![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<div id="header">
+		<div id="headerBg">
+			<div id="headerInner">
+				<a id="logo" href="#"><img src="img/logo.png" alt="" /></a>
+				<span class="siteInfo">Социальная сеть для владельцев домашних животных</span>
+				<a class="favorites" href="#">Избранное</a>
+				<div class="signBlock">
+					<a class="reg" href="#">Регистрация</a>
+					<a class="enter" href="#">Войти</a>
+					<div class="clear"></div>
+				</div>
+
+				<form action="" method="" class="regions">
+					<div class="head">Ваш регион:</div>
+					<div class="state">
+						<select id="regionsState" name="state">
+							<option value="1">Киевская область</option>
+							<option value="1">Киевская область</option>
+							<option value="1">Киевская область</option>
+						</select>
+					</div>
+					<i>-</i>
+					<div class="city">
+						<select id="regionsCity" name="city">
+							<option value="1">Киев</option>
+							<option value="1">Киев</option>
+							<option value="1">Киев</option>
+						</select>
+					</div>
+					<div class="clear"></div>
+				</form><!-- .regions -->
+
+				<form action="" method="" class="searchForm">
+					<input type="text" name="searchWords" value="Поиск" />
+					<select id="searchSelect" name="searchFrom">
+						<option value="1">По разделам</option>
+						<option value="1">По разделам</option>
+						<option value="1">По разделам</option>
+					</select>
+					<button type="submit"name="searchButton"></button>
+					<div class="clear"></div>
+				</form><!-- .searchForm -->
+                <div class="subMenuPosition">
+					<ul class="menu">
+						<li><a href="#" rel="#board"><span>ОБЪЯВЛЕНИЯ</span></a></li>
+						<li><a href="#" rel="#catalog"><span>КАТАЛОГ</span></a></li>
+						<li><a href="#" rel="#events"><span>СОБЫТИЯ</span></a></li>
+						<li><a href="#" rel="#interesting"><span>ИНТЕРЕСНО</span></a></li>
+					</ul>
+					<ul id="board" class="subMenu">
+						<li class="first"><a href="#">Продажа</a></li>
+						<li><a href="#">Покупка</a></li>
+						<li><a href="#">Вязка</a></li>
+						<li><a href="#">Возьму в дар</a></li>
+						<li><a href="#">Отдам в дар</a></li>
+						<li><a href="#">Другое</a></li>
+					</ul>
+					<ul id="catalog" class="subMenu">
+						<li class="first"><a href="#">Продажа</a></li>
+						<li><a href="#">Покупка</a></li>
+						<li><a href="#">Вязка</a></li>
+						<li><a href="#">Возьму в дар</a></li>
+						<li><a href="#">Отдам в дар</a></li>
+					</ul>
+					<ul id="events" class="subMenu">
+						<li class="first"><a href="#">Продажа</a></li>
+						<li><a href="#">Покупка</a></li>
+						<li><a href="#">Вязка</a></li>
+						<li><a href="#">Возьму в дар</a></li>
+					</ul>
+					<ul id="interesting" class="subMenu">
+						<li class="first"><a href="#">Продажа</a></li>
+						<li><a href="#">Покупка</a></li>
+						<li><a href="#">Вязка</a></li>
+					</ul>
+				</div>
+
+			</div><!-- #headerInner-->
+		</div><!-- #headerBg-->
+	</div><!-- #header-->
+
+	<div class="navigation">
+		<div class="navigationBorder">
+			<div class="navigationInner">
+				<a href="#">Главная</a>
+				<a href="#">Каталог</a>
+				<span>Каталог клиник</span>
+			</div><!-- .navigationInner -->
+		</div><!-- .navigationBorder -->
+	</div><!-- .navigation -->
+
+	<div id="content">
+
+		<div id="mainLeft">
+            <div class="contentBlock">
+				<div class="headBlock">Поиск по клиникам</div>
+				<form action="" method="" class="inner search">
+					<a class="showHide" href="#">Свернуть блок поиска</a>
+
+					<div class="label">Название клиники:</div>
+					<input class="searchClinic" type="text" name="search" />
+					<div class="clear"></div>
+
+					<div class="label">Укажите регион:</div>
+					<div class="state">
+						<select id="searchState" name="state">
+							<option value="1">Киевская область</option>
+							<option value="1">Киевская область</option>
+							<option value="1">Киевская область</option>
+						</select>
+					</div>
+					<i class="sep">-</i>
+					<div class="city">
+						<select id="searchCity" name="city">
+							<option value="1">Киев</option>
+							<option value="1">Киев</option>
+							<option value="1">Киев</option>
+						</select>
+					</div>
+					<div class="clear"></div>
+
+					<div class="label">Тип клиники:</div>
+					<div class="checkboxs">
+						<div class="check">
+							<span class="checkbox">
+								<input type="checkbox" value="1" name="type">
+							</span>
+							<i class="checkLabel">Клиники</i>
+							<div class="clear"></div>
+						</div><!-- .check -->
+
+						<div class="check">
+							<span class="checkbox">
+								<input checked="checked" type="checkbox" value="2" name="type">
+							</span>
+							<i class="checkLabel">Аптеки</i>
+							<div class="clear"></div>
+						</div><!-- .check -->
+
+						<div class="check">
+							<span class="checkbox">
+								<input type="checkbox" value="3" name="type">
+							</span>
+							<i class="checkLabel">Питомники</i>
+							<div class="clear"></div>
+						</div><!-- .check -->
+					</div><!-- .checkboxs -->
+
+					<a href="#" class="bottomButton">
+						<span class="text">Выбрать услуги</span>
+						<span class="icon"></span>
+					</a>
+
+					<div class="selectedServices">
+						<div>Вы выбрали улсуги:</div>
+						<ul class="list">
+							<li>первая мед помощь</li>
+							<li>дермотология</li>
+							<li>консультация</li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+
+					<button type="submit" name="searchButton"></button>
+					<div class="clear"></div>
+
+				</form><!-- .inner -->
+
+				<br />
+
+                <div class="headBlock">Список клиник Киева</div>
+				<div class="inner">
+					<div class="cats">
+						<span>Сортировать:</span>
+						<a class="active" href="#">По рейтингу</a>
+						<a href="#">По имени</a>
+						<a class="last" href="#">По телефону</a>
+					</div>
+
+                    <div class="preview items-list">
+						<div class="link" href="#">
+							<img class="image" src="img/clinic_image.jpg" alt="" />
+							<div class="middle">
+								<a class="name" href="#">Lakeside Eye Clinicasd fasdf asf asfd sdfsdf</a>
+								<a href="#" class="addFav"></a>
+								<img align="top" src="img/best_clinic.png" alt="" />
+								<div class="clear"></div>
+
+								<div class="city">Киев</div>
+								<div class="address">Киев, ул. Красноармейская, 55а</div>
+								<ul>
+									<li>первая мед помощь</li>
+									<li>дермотология</li>
+									<li>консультация</li>
+								</ul>
+								<ul>
+									<li>Пн-Пт 10:00-19:00</li>
+									<li>Сб 10:00-17:00</li>
+									<li>Вс 10:00-15:00</li>
+								</ul>
+								<ul class="last">
+									<li>0-44-247-70-60</li>
+									<li>0-44- 354-08-38</li>
+								</ul>
+								<div class="clear"></div>
+							</div>
+							<div class="right">
+								<div class="ratingBlock">
+									<span class="ratingLable">Рейтинг</span>
+									<span class="rating"><span class="fill" style="width: 100%"></span></span>
+									<span class="grade">5/5</span>
+									<span class="clear"></span>
+								</div>
+								<ul>
+									<li><a href="#">О клинике</a></li>
+									<li><a href="#">Цены</a></li>
+									<li><a href="#">Список услуг</a></li>
+								</ul>
+								<div class="status open">Пн 10:00-19:00 Работает</div>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div><!-- .preview -->
+
+					<div class="preview items-list">
+						<div class="link" href="#">
+							<img class="image" src="img/clinic_image.jpg" alt="" />
+							<div class="middle">
+								<a class="name" href="#">Lakeside Eye Clinic</a>
+								<a href="#" class="addFav"></a>
+								<img align="top" src="img/sales_system.png" alt="" />
+								<div class="clear"></div>
+
+								<div class="city">Киев</div>
+								<div class="address">Киев, ул. Красноармейская, 55а</div>
+							</div>
+							<div class="right">
+								<div class="ratingBlock">
+									<span class="ratingLable">Рейтинг</span>
+									<span class="rating"><span class="fill" style="width: 100%"></span></span>
+									<span class="grade">5/5</span>
+									<span class="clear"></span>
+								</div>
+								<ul>
+									<li><a href="#">О клинике</a></li>
+									<li><a href="#">Цены</a></li>
+									<li><a href="#">Список услуг</a></li>
+								</ul>
+								<div class="status open">Пн 10:00-19:00 Работает</div>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div><!-- .preview -->
+
+					<div class="preview items-list">
+						<div class="link" href="#">
+							<img class="image" src="img/clinic_image.jpg" alt="" />
+							<div class="middle">
+								<a class="name" href="#">Lakeside Eye Clinic</a>
+								<a href="#" class="fav"></a>
+								<div class="clear"></div>
+
+								<div class="city">Киев</div>
+								<div class="address">Киев, ул. Красноармейская, 55а</div>
+								<ul>
+									<li>первая мед помощь</li>
+									<li>дермотология</li>
+									<li>консультация</li>
+								</ul>
+								<ul>
+									<li>Пн-Пт 10:00-19:00</li>
+									<li>Сб 10:00-17:00</li>
+									<li>Вс 10:00-15:00</li>
+								</ul>
+								<ul class="last">
+									<li>0-44-247-70-60</li>
+									<li>0-44- 354-08-38</li>
+								</ul>
+								<div class="clear"></div>
+							</div>
+							<div class="right">
+								<div class="ratingBlock">
+									<span class="ratingLable">Рейтинг</span>
+									<span class="rating"><span class="fill" style="width: 80%"></span></span>
+									<span class="grade">4/5</span>
+									<span class="clear"></span>
+								</div>
+								<ul>
+									<li><a href="#">О клинике</a></li>
+									<li><a href="#">Цены</a></li>
+									<li><a href="#">Список услуг</a></li>
+								</ul>
+								<div class="status open">Пн 10:00-19:00 Работает</div>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div><!-- .preview -->
+
+					<div class="preview items-list">
+						<div class="link" href="#">
+							<img class="image" src="img/clinic_image.jpg" alt="" />
+							<div class="middle">
+								<a class="name" href="#">Lakeside Eye Clinic</a>
+								<a href="#" class="addFav"></a>
+								<div class="clear"></div>
+
+								<div class="city">Киев</div>
+								<div class="address">Киев, ул. Красноармейская, 55а</div>
+								<ul>
+									<li>первая мед помощь</li>
+									<li>дермотология</li>
+									<li>консультация</li>
+								</ul>
+								<ul>
+									<li>Пн-Пт 10:00-19:00</li>
+									<li>Сб 10:00-17:00</li>
+									<li>Вс 10:00-15:00</li>
+								</ul>
+								<ul class="last">
+									<li>0-44-247-70-60</li>
+									<li>0-44- 354-08-38</li>
+								</ul>
+								<div class="clear"></div>
+							</div>
+							<div class="right">
+								<div class="ratingBlock">
+									<span class="ratingLable">Рейтинг</span>
+									<span class="rating"><span class="fill" style="width: 100%"></span></span>
+									<span class="grade">5/5</span>
+									<span class="clear"></span>
+								</div>
+								<ul>
+									<li><a href="#">О клинике</a></li>
+									<li><a href="#">Цены</a></li>
+									<li><a href="#">Список услуг</a></li>
+								</ul>
+								<div class="status close">Пн 10:00-19:00 Работает</div>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div><!-- .preview -->
+
+					<div class="preview items-list">
+						<div class="link" href="#">
+							<img class="image" src="img/clinic_image.jpg" alt="" />
+							<div class="middle">
+								<a class="name" href="#">Lakeside Eye Clinic</a>
+								<a href="#" class="addFav"></a>
+								<div class="clear"></div>
+
+								<div class="city">Киев</div>
+								<div class="address">Киев, ул. Красноармейская, 55а</div>
+							</div>
+							<div class="right">
+								<div class="ratingBlock">
+									<span class="ratingLable">Рейтинг</span>
+									<span class="rating"><span class="fill" style="width: 100%"></span></span>
+									<span class="grade">5/5</span>
+									<span class="clear"></span>
+								</div>
+								<ul>
+									<li><a href="#">О клинике</a></li>
+									<li><a href="#">Цены</a></li>
+									<li><a href="#">Список услуг</a></li>
+								</ul>
+								<div class="status open">Пн 10:00-19:00 Работает</div>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div><!-- .preview -->
+
+					<div class="preview items-list lastPreview">
+						<div class="link" href="#">
+							<img class="image" src="img/clinic_image.jpg" alt="" />
+							<div class="middle">
+								<a class="name" href="#">Lakeside Eye Clinic</a>
+								<a href="#" class="addFav"></a>
+								<div class="clear"></div>
+
+								<div class="city">Киев</div>
+								<div class="address">Киев, ул. Красноармейская, 55а</div>
+								<ul>
+									<li>первая мед помощь</li>
+									<li>дермотология</li>
+									<li>консультация</li>
+								</ul>
+								<ul>
+									<li>Пн-Пт 10:00-19:00</li>
+									<li>Сб 10:00-17:00</li>
+									<li>Вс 10:00-15:00</li>
+								</ul>
+								<ul class="last">
+									<li>0-44-247-70-60</li>
+									<li>0-44- 354-08-38</li>
+								</ul>
+								<div class="clear"></div>
+							</div>
+							<div class="right">
+								<div class="ratingBlock">
+									<span class="ratingLable">Рейтинг</span>
+									<span class="rating"><span class="fill" style="width: 100%"></span></span>
+									<span class="grade">5/5</span>
+									<span class="clear"></span>
+								</div>
+								<ul>
+									<li><a href="#">О клинике</a></li>
+									<li><a href="#">Цены</a></li>
+									<li><a href="#">Список услуг</a></li>
+								</ul>
+								<div class="status open">Пн 10:00-19:00 Работает</div>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div><!-- .preview -->
+
+
+
+
+					<div class="pageNavigation">
+                       	<span class="back">Предыдущая</span>
+                       	<span class="numPage">1</span>
+                       	<a class="numPage" href="#">2</a>
+                       	<a class="numPage" href="#">3</a>
+                       	<a class="numPage" href="#">4</a>
+                       	<a class="numPage" href="#">5</a>
+                       	<a class="numPage" href="#">6</a>
+						<b>...</b>
+						<a class="numPage" href="#">56</a>
+						<a class="numPage" href="#">В конец</a>
+						<a class="next" href="#">Следующая</a>
+					</div>
+
+				</div><!-- .inner -->
+			</div><!-- .contentBlock -->
+		</div><!-- #mainLeft -->
+
+		<div id="mainRight">
+			<div class="userCab">
+				<div class="name">Кнопик Плюшкин Пуговочкин</div>
+				<form action="" method="" class="avatar" enctype="multipart/form-data">
+					<img src="img/no_avatar.jpg" alt="" />
+					<input type="file" name="avatar" />
+				</form>
+				<ul class="userMenu">
+					<li><a href="#">Мой профиль</a></li>
+					<li><a href="#">Сообщения <span>12</span></a></li>
+					<li><a href="#">Друзья</a></li>
+					<li><a href="#">Мои объявления</a></li>
+					<li><a href="#">Баланс</a></li>
+					<li><a href="#">Мои настройки</a></li>
+					<li><a href="#">Выход</a></li>
+				</ul>
+			</div><!-- .userCab -->
+
+			<div class="rightBanner">
+				<img src="img/right_banner.jpg" alt="" />
+			</div>
+		</div><!-- #mainRight -->
+
+		<div class="clear"></div>
+
+		<div class="banner"><img src="img/banner.gif" alt="" /></div>
+	</div><!-- #content-->
+
+</div><!-- #wrapper -->
+
+<div id="footer">
+	<div id="footerBg">
+		<div id="footerInner">
+			<dl>
+				<dt>Объявления</dt>
+				<dd><a href="#">Продажа</a></dd>
+				<dd><a href="#">Покупка</a></dd>
+				<dd><a href="#">Вязка</a></dd>
+				<dd><a href="#">Возьму в дар</a></dd>
+				<dd><a href="#">Отдам в дар</a></dd>
+				<dd><a href="#">Другое</a></dd>
+			</dl>
+			<dl>
+				<dt>Каталог</dt>
+				<dd><a href="#">Продажа</a></dd>
+				<dd><a href="#">Покупка</a></dd>
+				<dd><a href="#">Вязка</a></dd>
+				<dd><a href="#">Возьму в дар</a></dd>
+				<dd><a href="#">Отдам в дар</a></dd>
+				<dd><a href="#">Другое</a></dd>
+			</dl>
+			<dl>
+				<dt>События</dt>
+				<dd><a href="#">Продажа</a></dd>
+				<dd><a href="#">Покупка</a></dd>
+				<dd><a href="#">Вязка</a></dd>
+				<dd><a href="#">Возьму в дар</a></dd>
+				<dd><a href="#">Отдам в дар</a></dd>
+				<dd><a href="#">Другое</a></dd>
+			</dl>
+			<dl>
+				<dt>Интересное</dt>
+				<dd><a href="#">Продажа</a></dd>
+				<dd><a href="#">Покупка</a></dd>
+				<dd><a href="#">Вязка</a></dd>
+				<dd><a href="#">Возьму в дар</a></dd>
+				<dd><a href="#">Отдам в дар</a></dd>
+				<dd><a href="#">Другое</a></dd>
+			</dl>
+			<div class="clear"></div>
+
+			<div class="copyright">&copy; PetsNet 2012</div>
+			<div class="socialIcons">
+				<a class="vk" href="#"></a>
+				<a class="tw" href="#"></a>
+				<a class="fb" href="#"></a>
+				<a class="gp" href="#"></a>
+				<div class="clear"></div>
+			</div>
+			<div class="bottomLinks">
+				<a href="#">О проекте</a> |
+				<a href="#">Соглашение пользователя</a> |
+				<a href="#">Реклама</a>
+			</div>
+			<div class="produce">Проект студии <a href="#">Stylepix</a></div>
+		</div><!-- #footerInner -->
+	</div><!-- #footerBg -->
+</div><!-- #footer -->
+<!--[if IE 6]><script src="js/fix.js"></script><![endif]-->
+</body>
+</html>

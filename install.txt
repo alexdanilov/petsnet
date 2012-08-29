@@ -1,0 +1,6 @@
+pip install django-autocomplete django-debug-toolbar django-admin-tools
+
+
+CREATE TABLE regions1 SELECT cities.id id, city_name city, city_order, cities.region_id, region_name_ru region, region_order, cities.country_id, country_name_ru country, country_order FROM cities
+INNER JOIN regions ON regions.id = cities.region_id
+INNER JOIN countries ON countries.id = cities.country_id;

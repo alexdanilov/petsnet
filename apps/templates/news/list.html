@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('news-list') }} &mdash; PetsNet - Сообщество владельцев домашних животных{% endblock %}
+
+{% block main %}
+<div class="navigation">
+    <div class="navigationBorder">
+        <div class="navigationInner">
+            <a href="/">Главная</a>
+            <span>{{ _('news-list') }}</span>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="mainLeft">
+        <div class="contentBlock">
+            <div class="headBlock">Поиск по выставкам</div>
+            <form action="" method="get" class="inner search">
+                <a class="showHide" href="#">Свернуть блок поиска</a>
+
+                <div class="label">Название выставки:</div>
+                <input class="searchClinic" type="text" name="search" />
+                <div class="clear"></div>
+
+                <div class="clear"></div>
+
+                <button type="submit" name="searchButton"></button>
+                <div class="clear"></div>
+            </form>
+            <br />
+
+            <div class="headBlock">{{ _('news-list') }}</div>
+            <div class="inner">
+                <div class="cats">
+                    <span>Сортировать:</span>
+                    <a{% if filter.order_by == 'created' %} class="active"{% endif %} href="?{{ url }}&sort=created">По дате</a>
+                    <a{% if filter.order_by == 'name' %} class="active"{% endif %} href="?{{ url }}&sort=name">По имени</a>
+                </div>
+                {% for item in object_list %}
+                <div class="preview items-list{% if forloop.last %} lastPreview{% endif %}">
+                    <div class="link" href="{{ item.url }}">
+                        <a class="name" href="{{ item.url }}">{{ item.title }}</a>
+                        <div class="address">{{ item.created }}</div>
+                        <p>{{ item.description }}</p>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% if is_paginated %}{% include "blocks/paginator.html" %}{% endif %}
+            </div>
+        </div>
+    </div>
+    <div id="mainRight">
+        {% include "blocks/user-cabinet.html" %}
+        <div class="rightBanner">
+            {% banner "clinics-right" %}
+        </div>
+        {% include "blocks/social.html" %}
+    </div>
+    <div class="clear"></div>
+    <div class="banner">{% banner "site-bottom" %}</div>
+</div>
+{% endblock %}

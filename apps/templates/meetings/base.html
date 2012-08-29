@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <div id="leftcol">
+        {% block leftcol %}
+        <div class="box borders">
+            <div class="filteritems">
+                <ul class="filter-params">
+                    <li{% if not filter.region__id %} class="c"{% endif %}><a href="{{ entity_url }}">{{ _('regions-all') }}</a></li>
+                    {% for region in regions %}
+                    <li{% if region.region_id == filter.region__id %} class="c"{% endif %}><span class="info">{{ region.items_count }}</span><a href="{{ entity_url }}?region={{ region.region_id }}">{{ region.region__city }}</a></li>
+                    {% endfor %}
+                </ul>
+                <ul class="filter-params">
+                    <li{% if not filter.begin_date_lte %} class="c"{% endif %}><a href="{{ entity_url }}?{% if filter.region__id %}region={{ filter.region__id }}&{% endif %}">{{ _('date-all') }}</a></li>
+                    {% for year, month, month_key in monthes %}
+                    <li{% if 1 == filter.begin_date_lte %} class="c"{% endif %}><a href="{{ entity_url }}?{% if filter.region__id %}region={{ filter.region__id }}&{% endif %}date={{ year }}-{{ month }}">{{ month_key }} {{ year }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+    <div id="rightcol">
+        {% include "blocks/social.html" %}
+    </div>
+    <div id="centercol" class="borders">
+        {% block centercol %}{% endblock %}
+    </div>
+{% endblock %}

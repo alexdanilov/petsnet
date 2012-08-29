@@ -1,0 +1,181 @@
+{% load i18n %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+    <head>
+        <title>{% block title %}PetsNet - социальная сеть для владельцев домашних животных: собак, кошек, грызунов{% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Language" content="ru" />
+        <meta name="keywords" content="{{ page.keywords }}" />
+        <meta name="description" content="{{ page.description }}" />
+        <meta name="target" content="" />
+        <meta name="ROBOTS" content="INDEX,FOLLOW" />
+        <meta name='yandex-verification' content='7ebaddeed9fa4747' />
+        <link href="/" rel="home" />
+        <link href="/" rel="top" />
+        <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen, projection" />
+        <link rel="stylesheet" href="/static/css/cusel.css" type="text/css" media="screen, projection" />
+        <link rel="stylesheet" href="/static/css/jquery.fancybox-1.3.4.css" type="text/css" media="screen, projection" />
+        <!--[if IE 7]><link rel="stylesheet" href="/static/css/ie7.css" type="text/css" media="screen, projection" /><![endif]-->
+        <!--[if IE 6]><link rel="stylesheet" href="/static/css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
+
+        <script type="text/javascript" src="/static/js/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="/static/js/cusel-min-2.4.1.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.mousewheel.js"></script>
+        <script type="text/javascript" src="/static/js/jScrollPane.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.fancybox-1.3.4.pack.js"></script>
+        <script type="text/javascript" src="/static/js/jcarousellite.js"></script>
+        <script type="text/javascript" src="/static/js/main.js"></script>
+        <!--[if IE 6]><script src="/static/js/DD_belatedPNG_0.0.8a-min.js"></script><![endif]-->
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <div id="headerBg">
+                    <div id="headerInner">
+                        <a id="logo" href="/"><img src="/static/img/logo.png" alt="Социальная сеть владельцев домашних животных" /></a>
+                        <span class="siteInfo">Социальная сеть для владельцев домашних животных</span>
+                        <a class="favorites" href="#">Избранное</a>
+                        <div class="signBlock">
+                            <a class="reg" href="/account/signup/">Регистрация</a>
+                            <a class="enter" href="/account/signin/">Войти</a>
+                            <div class="clear"></div>
+                        </div>
+                        <form action="" method="get" class="regions">
+                            <div class="head">Ваш регион:</div>
+                            <div class="state">
+                                <select id="regionsState" name="state">
+                                    <option value="1">Киевская область</option>
+                                    <option value="1">Киевская область</option>
+                                    <option value="1">Киевская область</option>
+                                </select>
+                            </div>
+                            <i>-</i>
+                            <div class="city">
+                                <select id="regionsCity" name="city">
+                                    <option value="1">Киев</option>
+                                    <option value="1">Киев</option>
+                                    <option value="1">Киев</option>
+                                </select>
+                            </div>
+                            <div class="clear"></div>
+                        </form>
+                        <form action="" method="" class="searchForm">
+                            <input type="text" name="searchWords" value="Поиск" />
+                            <select id="searchSelect" name="searchFrom">
+                                <option value="1">По разделам</option>
+                                <option value="1">По разделам</option>
+                                <option value="1">По разделам</option>
+                            </select>
+                            <button type="submit"name="searchButton"></button>
+                            <div class="clear"></div>
+                        </form>
+                        <div class="subMenuPosition">
+                            <ul class="menu">
+                                <li><a href="/announcements/" rel="#board"{% if menu == 'announcements' %} class="active"{% endif %}><span>{{ _('announcements')|upper }}</span></a></li>
+                                <li><a href="/clinics/" rel="#catalog"{% if menu == 'catalog' %} class="active"{% endif %}><span>{{ _('catalog')|upper }}</span></a></li>
+                                <li><a href="/exhibitions/" rel="#events"{% if menu == 'events' %} class="active"{% endif %}><span>{{ _('events')|upper }}</span></a></li>
+                                <li><a href="/questions/" rel="#interesting"{% if menu == 'interesting' %} class="active"{% endif %}><span>{{ _('interesting')|upper }}</span></a></li>
+                            </ul>
+                            <ul id="board" class="subMenu{% if menu == 'announcements' %} show{% endif %}">
+                                <li class="first"><a href="/announcements/buy/"{% if submenu == 'announcements-buy' %} class="active"{% endif %}>{{ _('announcements-buy') }}</a></li>
+                                <li><a href="/announcements/sale/"{% if submenu == 'announcements-sale' %} class="active"{% endif %}>{{ _('announcements-sale') }}</a></li>
+                                <li><a href="/announcements/coupling/"{% if submenu == 'announcements-coupling' %} class="active"{% endif %}>{{ _('announcements-coupling') }}</a></li>
+                                <li><a href="/announcements/take-free/"{% if submenu == 'announcements-take-free' %} class="active"{% endif %}>{{ _('announcements-take-free') }}</a></li>
+                                <li><a href="/announcements/give-free/"{% if submenu == 'announcements-give-free' %} class="active"{% endif %}>{{ _('announcements-give-free') }}</a></li>
+                                <li><a href="/announcements/other/"{% if submenu == 'announcements-other' %} class="active"{% endif %}>{{ _('announcements-other') }}</a></li>
+                            </ul>
+                            <ul id="catalog" class="subMenu{% if menu == 'catalog' %} show{% endif %}">
+                                <li class="first"><a href="/clinics/"{% if submenu == 'clinics' %} class="active"{% endif %}>{{ _('clinics') }}</a></li>
+                                <li><a href="/nurseries/"{% if submenu == 'nurseries' %} class="active"{% endif %}>{{ _('nurseries') }}</a></li>
+                                <!-- li><a href="/clubs/"{% if submenu == 'clubs' %} class="active"{% endif %}>{{ _('clubs') }}</a></li-->
+                                <li><a href="/pharmacies/"{% if submenu == 'pharmacies' %} class="active"{% endif %}>{{ _('pharmacies') }}</a></li>
+                            </ul>
+                            <ul id="events" class="subMenu{% if menu == 'events' %} show{% endif %}">
+                                <li class="first"><a href="/exhibitions/"{% if submenu == 'exhibitions' %} class="active"{% endif %}>{{ _('exhibitions') }}</a></li>
+                                <!-- li><a href="/meetings/"{% if submenu == 'meetings' %} class="active"{% endif %}>{{ _('meetings') }}</a></li-->
+                                <li><a href="/news/"{% if submenu == 'news' %} class="active"{% endif %}>{{ _('news-list') }}</a></li>
+                            </ul>
+                            <ul id="interesting" class="subMenu{% if menu == 'interesting' %} show{% endif %}">
+                                <li class="first"><a href="/questions/"{% if submenu == 'questions' %} class="active"{% endif %}>{{ _('questions') }}</a></li>
+                                <li><a href="/articles/"{% if submenu == 'articles' %} class="active"{% endif %}>{{ _('articles') }}</a></li>
+                                <!-- li><a href="/blogs/"{% if submenu == 'blogs' %} class="active"{% endif %}>{{ _('blogs') }}</a></li-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% block main %}{% endblock %}
+        </div>
+        <div id="footer">
+            <div id="footerBg">
+                <div id="footerInner">
+                    <dl>
+                        <dt>{{ _('announcements') }}</dt>
+                        <dd><a href="/announcements/buy/">{{ _('announcements-buy') }}</a></dd>
+                        <dd><a href="/announcements/sale/">{{ _('announcements-sale') }}</a></dd>
+                        <dd><a href="/announcements/coupling/">{{ _('announcements-coupling') }}</a></dd>
+                        <dd><a href="/announcements/take-free/">{{ _('announcements-take-free') }}</a></dd>
+                        <dd><a href="/announcements/give-free/">{{ _('announcements-give-free') }}</a></dd>
+                        <dd><a href="/announcements/other/">{{ _('announcements-other') }}</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>{{ _('catalog') }}</dt>
+                        <dd><a href="/animals/">{{ _('animals') }}</a></dd>
+                        <dd><a href="/clinics/">{{ _('clinics') }}</a></dd>
+                        <dd><a href="/nurseries/">{{ _('nurseries') }}</a></dd>
+                        <dd><a href="/clubs/">{{ _('clubs') }}</a></dd>
+                        <dd><a href="/pharmacies/">{{ _('pharmacies') }}</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>{{ _('events') }}</dt>
+                        <dd><a href="/exhibitions/">{{ _('exhibitions') }}</a></dd>
+                        <dd><a href="/mettings/">{{ _('meetings') }}</a></dd>
+                        <dd><a href="/news/">{{ _('news') }}</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>{{ _('interesting') }}</dt>
+                        <dd><a href="/questions/">{{ _('questions') }}</a></dd>
+                        <dd><a href="/articles/">{{ _('articles') }}</a></dd>
+                        <dd><a href="/blogs/">{{ _('blogs') }}</a></dd>
+                    </dl>
+                    <div class="clear"></div>
+
+                    <div class="copyright">&copy; PetsNet 2012</div>
+                    <div class="socialIcons">
+                        <a class="vk" href="#"></a>
+                        <a class="tw" href="#"></a>
+                        <a class="fb" href="#"></a>
+                        <a class="gp" href="#"></a>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="bottomLinks">
+                        <a href="/page/about/">{{ _('about') }}</a> |
+                        <a href="/page/terms/">{{ _('terms') }}</a> |
+                        <a href="/page/advert/">{{ _('advert') }}</a>
+                    </div>
+                    <div class="produce">Проект студии <a href="http://stylepix.net/" target="_blank">Stylepix</a></div>
+                </div>
+            </div>
+        </div>
+        <!--[if IE 6]><script src="/static/js/fix.js"></script><![endif]-->
+        <script src="http://maps.googleapis.com/maps/api/js?sensor=true" type="text/javascript"></script>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-19123397-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
+        <div style="display:none;"><script type="text/javascript">
+            try { var yaCounter1719669 = new Ya.Metrika(1719669);
+                yaCounter1719669.clickmap(true);
+                yaCounter1719669.trackLinks(true);
+            } catch(e){}
+            </script></div>
+        <noscript><div style="position:absolute"><img src="//mc.yandex.ru/watch/1719669" alt="" /></div></noscript>
+        {% block popup %}{% endblock %}
+    </body>
+</html>

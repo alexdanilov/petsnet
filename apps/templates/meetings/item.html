@@ -1,0 +1,73 @@
+{% extends "meetings/base.html" %}
+
+{% block title %}{{ item.name }} - {{ _('meetings') }} &mdash; PetsNet - социальная сеть для владельцев домашних животных{% endblock %}
+{% block centercol %}
+<div id="blogs-item">
+    <h2>{{ item.name }}</h2>
+    <div class="itemshow infoblock">
+        <div class="item-info">
+            <div class="info">
+                <span class="region">{{ item.region }}</span>
+                <span class="address">{{ item.address }}</span>
+            </div>
+            <div class="info">
+                <span class="region">{{ item.begin_date }} {% if item.end_date %} &mdash; {{ item.end_date }}{% endif %}, {{ item.begin_time }}</span>
+            </div>
+            <div>
+                {% if item_member == 'member' %}<a href="?noigo" class="small-btn">я не пойду</a>{% endif %}
+                {% if item_member == 'non-member' %}<a href="?igo" class="small-btn">я пойду</a>{% endif %}
+            </div>
+            {% if item.address %}
+            <div class="item-img">
+                <div id="YMapsID" style="width:250px;height:300px"></div>
+            </div>
+            <script type="text/javascript">showAddress("{{ item.region }}, {{ item.address }}");</script>
+            {% endif %}
+        </div>
+    </div>
+    <div>
+        {{ item.description|safe }}
+    </div>
+    <div class="infoparts">
+        <span><a href="/users/{{ item.user.id }}">{{ item.user.name }}</a></span>
+        <span>{{ _('members_count') }}: {{ item.members_count }}</span>
+        <span>{{ _('comments_count') }}: {{ item.comments_count }}</span>
+        <span>{{ _('show_count') }}: {{ item.show_count }}</span>
+    </div>
+    {% if members %}
+    <h3>{{ _('meeting-members') }}</h3>
+    <ul id="meeting-members" class="item-members">
+        {% for member in members %}
+        <li>
+            <a href="/users/{{ member.user.id }}/"><img src="/u/{{ member.user.avatar.image1 }}" alt=""></a>
+            <a href="/users/{{ member.user.id }}/">{{ member.user.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% if comments %}
+    <h3>{{ _('comments') }}</h3>
+    <ul id="meetings-comments" class="comments">
+        {% for comment in comments %}
+        <li>
+            <a href="/users/{{ comment.user.id }}">{{ comment.user.name }}</a>, <small>{{ comment.created }}</small>
+            <p>{{ comment.comment }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% if member.id %}
+    <div id="blogs-add-comment">
+        {{ errors }}
+        <form action="" method="post" class="comment-form">
+            <input type="hidden" name="post" value="{{ item.id }}" />
+            <input type="hidden" name="parent" value="0" />
+            <input type="hidden" name="addcomment" value="1" />
+            <h3>{{ _('add-comment') }}</h3>{% csrf_token %}
+            <textarea name="comment" cols="40" rows="4"></textarea><br />
+            <input type="submit" value="{{ _('send') }}" class="btn" />
+        </form>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

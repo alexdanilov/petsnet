@@ -1,0 +1,31 @@
+{% extends "blogs/user-base.html" %}
+
+{% block centercol %}
+    <h2>{{ _('my-posts-edit') }} - {{ item.title|truncatewords:50 }}</h2>
+    <div class="content">
+        {{ result }}
+        {{ errors }}
+        <form action="" method="post" enctype="multipart/form-data" class="validate editform">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ item.id }}" />
+
+            <label class="h">{{ _('name') }}:</label>
+            <input type="text" name="title" value="{{ item.title }}" class="txt required" size="60" />
+
+            <label class="h">{{ _('description') }}:</label>
+            <textarea name="text" cols="40" rows="12" class="wysiwyg">{{ item.text }}</textarea>
+
+            <label class="h">{{ _('tags') }}:</label>
+            <input type="text" name="tags" value="{{ item.tags.all|join:', ' }}" class="txt" size="60" />
+            <small>&mdash; {{ _('blog_tags_help') }}</small>
+
+            <label class="h">{{ _('allow_comments') }}:</label>
+            <input type="radio" name="allow_comments" value="all"{% if item.allow_comments == 'all' %} checked{% endif %} /> {{ _('all-users') }}
+            <input type="radio" name="allow_comments" value="register"{% if item.allow_comments == 'register' %} checked{% endif %} /> {{ _('register-users') }}
+            <input type="radio" name="allow_comments" value="friends"{% if item.allow_comments == 'friends' %} checked{% endif %} /> {{ _('friends-users') }}
+            <p><br /></p>
+            
+            <input type="submit" value="{{ _('save') }}" class="btn" />
+        </form>
+    </div>
+{% endblock %}

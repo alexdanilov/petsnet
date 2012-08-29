@@ -1,0 +1,49 @@
+{% extends "clubs/user-base.html" %}
+
+{% block centercol %}
+    <h2>{{ _('my-clubs-edit') }} - {{ item.title|truncatewords:50 }}</h2>
+    <div class="content">
+        {{ result }}
+        {{ errors }}
+        <form action="" method="post" enctype="multipart/form-data" class="validate editform">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ item.id }}" />
+            <input type="hidden" name="type" value="{{ item.type|default:'virtual' }}" />
+
+            <label class="h">{{ _('name') }}:</label>
+            <input type="text" name="name" value="{{ item.name }}" class="txt required" size="60" />
+            <small>&mdash; {{ _('meetings_name_help') }}</small>
+
+            <label class="h">{{ _('city') }}:</label>
+            <input type="text" name="" value="{{ item.region }}" class="txt" size="60" id="meeting_region" />
+            <input type="hidden" name="region" value="{{ item.region.id }}" class="txt" id="meeting_region_id" />
+            <small>&mdash; {{ _('city_help') }}</small>
+            <script type="text/javascript">
+            bindAutoComplite("#meeting_region", "/ajax/get-cities", "#meeting_region_id");
+            </script>
+
+            <label class="h">{{ _('address') }}:</label>
+            <input type="text" name="address" value="{{ item.address }}" class="txt required" size="60" />
+
+            <label class="h">{{ _('phone') }}:</label>
+            <input type="text" name="phones" value="{{ item.phones }}" class="txt" size="60" />
+
+            <label class="h">{{ _('website') }}:</label>
+            <input type="text" name="website" value="{{ item.website }}" class="txt" size="60" />
+
+            <label class="h">{{ _('email') }}:</label>
+            <input type="text" name="email" value="{{ item.email }}" class="txt" size="60" />
+
+            <label class="h">{{ _('description') }}:</label>
+            <textarea name="description" cols="40" rows="12" class="wysiwyg">{{ item.description }}</textarea>
+
+            <label class="h">{{ _('allow_comments') }}:</label>
+            <input type="radio" name="allow_comments" value="all"{% if item.allow_comments == 'all' %} checked{% endif %} /> {{ _('all-users') }}
+            <input type="radio" name="allow_comments" value="register"{% if item.allow_comments == 'register' %} checked{% endif %} /> {{ _('register-users') }}
+            <input type="radio" name="allow_comments" value="friends"{% if item.allow_comments == 'friends' %} checked{% endif %} /> {{ _('friends-users') }}
+            <p><br /></p>
+            
+            <input type="submit" value="{{ _('save') }}" class="btn" />
+        </form>
+    </div>
+{% endblock %}

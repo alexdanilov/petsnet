@@ -1,0 +1,40 @@
+<div class="info-blocks">
+    <div class="info-block">
+        <h4>{{ _('news-list') }}</h4>
+        <div class="contentblock">
+            <ul class="list">
+                {% for item in news %}
+                <li>
+                    <h5>{{ item.title }}</h5>
+                    <small>{{ item.created }}</small>
+                    <p>{% autoescape off %}{{ item.description }}{% endautoescape %}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="info-block">
+        <h4>{{ _('comments') }}</h4>
+        <div class="contentblock">
+            <ul class="list infoblock">
+                {% for item in comments %}
+                <li>
+                    <a href="/user/{{ item.user.username }}/profile">{{ item.user.full_name }}</a>, <small>{{ item.created }}</small>
+                    <div class="info">
+                    {% if item.subject %}<b>{{ item.subject }}</b>{% endif %}
+                    </div>
+                    <p>{{ item.comment }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+            {% if user.is_authenticated %}
+            <form action="?act=add-comment" method="post" class="comment-form">
+                <h3>{{ _('comments-add') }}</h3>{% csrf_token %}
+                <label>{{ _('theme') }}:</label> <input type="text" name="theme" class="txt" size="35" /><br />
+                <textarea name="comment" cols="40" rows="4"></textarea><br />
+                <input type="submit" value="{{ _('send') }}" class="btn" />
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>

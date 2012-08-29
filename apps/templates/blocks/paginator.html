@@ -1,0 +1,16 @@
+<div class="pageNavigation">
+    <!--
+    {% if paginator.has_previous %}<a class="back" href="?{{ url }}&page={{ paginator.previous_page_number }}">Предыдущая</a>
+    {% else %}<span class="back">Предыдущая</span>
+    {% endif %}
+    -->
+    {% for p in paginator.page_range %}
+    {% if page_obj.number == p %}<span class="numPage">{{ p }}</span>
+    {% else %}<a class="numPage" href="?{{ url }}&page={{ p }}">{{ p }}</a>{% endif %}
+    {% endfor %}
+    <!--
+    {% if paginator.has_previous %}<a class="next" href="?{{ url }}&page={{ paginator.next_page_number }}">Следующая</a>
+    {% else %}<span class="next">Следующая</span>
+    {% endif %}
+    -->
+</div>

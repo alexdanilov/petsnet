@@ -1,0 +1,43 @@
+{% extends "clubs/user-base.html" %}
+
+{% block centercol %}
+    <h2>{{ _('my-clubs') }}</h2>
+    {% if items.object_list %}
+    <div class="search-result">{{ _('show-from') }} {{ start_index }} {{ _('show-to') }} {{ end_index }} {{ _('show-fromall') }} {{ items.paginator.count }}</div>
+    <div class="content" id="blogs-list">
+        <ul class="list infoblock">
+            {% for item in items.object_list %}
+            <li class="info">
+                <div class="more btn-actions">
+                    {% if item.user == member %}
+                    <span><a href="/my/clubs/edit/{{ item.id }}/">{{ _('edit') }}</a></span>
+                    <span><a href="/my/clubs/delete/{{ item.id }}/">{{ _('delete') }}</a></span>
+                    {% endif %}
+                </div>
+                <div>
+                    <a href="/clubs/show/{{ item.id }}/" class="title">{{ item.name }}</a>
+                </div>
+                <div class="infoparts">
+                    <span>{{ _('members_count') }}: {{ item.members_count }}</span>
+                    <span>{{ _('comments_count') }}: {{ item.comments_count }}</span>
+                    <span>{{ _('show_count') }}: {{ item.show_count }}</span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="pager">
+        {% if items.has_previous %}
+            <a href="?page={{ items.previous_page_number }}">{{ _('pager-back') }}</a>
+        {% endif %}
+        <span class="current">
+            {{ _('pager-page') }} {{ items.number }} {{ _('pager-of') }} {{ items.paginator.num_pages }}.
+        </span>
+        {% if items.has_next %}
+            <a href="?page={{ items.next_page_number }}">{{ _('pager-next') }}</a>
+        {% endif %}
+    </div>
+    {% else %}
+    <div class="content"><p class="no-rows">{{ _('clubs-no-rows') }}</p></div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <div id="leftcol">
+        {% block leftcol %}
+        <div class="box borders">
+            
+        </div>
+        {% endblock %}
+    </div>
+    <div id="rightcol">
+        {% include "blocks/social.html" %}
+    </div>
+    <div id="centercol" class="borders">
+        {% block centercol %}{% endblock %}
+    </div>
+{% endblock %}

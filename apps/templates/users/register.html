@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <div id="rightcol">
+        test
+    </div>
+    <div id="twocolumns-left" class="borders">
+        <h2>Регистрация</h2>
+        <div class="content">
+            {% if result == 'registred' %}
+            <div class="informer">{{ _('register-success') }}</div>
+            {% endif %}
+            {% if result == 'failed' %}
+            <div class="informer informer-error">{{ _('register-failed') }}</div>
+            {% endif %}
+            {% if show_form %}
+            <p>Зарегистрировавшись на сайте, вы сможете сразу получить рекомендации и найти интересных собеседников.</p>
+            <form action="?" method="post" class="validate" enctype="multipart/form-data">
+            <input type="hidden" name="act" value="do" />
+            {% csrf_token %}
+            <table class="editform">
+                <tr>
+                    <td>
+                        <label class="h">{{ _('first_name') }}: <b class="r">*</b></label>
+                        <input type="text" name="first_name" class="txt required" value="{{ first_name }}" />
+                    </td>
+                    <td>
+                        <label class="h">{{ _('last_name') }}:</label>
+                        <input type="text" name="last_name" class="txt" value="{{ last_name }}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="h">E-mail: <b class="r">*</b></label>
+                        <input type="text" name="email" class="txt required email" value="{{ email }}" onblur="checkUser(this, 'email');" />
+                    </td>
+                    <td>
+                        <label class="h">{{ _('password') }}: <b class="r">*</b></label>
+                        <input type="password" name="password" class="txt required" value="" />
+                        <label class="h">{{ _('password-repeat') }}: <b class="r">*</b></label>
+                        <input type="password" name="password1" class="txt required" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="h">{{ _('birthday') }}:</label>
+                        <input type="text" name="day" class="txt digits" size="3" value="{{ day }}" />
+                        <select name="month">{% for i, m in monthes %}<option value="{{ i }}">{{ m }}</option>{% endfor %}</select>
+                        <input type="text" name="year" class="txt digits" size="4" value="{{ year }}" />
+                    </td>
+                    <td>
+                        <label class="h">{{ _('city') }}: <b class="r">*</b></label>
+                        <input type="text" name="region" id="region" class="txt required" value="{{ region }}" />
+                        <input type="hidden" name="region_id" id="region_id" value="0" class="required" />
+                        <small>{{ _('choose-city-descr') }}</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="h">{{ _('user-gender') }}:</label>
+                        <input type="radio" name="gender" value="m" /> {{ _('gender-male') }} &nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="gender" value="f" /> {{ _('gender-female') }}
+                    </td>
+                    <td>
+                        <input type="submit" value="{{ _('register') }}" class="btn" />
+                    </td>
+                </tr>
+            </table>
+            </form>
+            <script type="text/javascript">
+            bindAutoComplite("#region", "/ajax/get-cities", "#region_id");
+            </script>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

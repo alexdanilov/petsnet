@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}{{ item.name }} - {{ _('clinics') }} &mdash; PetsNet - социальная сеть для владельцев домашних животных{% endblock %}
+{% block main %}
+<div class="navigation">
+    <div class="navigationBorder">
+        <div class="navigationInner">
+            <a href="/">Главная</a>
+            <a href="/clinics/">Каталог клиник</a>
+            <span>{{ item.name }}</span>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="mainLeft">
+        <div class="contentBlock clinicInfo">
+            <div class="headBlock">
+					{{ item.name }}
+                <a class="toFav" href="#"></a>
+                {% if item.is_top %}<img class="label" align="top" src="/static/img/best_clinic.png" alt="{{ _('best') }}" />{% endif %}
+                {% if item.is_sale %}<img class="label" align="top" src="/static/img/sales_system.png" alt="{{ _('sale') }}" />{% endif %}
+            </div>
+            <div class="inner">
+                <div class="imagesBlock">
+                    <div class="image">
+                        &nbsp;<img align="middle" src="/static/img/clinic_image.png" alt="Клиника {{ item.name }}" />
+                    </div>
+                    <div class="carouselWrapper">
+                        <div class="carousel">
+                            <ul>
+                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
+                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
+                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
+                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
+                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
+                            </ul>
+                        </div>
+                        <span class="carouseleBack"></span>
+                        <span class="carouseleNext"></span>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="address">{{ item.region }} {{ item.address }}</div>
+                    <a class="showOnMap" href="#" rel="{{ item.region.name }} {{ item.address }}">посмотреть на карте</a><br />
+                    <div class="workNow">Пн 10:00-19:00 Работает</div>
+                    <ul class="contacts">
+                        {% for phone in item.phones_list %}
+                        <li>{{ phone }}</li>
+                        {% endfor %}
+                        {% if item.email %}<li><a href="#">{{ item.email }}</a></li>{% endif %}
+                        {% if item.website %}<li><a href="http://{{ item.website }}">{{ item.website }}</a></li>{% endif %}
+                    </ul>
+                    <ul class="workHours">
+                        <li>Пн-Пт {{ item.working_hours }}</li>
+                        <li>Сб {{ item.working_hours_sartuday }}</li>
+                        <li>Вс {{ item.working_hours_sanday }}</li>
+                    </ul>
+                    <div class="clear"></div>
+                    <div class="ratingBlock">
+                        <span class="label">Рейтинг</span>
+                        <span class="rating"><span class="fill" style="width: {{ item.rating_persents }}%"></span></span>
+                        <span class="grade">{{ item.rating }}/5</span>
+                        <a href="#comments">Отзывы (5)</a>
+                        <span class="clear"></span>
+                    </div>
+                    {{ item.description|safe }}
+                </div>
+                <div class="clear"></div>
+            </div>
+            <br />
+            <div class="tabs">
+                <a  class="active" href="#" rel="#services">Услуги</a>
+                <a href="#" rel="#coworkers">Врачи</a>
+                <a href="#" rel="#prices">Цены</a>
+                <a href="#" rel="#news">Новости	</a>
+                <a href="#" rel="#comments">Отзывы</a>
+            </div>
+            <div class="inner tabsInner">
+                <div id="services" class="tabsContent show">
+                    
+                </div>
+                <div id="docs" class="tabsContent">{{ item.coworkers|safe }}</div>
+                <div id="prices" class="tabsContent">{{ item.prices|safe }}</div>
+                <div id="news" class="tabsContent">Новости</div>
+                <div id="comments" class="tabsContent">
+                    <a href="#" class="bottomButton">
+                        <span class="text">Добавить отзыв</span>
+                        <span class="icon"></span>
+                    </a>
+                    {% for comment in comments %}
+                    <div class="comment{% if forloop.last %} lastComment{% endif %}">
+                        <div class="date">{{ comment.created }}</div>
+                        <div class="info">
+                            <span class="name">{{ comment.user.name }}</span>
+                            <span class="rating"><span class="fill" style="width: 100%;"></span></span>
+                            <span class="grade">5/5</span>
+                            <p>{{ comment.comment }}</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    {% endfor %}
+                    {% include "blocks/comments_paginator.html" %}
+                    {% if member.id %}
+                    <div class="formWrapper">
+                        <form action="" method="post">
+                            <div class="head">Добавить отзыв</div>
+                            <input type="text" name="name" value="Ваше имя" onfocus="if($(this).val() == 'Ваше имя') $(this).val('');" onblur="if($(this).val() == '') $(this).val('Ваше имя');" />
+                            <span class="ratingLabel">Ваша оценка</span>
+                            <span class="rating">
+                                <span class="fill">
+                                    <input type="hidden" name="grade" value="" />
+                                </span>
+                            </span>
+                            <span class="grade"></span>
+                            <span class="clear"></span>
+                            <textarea name="comment" cols="20" rows="5"></textarea>
+                            <div class="clear"></div>
+                            <button type="submit">Отправить</button>
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mainRight">
+        {% include "blocks/user-cabinet.html" %}
+        <div class="rightBanner">
+            {% banner "clinics-right" %}
+        </div>
+        {% include "blocks/social.html" %}
+    </div>
+    <div class="clear"></div>
+    <div class="banner">{% banner "site-bottom" %}</div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "exhibitions/base.html" %}
+
+{% block centercol %}
+    <h2>{{ _('events') }}</h2>
+    {% if items.object_list %}
+    <div class="search-result">{{ _('show-from') }} {{ start_index }} {{ _('show-to') }} {{ end_index }} {{ _('show-fromall') }} {{ items.paginator.count }}</div>
+    <div class="content">
+        <ul class="list infoblock">
+            {% for item in items.object_list %}
+            <li>
+                <a href="/{{ item.type }}/show/{{  item.id  }}" class="title">{{ item.name }}</a>
+                <div class="info">
+                    <span class="region">{{  item.region }}</span>
+                    <span class="date">
+                        {{  item.begin_date }}
+                        {% if item.end_date %} &mdash; {{  item.end_date }}{% endif %}
+                    </span>
+                </div>
+                <div>
+                    <span>{{ _('organizator') }}: {{ item.organizator }}</span>
+                </div>
+                <p>{{  item.description  }}</p>
+                <div class="more rightfloat">
+                    {% if item.user == user %}
+                    <a href="/ajax/{{ item.type }}/edit?id={{ item.id }}">{{ _('edit') }}</a>
+                    {% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="pager">
+        {% if items.has_previous %}
+            <a href="?{{ url }}&page={{ items.previous_page_number }}">{{ _('pager-back') }}</a>
+        {% endif %}
+        <span class="current">
+            {{ _('pager-page') }} {{ items.number }} {{ _('pager-of') }} {{ items.paginator.num_pages }}.
+        </span>
+        {% if items.has_next %}
+            <a href="?{{ url }}&page={{ items.next_page_number }}">{{ _('pager-next') }}</a>
+        {% endif %}
+    </div>
+    {% else %}
+    <div class="content"><p class="no-rows">{{ _('exhibitions-no-rows') }}</p></div>
+    {% endif %}
+{% endblock %}

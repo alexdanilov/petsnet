@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}{{ item.name }} - {{ _('exhibitions') }} &mdash; PetsNet - социальная сеть для владельцев домашних животных{% endblock %}
+{% block main %}
+<div class="navigation">
+    <div class="navigationBorder">
+        <div class="navigationInner">
+            <a href="/">Главная</a>
+            <a href="/clinics/">Каталог питомников</a>
+            <span>{{ item.name }}</span>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="mainLeft">
+        <div class="contentBlock clinicInfo">
+            <div class="headBlock">
+					{{ item.name }}
+                <a class="toFav" href="#"></a>
+            </div>
+            <div class="inner">
+                <div class="imagesBlock">
+                    <div class="image">
+                        {% for img in item.images_list %}{% if forloop.first %}
+                        &nbsp;<img align="middle" src="/static/{{ img.image.image2 }}" alt="Питомник {{ item.name }}" />
+                        {% endif %}{% endfor %}
+                    </div>
+                    <div class="carouselWrapper">
+                        <div class="carousel">
+                            <ul>
+                                {% for img in item.images_list %}
+                                <li><a href="/static//u/{{ img.image.image2 }}"><img src="/static//u/{{ img.image.image1 }}" alt="" /></a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <span class="carouseleBack"></span>
+                        <span class="carouseleNext"></span>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="address">{{ item.region }} {{ item.address }}</div>
+                    <a class="showOnMap" href="#" rel="{{ item.region.name }} {{ item.address }}">посмотреть на карте</a><br />
+                    <ul class="contacts">
+                        {% for phone in item.phones_list %}
+                        <li>{{ phone }}</li>
+                        {% endfor %}
+                        <li><a href="#">{{ item.email }}</a></li>
+                        <li><a href="http://{{ item.website }}">{{ item.website }}</a></li>
+                    </ul>
+                    <ul class="workHours">
+                        <li>Пн-Пт {{ item.working_hours }}</li>
+                        <li>Сб {{ item.working_hours_sartuday }}</li>
+                        <li>Вс {{ item.working_hours_sanday }}</li>
+                    </ul>
+                    <div class="clear"></div>
+                    <div class="ratingBlock">
+                        <a href="#">Отзывы (5)</a>
+                        <span class="clear"></span>
+                    </div>
+                    {{ item.description|safe }}
+                </div>
+                <div class="clear"></div>
+            </div>
+            <br />
+            <div class="tabs">
+                <a class="active" href="#" rel="#about">О питомнике</a>
+                <a href="#" rel="#news">Новости	</a>
+                <a href="#" rel="#comments">Отзывы</a>
+            </div>
+            <div class="inner tabsInner">
+                <div id="about" class="tabsContent">{{ item.about|safe }}</div>
+                <div id="news" class="tabsContent">Новости</div>
+                <div id="comments" class="tabsContent">
+                    <a href="#" class="bottomButton">
+                        <span class="text">Добавить отзыв</span>
+                        <span class="icon"></span>
+                    </a>
+                    {% for comment in comments %}
+                    <div class="comment{% if forloop.last %} lastComment{% endif %}">
+                        <div class="date">{{ comment.created }}</div>
+                        <div class="info">
+                            <span class="name">{{ comment.user.name }}</span>
+                            <span class="rating"><span class="fill" style="width: 100%;"></span></span>
+                            <span class="grade">5/5</span>
+                            <p>{{ comment.comment }}</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    {% endfor %}
+                    {% include "blocks/comments_paginator.html" %}
+                    {% if member.id %}
+                    <div class="formWrapper">
+                        <form action="" method="post">
+                            <div class="head">Добавить отзыв</div>
+                            <input type="text" name="name" value="Ваше имя" onfocus="if($(this).val() == 'Ваше имя') $(this).val('');" onblur="if($(this).val() == '') $(this).val('Ваше имя');" />
+                            <span class="ratingLabel">Ваша оценка</span>
+                            <span class="rating">
+                                <span class="fill">
+                                    <input type="hidden" name="grade" value="" />
+                                </span>
+                            </span>
+                            <span class="grade"></span>
+                            <span class="clear"></span>
+                            <textarea name="comment" cols="20" rows="5"></textarea>
+                            <div class="clear"></div>
+                            <button type="submit">Отправить</button>
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mainRight">
+        {% include "blocks/user-cabinet.html" %}
+        <div class="rightBanner">
+            {% banner "clinics-right" %}
+        </div>
+        {% include "blocks/social.html" %}
+    </div>
+    <div class="clear"></div>
+    <div class="banner">{% banner "site-bottom" %}</div>
+</div>
+{% endblock %}

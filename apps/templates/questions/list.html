@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('qa') }} &mdash; PetsNet - Сообщество владельцев домашних животных{% endblock %}
+
+{% block main %}
+<div class="navigation">
+    <div class="navigationBorder">
+        <div class="navigationInner">
+            <a href="/">Главная</a>
+            <span>Каталог вопросов</span>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="mainLeft">
+        <div class="contentBlock">
+            <div class="headBlock">Поиск по вопросам</div>
+            <form action="" method="get" class="inner search">
+                <a class="showHide" href="#">Свернуть блок поиска</a>
+
+                <div class="label">Поиск по вопросу:</div>
+                <input class="searchClinic" type="text" name="search" />
+                <div class="clear"></div>
+
+                <div class="label">Укажите категорию:</div>
+                <div class="state">
+                    <select id="searchState" name="category">
+                        <option value="">Все категории</option>
+                        {% for category in categories %}<option value="{{ category.id }}"{% if category.category == category.id %} selected{% endif %}>{{ category.name }}</option>{% endfor %}
+                    </select>
+                </div>
+                <i class="sep">-</i>
+                <div class="city">
+                    <select id="searchCity" name="city">
+                        <option value="0">Все типы</option>
+                        {% for city in cities %}<option value="{{ city.id }}"{% if filter.city == city.id %} selected{% endif %}>{{ city.city }}</option>{% endfor %}
+                    </select>
+                </div>
+                <div class="clear"></div>
+
+                <button type="submit" name="searchButton"></button>
+                <div class="clear"></div>
+            </form>
+            <br />
+            <div class="headBlock">{{ _('qa') }}</div>
+            <div class="inner">
+                <div class="cats">
+                    <span>Сортировать:</span>
+                    <a{% if filter.order_by == 'rating' %} class="active"{% endif %} href="?{{ url }}&sort=rating">По дате</a>
+                    <a{% if filter.order_by == 'name' %} class="active"{% endif %} href="?{{ url }}&sort=name">По ответам</a>
+                </div>
+                {% for item in object_list %}
+                <div class="preview items-list{% if forloop.last %} lastPreview{% endif %}">
+                    <div class="link" href="{{ item.url }}">
+                        <div class="middle">
+                            <a class="name" href="{{ item.url }}">{{ item.title }}</a>
+                            <div class="clear"></div>
+			    {% if item.animal_type or item.category %}
+			    <div class="info">
+				{% if item.animal_type %}<a href="?category={{ item.animal_type.id }}">{{ item.animal_type.name }}</a>{% endif %}
+				{% if item.category %}<a href="?category={{ item.category.id }}">{{ item.category.name }}</a>{% endif %}
+			    </div>
+			    {% endif %}
+                            <div class="address">{{ item.created }}</div>
+                            <div class="clear"></div>
+                            <p>{{ item.text }}</p>
+                        </div>
+                        <div class="right">
+                            <div class="ratingBlock">
+                                <span class="ratingLable">Рейтинг</span>
+                                <span class="grade">{{ item.rating }}/5</span>
+                                <span class="clear"></span>
+                            </div>
+                            <div class="status open">Ответов: {{ item.answers_count }}</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% if is_paginated %}{% include "blocks/paginator.html" %}{% endif %}
+            </div>
+        </div>
+    </div>
+    <div id="mainRight">
+        {% include "blocks/user-cabinet.html" %}
+        <div class="rightBanner">
+            {% banner "clinics-right" %}
+        </div>
+        {% include "blocks/social.html" %}
+    </div>
+    <div class="clear"></div>
+    <div class="banner">{% banner "site-bottom" %}</div>
+</div>
+{% endblock %}
+
+{% block popup %}
+<div id="popup">
+	<div id="popupInner">
+		<div class="close"></div>
+    	<div id="choiceServices">
+			<div class="column">
+                {% for service in all_services %}
+				<div class="check">
+					<span class="checkbox">
+						<input type="checkbox" value="{{ service.id }}" name="service">
+					</span>
+					<i class="checkLabel">{{ service.name }}</i>
+					<div class="clear"></div>
+				</div>
+                {% if forloop.counter|divisibleby:12 %}</div><div class="column">{% endif %}
+                {% endfor %}
+			</div>
+			<div class="clear"></div>
+			<a href="#"><span>Выбрать услуги</span></a>
+		</div>
+	</div>
+</div>
+{% endblock %}

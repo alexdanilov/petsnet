@@ -1,0 +1,31 @@
+{% extends "page.html" %}
+{% block centercol %}
+    <h2>{{  section  }}</h2>
+    <div class="content">
+        {% if categories.count %}
+        <div class="categories-block">
+            <ul class="categories-list">
+            {% for category in categories['items'] %}
+                <li {% if categories['current'] == category.id %}class="c"{% endif %}><a href="/{{  alias  }}/{{  category.alias  }}/">{{  category.name  }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% if content['show_count'] > 1 %}
+            <ul class="content-list">
+                {% for item in content['items'] %}
+                <li>
+                    <h3>{{  item.title  }}</h3>
+                    <p>{{  item.description  }}</p>
+                    <p><a href="{{  item.alias  }}">{{ _('more') }}</a></p>
+                </li>
+                {% endfor %}
+            </ul>
+        {% elif content['show_count'] == 1 %}
+        <h2>{{  content.title  }}</h2>
+            {{  content.body  }}
+        {% else %}
+        <p class="no-rows">{{ _('content-no-rows') }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

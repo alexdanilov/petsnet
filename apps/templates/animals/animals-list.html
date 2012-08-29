@@ -1,0 +1,36 @@
+{% extends "animals/animals-base.html" %}
+
+{% block title %}{{ _('animals') }} &mdash; PetsNet - социальная сеть для владельцев домашних животных{% endblock %}
+{% block centercol %}
+    <h2>{{ _('animals') }}</h2>
+    {% if items.object_list %}
+    <div class="search-result">{{ _('show-from') }} {{ start_index }} {{ _('show-to') }} {{ end_index }} {{ _('show-fromall') }} {{ items.paginator.count }}</div>
+    <div class="content">
+        <ul class="list infoblock animalslist">
+            {% for item in items.object_list %}
+            <li>
+                {% if item.avatar %}<img src="/u/a/1-1.jpg" alt="" class="avatar" />{% else %}{% endif %}
+                <div class="info">
+                    <a href="/animals/show/{{ item.id }}/" class="gender-{{ item.gender }} title">{{ item.name|truncatewords:20 }}</a> {{ item.age }}
+                </div>
+                <div class="breed">{{ item.breed }}</div>
+                <a href="/user/{{ item.user.username }}/profile/" class="owner">{{ item.user.full_name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="pager">
+        {% if items.has_previous %}
+            <a href="?{{ url }}&page={{ items.previous_page_number }}">{{ _('pager-back') }}</a>
+        {% endif %}
+        <span class="current">
+            {{ _('pager-page') }} {{ items.number }} {{ _('pager-of') }} {{ items.paginator.num_pages }}.
+        </span>
+        {% if items.has_next %}
+            <a href="?{{ url }}&page={{ items.next_page_number }}">{{ _('pager-next') }}</a>
+        {% endif %}
+    </div>
+    {% else %}
+    <div class="content"><p class="no-rows">{{ _('animals-no-rows') }}</p></div>
+    {% endif %}
+{% endblock %}

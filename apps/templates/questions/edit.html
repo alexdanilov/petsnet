@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}{{ item.name }} - {{ _('questions') }} &mdash; PetsNet - социальная сеть для владельцев домашних животных{% endblock %}
+{% block main %}
+<div class="navigation">
+    <div class="navigationBorder">
+        <div class="navigationInner">
+            <a href="/">Главная</a>
+            <a href="/clinics/">Каталог клиник</a>
+            <span>{% if item.id %}Редактирование{% else %}Добавление{% endif %} вопроса</span>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="mainLeft">
+        <div class="contentBlock clinicInfo">
+            <div class="headBlock">
+		{% if item.id %}Редактирование{% else %}Добавление{% endif %} вопроса
+            </div>
+            <div class="inner">
+		{{ form.errors }}
+                <form action="" method="post" class="edit-form validate" enctype="multipart/form-data">{% csrf_token %}
+                    <label for="title">{{ _('title') }}</label>
+		    <input type="text" name="title" id="title" class="txt" size="50" value="{{ form.title.value|default:"" }}" />
+		    <div class="clear"></div>
+		    
+		    <label for="type">{{ _('type') }}</label>
+		    <select name="type" id="type">
+			<option value="">{{ _('types-all') }}</option>
+                        {% for type in types %}<option value="{{ type.id }}"{% if form.type.value == type.id %} selected{% endif %}>{{ type.name }}</option>{% endfor %}
+		    </select>
+		    <div class="clear"></div>
+		    
+		    <label for="category">{{ _('category') }}</label>
+		    <select name="category" id="category">
+			<option value="0">{{ _('categories-all') }}</option>
+                        {% for category in categories %}<option value="{{ category.id }}"{% if form.category.value == category.id %} selected{% endif %}>{{ category.name }}</option>{% endfor %}
+		    </select>
+		    <div class="clear"></div>
+		    
+		    <label for="question">{{ _('question') }}</label>
+		    <textarea name="text" id="question" cols="50" rows="14">{{ form.text.value|default:"" }}</textarea>
+		    <div class="clear"></div>
+		    
+		    <label for="price">{{ _('tags') }}</label>
+		    <input type="text" name="tags" id="price" class="txt" size="60" value="{{ form.tags.value|default:"" }}" />
+		    <div class="clear"></div>
+		    
+		    <input type="submit" value="Сохранить" class="btn" />
+                </form>
+                <div class="clear"></div>
+            </div>
+            <br />
+        </div>
+    </div>
+    <div id="mainRight">
+        {% include "blocks/user-cabinet.html" %}
+        <div class="rightBanner">
+            {% banner "clinics-right" %}
+        </div>
+        {% include "blocks/social.html" %}
+    </div>
+    <div class="clear"></div>
+    <div class="banner">{% banner "site-bottom" %}</div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "blogs/base.html" %}
+
+{% block title %}{{ item.title }} - {{ _('blogs') }} &mdash; PetsNet - социальная сеть для владельцев домашних животных{% endblock %}
+{% block centercol %}
+<div id="blogs-item">
+    <h2>{{ item.title }}</h2>
+    <div>
+        {{ item.text|safe }}
+    </div>
+    <div class="infoparts">
+        <span><a href="/users/{{ item.user.id }}">{{ item.user.name }}</a></span>
+        <span>{{ _('comments_count') }}: {{ item.comments_count }}</span>
+        <span>{{ _('show_count') }}: {{ item.show_count }}</span>
+    </div>
+    {% if comments %}
+    <h3>{{ _('comments') }}</h3>
+    <ul id="blogs-answers" class="comments">
+        {% for comment in comments %}
+        <li>
+            <a href="/users/{{ comment.user.id }}">{{ comment.user.name }}</a>, <small>{{ comment.created }}</small>
+            <p>{{ comment.comment }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% if member.id %}
+    <div id="blogs-add-comment">
+        {{ errors }}
+        <form action="" method="post" class="comment-form">
+            <input type="hidden" name="post" value="{{ item.id }}" />
+            <input type="hidden" name="parent" value="0" />
+            <h3>{{ _('qa-add-answer') }}</h3>{% csrf_token %}
+            <textarea name="comment" cols="40" rows="4"></textarea><br />
+            <input type="submit" value="{{ _('send') }}" class="btn" />
+        </form>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

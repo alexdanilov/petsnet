@@ -1,0 +1,81 @@
+{% extends "animals/animals-base.html" %}
+
+{% block title %}{{ item.name }} - {{ _('animals') }} &mdash; PetsNet - социальная сеть для владельцев домашних животных{% endblock %}
+{% block centercol %}
+    <div class="itemshow infoblock">
+        <h3>{{ item.name }}</h3>
+        <div class="info">
+            <span class="breed">{{ item.breed }}</span>
+            <span class="age">{{ item.age }}</span>
+        </div>
+        <div class="item-img">{%if item.image%}<img src="/u/{{ item.image }}" alt="" class="avatar" />{%endif%}</div>
+        {% autoescape off %}{{ item.description }}{% endautoescape %}
+
+        <span class="clear"></span>
+        {% if item.images %}
+        <ul class="animal-images">
+            {% for image in item.images %}
+            <li><img src="/u/{{ image }}" class="avatar" alt="" /></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    <span class="clear"></span>
+    <div class="leftcol">
+        <h2 class="line">{{ _('animal-properties') }}</h2>
+        <div class="contentblock">
+            <ul class="itemparams">
+                <li><b>{{ _('animal-children') }}:</b> {% if item.children %}{{ item.children }}{% else %}{{ _('no') }}{% endif %}</li>
+                <li><b>{{ _('animal-it-like') }}:</b> {{ item.it_like }}</li>
+                <li><b>{{ _('animal-it-not-like') }}:</b> {{ item.it_not_like }}</li>
+                <li><b>{{ _('animal-like-toy') }}:</b> {{ item.loved_toy }}</li>
+                <li><b>{{ _('animal-like-eat') }}:</b> {{ item.loved_eat }}</li>
+                <li><b>{{ _('animal-can-do') }}:</b> {{ item.can_do }}</li>
+            </ul>
+        </div>
+        <span class="devider"></span>
+        <h2 class="line">{{ _('about-owner') }}</h2>
+        <div class="contentblock">
+            <div class="userinfo">
+                <div class="avatar">{%if user.avatar%}<img src="/u/{{ item.user.avatar }}" />{%else%}<img src="/i/no-photo.png" alt="" />{%endif%}</div>
+                <a href="/user/{{ item.user.username }}/profile">{{ item.user.full_name }}</a>
+                <div>
+                    <span class="region">{{ item.user.region }}</span>
+                    <span class="age">{{ item.user.age }} лет</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rightcol">
+        <h2 class="line">{{ _('animal-history') }}</h2>
+        <div class="contentblock">
+            {{ item.history }}
+        </div>
+        <span class="devider"></span>
+        <h2 class="line">{{ _('comments') }}</h2>
+        <div class="contentblock">
+            {% if comments %}
+            <ul class="comments-block-small">
+                {% for item in comments %}
+                <li>
+                    <a href="/user/{{ item.user.username }}/profile">{{ item.user.full_name }}</a>, <small>{{ item.created }}</small><br />
+                    <b>{{ item.theme }}</b><br />
+                    <p>{{ item.comment }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="no-rows">{{ _('comments-no-rows') }}</p>
+            {% endif %}
+        </div>
+        <div class="contentblock">
+            <form action="?act=add-comment" method="post" class="comment-form">
+                <h3>{{ _('comments-add') }}</h3>
+	            <label>{{ _('theme') }}:</label> <input type="text" name="theme" class="txt" size="30" /><br />
+	            <textarea name="comment" cols="25" rows="4"></textarea><br />
+	            <input type="submit" value="{{ _('send') }}" class="btn" />
+            </form>
+        </div>
+    </div>
+    <span class="devider"></span>
+{% endblock %}

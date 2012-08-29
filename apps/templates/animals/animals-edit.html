@@ -1,0 +1,94 @@
+{% extends "animals/user-base.html" %}
+
+{% block centercol %}
+    <h2>{{ _('my-animals') }} - {{ item.name|truncatewords:50 }}</h2>
+    <div class="content">
+        {{ result }}
+        {{ errors }}
+        <form action="" method="post" enctype="multipart/form-data" class="validate editform">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ item.id }}" />
+
+            <label class="h">{{ _('animal-type') }}:</label>
+            <select name="type">{% for type in types %}<option value="{{ type.id }}" {% if item.type == type %}selected{% endif %}/>{{ type.name }}</option>{% endfor %}</select>
+
+            <label class="h">{{ _('gender') }}:</label>
+            <select name="gender">{% for key, gender in genders %}<option value="{{ key }}" {% if item.gender == key %}selected{% endif %}/>{{ gender }}</option>{% endfor %}</select>
+            
+            <label class="h">{{ _('animal-name') }}:</label>
+            <input type="text" name="name" class="txt required" value="{{ item.name }}" size="60" />
+            
+            <label class="h">{{ _('breed') }}:</label>
+            <input type="text" name="" value="{{ item.breed }}" class="txt required" size="60" id="breed" />
+            <input type="hidden" name="breed" value="{{ item.breed.id }}" class="txt required" id="breed_id" />
+            <small>{{ _('breed_help') }}</small>
+            
+            <label class="h">{{ _('birthday') }}:</label>
+            <select name="day">{% for day in days %}<option value="{{ day }}" {% if item.birth_day.day == day %}selected{% endif %}>{{ day }}</option>{% endfor %}</select>
+            <select name="month">{% for i, month in monthes %}<option value="{{ i }}" {% if item.birth_day.month == i %}selected{% endif %}/>{{ month }}</option>{% endfor %}</select>
+            <select name="year">{% for year in years %}<option value="{{ year }}" {% if item.birth_day.year == year %}selected{% endif %}>{{ year }}</option>{% endfor %}</select>
+            <input type="checkbox" name="died" id="died" {% if item.died %}checked="checked"{% endif %} />
+            <label for="died">{{ _('animal-died') }}</label>
+            
+            <label class="h">{{ _('photos') }}:</label>
+            <ul class="photos">
+                {% for img in item.images %}
+                <li>
+                    <img src="/u/{{ img.image.image1 }}" alt="" /><br />
+                    <input type="checkbox" name="deleteimg" value="{{ img.id }}"> {{ _('delete') }}
+                </li>
+                {% endfor %}
+            </ul>
+            <input type="file" name="image1" class="txt" /><br />
+            <input type="file" name="image2" class="txt" /><br />
+            <input type="file" name="image3" class="txt" /><br />
+            
+            <label class="h">{{ _('animal-color') }}:</label>
+            <input type="text" name="color" class="txt" value="{{ item.color }}" size="40" />
+            
+            <label class="h">{{ _('animal-weight') }} <small>{{ _('in-kg') }}</small></label>
+            <input type="text" name="weight" class="txt required" value="{{ item.weight }}" size="40" />
+
+            <label class="h">{{ _('animal-height') }} <small>{{ _('in-sm') }}</small></label>
+            <input type="text" name="height" class="txt" value="{{ item.height }}" size="40" />
+
+            <label class="h">{{ _('animal-children') }}:</label>
+            <input type="text" name="children" class="txt required" value="{{ item.children }}" size="40" />
+            
+            <label class="h">{{ _('animal-history') }} <small>{{ _('animal-history-descr') }}</small></label>
+            <textarea name="history" cols="50" rows="5" class="wysiwyg">{{ item.history }}</textarea>
+            
+            <label class="h">{{ _('animal-description') }}:</label>
+            <textarea name="description" cols="50" rows="5" class="wysiwyg">{{ item.description  }}</textarea>
+            
+            <label class="h">{{ _('animal-it-like') }}:</label>
+            <input type="text" name="it_like" class="txt" value="{{ item.it_like }}" size="60" />
+            <small>{{ _('animal-it-like-descr') }}</small>
+            
+            <label class="h">{{ _('animal-it-not-like') }}:</label>
+            <input type="text" name="it_not_like" class="txt" value="{{ item.it_not_like }}" size="60" />
+            <small>{{ _('animal-it-not-like-descr') }}</small>
+
+            <label class="h">{{ _('animal-like-toy') }}:</label>
+            <input type="text" name="loved_toy" class="txt" value="{{ item.loved_toy }}" size="60" />
+                
+            <label class="h">{{ _('animal-like-eat') }}:</label>
+            <input type="text" name="loved_eat" class="txt" value="{{ item.loved_eat }}" size="60" />
+            
+            <label class="h">{{ _('animal-can-do') }}:</label>
+            <input type="text" name="can_do" class="txt" value="{{ item.can_do }}" size="60" />
+            <br />
+
+            <input type="hidden" name="intellect_level" value="1" />
+            <input type="hidden" name="energy_level" value="1" />
+            <input type="hidden" name="friendly_level" value="1" />
+            <input type="hidden" name="game_level" value="1" />
+
+            <input type="submit" value="{{ _('save') }}" class="btn" />
+            <script type="text/javascript">
+            bindAutoComplite("#breed", "/ajax/get-breeds", "#breed_id");
+            bindAutoComplite("#region", "/ajax/get-cities", "#region_id");
+            </script>
+        </form>
+    </div>
+{% endblock %}

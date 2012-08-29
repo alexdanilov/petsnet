@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="css/cusel.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="css/jquery.fancybox-1.3.4.css" type="text/css" media="screen, projection" />
+	<!--[if IE 7]><link rel="stylesheet" href="css/ie7.css" type="text/css" media="screen, projection" /><![endif]-->
+	<!--[if IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
+
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/cusel-min-2.4.1.js"></script>
+	<script src="js/jquery.mousewheel.js"></script>
+	<script src="js/jScrollPane.js"></script>
+	<script src="js/jquery.fancybox-1.3.4.pack.js"></script>
+	<script src="js/jcarousellite.js"></script>
+	<script src="js/radio.js"></script>
+	<script src="js/main.js"></script>
+
+	<!--[if IE 6]><script src="js/DD_belatedPNG_0.0.8a-min.js"></script><![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<div id="header">
+		<div id="headerBg">
+			<div id="headerInner">
+				<a id="logo" href="#"><img src="img/logo.png" alt="" /></a>
+				<span class="siteInfo">Социальная сеть для владельцев домашних животных</span>
+				<a class="favorites" href="#">Избранное</a>
+				<div class="signBlock">
+					<a class="reg" href="#">Регистрация</a>
+					<a class="enter" href="#">Войти</a>
+					<div class="clear"></div>
+				</div>
+
+				<form action="" method="" class="regions">
+					<div class="head">Ваш регион:</div>
+					<div class="state">
+						<select id="regionsState" name="state">
+							<option value="1">Киевская область</option>
+							<option value="1">Киевская область</option>
+							<option value="1">Киевская область</option>
+						</select>
+					</div>
+					<i>-</i>
+					<div class="city">
+						<select id="regionsCity" name="city">
+							<option value="1">Киев</option>
+							<option value="1">Киев</option>
+							<option value="1">Киев</option>
+						</select>
+					</div>
+					<div class="clear"></div>
+				</form><!-- .regions -->
+
+				<form action="" method="" class="searchForm">
+					<input type="text" name="searchWords" value="Поиск" />
+					<select id="searchSelect" name="searchFrom">
+						<option value="1">По разделам</option>
+						<option value="1">По разделам</option>
+						<option value="1">По разделам</option>
+					</select>
+					<button type="submit"name="searchButton"></button>
+					<div class="clear"></div>
+				</form><!-- .searchForm -->
+                <div class="subMenuPosition">
+					<ul class="menu">
+						<li><a href="#" rel="#board"><span>ОБЪЯВЛЕНИЯ</span></a></li>
+						<li><a href="#" rel="#catalog"><span>КАТАЛОГ</span></a></li>
+						<li><a href="#" rel="#events"><span>СОБЫТИЯ</span></a></li>
+						<li><a href="#" rel="#interesting"><span>ИНТЕРЕСНО</span></a></li>
+					</ul>
+					<ul id="board" class="subMenu">
+						<li class="first"><a href="#">Продажа</a></li>
+						<li><a href="#">Покупка</a></li>
+						<li><a href="#">Вязка</a></li>
+						<li><a href="#">Возьму в дар</a></li>
+						<li><a href="#">Отдам в дар</a></li>
+						<li><a href="#">Другое</a></li>
+					</ul>
+					<ul id="catalog" class="subMenu">
+						<li class="first"><a href="#">Продажа</a></li>
+						<li><a href="#">Покупка</a></li>
+						<li><a href="#">Вязка</a></li>
+						<li><a href="#">Возьму в дар</a></li>
+						<li><a href="#">Отдам в дар</a></li>
+					</ul>
+					<ul id="events" class="subMenu">
+						<li class="first"><a href="#">Продажа</a></li>
+						<li><a href="#">Покупка</a></li>
+						<li><a href="#">Вязка</a></li>
+						<li><a href="#">Возьму в дар</a></li>
+					</ul>
+					<ul id="interesting" class="subMenu">
+						<li class="first"><a href="#">Продажа</a></li>
+						<li><a href="#">Покупка</a></li>
+						<li><a href="#">Вязка</a></li>
+					</ul>
+				</div>
+
+			</div><!-- #headerInner-->
+		</div><!-- #headerBg-->
+	</div><!-- #header-->
+
+	<div class="navigation">
+		<div class="navigationBorder">
+			<div class="navigationInner">
+				<a href="#">Главная</a>
+				<a href="#">Каталог</a>
+				<a href="#">Каталог клиник</a>
+				<span>Lakeside Eye Clinic</span>
+			</div><!-- .navigationInner -->
+		</div><!-- .navigationBorder -->
+	</div><!-- .navigation -->
+
+	<div id="content">
+
+		<div id="mainLeft">
+            <div class="contentBlock clinicInfo">
+				<div class="headBlock">
+					Клиника Lakeside Eye Clinic Киев
+					<a class="toFav" href="#"></a>
+					<img class="label" align="top" src="img/best_clinic.png" alt="" />
+				</div>
+				<div class="inner">
+					<div class="imagesBlock">
+	                	<div class="image">
+							&nbsp;<img align="middle" src="img/clinic_image.png" alt="" />
+						</div>
+						<div class="carouselWrapper">
+							<div class="carousel">
+								<ul>
+									<li><a href="img/clinic_image.png"><img src="img/clinic_image_min.png" alt="" /></a></li>
+									<li><a href="img/clinic_image.png"><img src="img/clinic_image_min.png" alt="" /></a></li>
+									<li><a href="img/clinic_image.png"><img src="img/clinic_image_min.png" alt="" /></a></li>
+									<li><a href="img/clinic_image.png"><img src="img/clinic_image_min.png" alt="" /></a></li>
+									<li><a href="img/clinic_image.png"><img src="img/clinic_image_min.png" alt="" /></a></li>
+								</ul>
+							</div>
+							<span class="carouseleBack"></span>
+							<span class="carouseleNext"></span>
+						</div>
+					</div>
+					<div class="info">
+						<div class="address">Киев, ул. Красноармейская, 55а</div>
+						<a class="showOnMap" href="#">посмотреть на карте</a><br />
+						<div class="workNow">Пн 10:00-19:00 Работает</div>
+						<ul class="contacts">
+							<li>0-44-247-70-60</li>
+							<li>0-44- 354-08-38</li>
+							<li><a href="mailto:alex@stylepix.net">alex@stylepix.net</a></li>
+							<li><a href="#">www.stylepix.net</a></li>
+						</ul>
+						<ul class="workHours">
+							<li>Пн-Пт 10:00-19:00</li>
+							<li>Сб 10:00-17:00</li>
+							<li>Вс 10:00-15:00</li>
+						</ul>
+						<div class="clear"></div>
+						<div class="ratingBlock">
+							<span class="label">Рейтинг</span>
+							<span class="rating"><span class="fill" style="width: 100%"></span></span>
+							<span class="grade">5/5</span>
+							<a href="#">Отзывы (5)</a>
+							<span class="clear"></span>
+						</div>
+						<p>Ветеринарная стоматологическая помощь. Лечение каналов. Пломбировка зубов с использованием фотополимерных материалов. Реставрация. Лечение слизистой ротовой полости. Удаление зубных отложений с использованием ультразвукового скелера. Удаление молочных зубов с использованием местной анестезии.</p>
+					</div>
+					<div class="clear"></div>
+				</div><!-- .inner -->
+
+				<br />
+
+				<div class="tabs">
+                	<a href="#" rel="#services">Услуги</a>
+                	<a href="#" rel="#docs">Врачи</a>
+                	<a href="#" rel="#prices">Цены</a>
+                	<a href="#" rel="#news">Новости	</a>
+                	<a class="active" href="#" rel="#comments">Отзывы</a>
+				</div>
+				<div class="inner tabsInner">
+                	<div id="services" class="tabsContent">
+						<div class="head">Заголовок</div>
+						<p>Сериал посвящён жизни и карьере молодых врачей Джона Дориана (Джей Ди) и его друга Кристофера Тёрка, которые в начале сериала только что закончили учёбу и пришли на работу в клинику «Sacred Heart» (рус. Святое Сердце). В больнице они находят новых друзей и новые трудности как профессионального, так и личного плана, которые им необходимо преодолеть. Кроме того, в сериале достаточно большое место уделяется трём любовным линиям: Криса Тёрка и Карлы Эспиносы, Перри Кокса и Джордан, а также так или иначе проявляющимся отношениям Джей Ди и Эллиот Рид.</p>
+						<p>Все главные герои сериала (за исключением <a href="#">Уборщика</a>) имеют прямое отношение к медицине.</p>
+						<p>Действие девятого сезона разворачивается в Уинстонском медицинском университете, где преподают Кристофер Тёрк и Перри Кокс.</p>
+						<p>Повествование (за исключением некоторых серий) ведётся от имени Джона Дориана, который описывает сложившуюся в эпизоде ситуацию и делает различные выводы, а в конце серии подводит её итог. В 9 сезоне внимание с Дориана постепенно переключается на нескольких студентов-медиков, а повествование ведется от лица студентки Люси Беннет. Сам Джон Дориан присутствует только в шести сериях девятого сезона.</p>
+						<p>Первый сезон посвящен первому году работы выпускников медицинского университета Джона Дориана и Кристофера Тёрка в клинике. Друзья знакомятся с другими героями — ещё одним интерном Эллиот, которая становится объектом ухаживаний Дориана; старшей медицинской сестрой Карлой, которая становится подругой Тёрка; главным врачом Бобом Келсо; опытным врачом Перри Коксом, которого Дориан считает своим наставником, а также с Уборщиком.</p>
+						<p>Второй сезон рассказывает о втором годе работы Джей Ди, Тёрка и Эллиот в клинике. По ходу сезона к Дориану приезжает его брат, Дэн. Доктор Кокс возобновляет отношения со своей бывшей женой, Джордан.</p>
+						<div class="head">Вид списка</div>
+						<ul class="list">
+							<li>Плюшка</li>
+							<li>Ватрушка</li>
+							<li>Плюшка</li>
+							<li>Плюшка</li>
+							<li>Ватрушка</li>
+							<li>Сухарик</li>
+						</ul>
+						<div class="head">Таблица</div>
+						<table>
+							<tr>
+								<th>Наименование</th>
+								<th>Опция</th>
+								<th>Опция</th>
+								<th>Опция</th>
+								<th>Цена</th>
+							</tr>
+							<tr>
+								<td>Плюшка</td>
+								<td>Сахарная</td>
+								<td>С кусочком шоколада</td>
+								<td>Теплая</td>
+								<td class="price">78978 грн</td>
+							</tr>
+							<tr class="even">
+								<td>Сухарик</td>
+								<td>Соленый</td>
+								<td>С кусочком шоколада</td>
+								<td>Холодный</td>
+								<td class="price">78978 грн</td>
+							</tr>
+							<tr>
+								<td>Плюшка</td>
+								<td>Сахарная</td>
+								<td>С кусочком шоколада</td>
+								<td>Теплая</td>
+								<td class="price">78978 грн</td>
+							</tr>
+						</table>
+
+					</div><!-- #services -->
+                	<div id="docs" class="tabsContent">Врачи</div>
+                	<div id="prices" class="tabsContent">Цены</div>
+                	<div id="news" class="tabsContent">Новости</div>
+                	<div id="comments" class="tabsContent show">
+						<a href="#" class="bottomButton">
+							<span class="text">Добавить отзыв</span>
+							<span class="icon"></span>
+						</a>
+
+						<div class="comment">
+							<div class="date">15 апреля 2012</div>
+							<div class="info">
+								<span class="name">Маша Муравьева</span>
+								<span class="rating"><span class="fill" style="width: 100%;"></span></span>
+								<span class="grade">5/5</span>
+								<p>Очень благодарна Мультитесту за оперативное тестирование всех интернет провайдеров, выбор наилучшего, за доставку и установку оборудования WI-FI. Без Вас я бы не справилась так быстро,спасибо за экономию времени. Вы — настоящие профессионалы! Отдельное спасибо Василиюза толковые рекомендации и подробный инструктаж по использованию оборудования.</p>
+								<div class="advice">Посоветовал бы друзьям: <span class="yes">Да</span></div>
+							</div>
+							<div class="clear"></div>
+						</div><!-- .comment -->
+
+						<div class="comment lastComment">
+							<div class="date">15 апреля 2012</div>
+							<div class="info">
+								<span class="name">Маша Муравьева</span>
+								<span class="rating"><span class="fill" style="width: 100%;"></span></span>
+								<span class="grade">5/5</span>
+								<p>Очень благодарна Мультитесту за оперативное тестирование всех интернет провайдеров, выбор наилучшего, за доставку и установку оборудования WI-FI. Без Вас я бы не справилась так быстро,спасибо за экономию времени. Вы — настоящие профессионалы! Отдельное спасибо Василиюза толковые рекомендации и подробный инструктаж по использованию оборудования.</p>
+								<div class="advice">Посоветовал бы друзьям: <span class="no">Нет</span></div>
+							</div>
+							<div class="clear"></div>
+						</div><!-- .comment -->
+
+						<div class="pageNavigation">
+                        	<span class="back">Предыдущая</span>
+                        	<span class="numPage">1</span>
+                        	<a class="numPage" href="#">2</a>
+                        	<a class="numPage" href="#">3</a>
+                        	<a class="numPage" href="#">4</a>
+                        	<a class="numPage" href="#">5</a>
+                        	<a class="numPage" href="#">6</a>
+							<b>...</b>
+							<a class="numPage" href="#">56</a>
+							<a class="numPage" href="#">В конец</a>
+							<a class="next" href="#">Следующая</a>
+						</div>
+
+						<div class="formWrapper">
+							<form action="" method="">
+								<div class="head">Добавить отзыв</div>
+								<input type="text" name="name" value="Ваше имя" onfocus="if($(this).val() == 'Ваше имя') $(this).val('');" onblur="if($(this).val() == '') $(this).val('Ваше имя');" />
+								<span class="ratingLabel">Ваша оценка</span>
+
+								<span class="rating">
+									<span class="fill">
+										<input type="hidden" name="grade" value="" />
+									</span>
+								</span>
+
+								<span class="grade"></span>
+								<span class="clear"></span>
+								<textarea name="comment" cols="20" rows="5"></textarea>
+								<div class="advice">Рекомендовали бы друзьям?</div>
+								<div class="radioGroup">
+	                                <div class="radio">
+	                                    <span class="rad">
+	                                        <input type="radio" checked="checked" name="shareFriend" value="1" />
+	                                    </span>
+	                                    <i class="radLabel">Да</i>
+	                                    <div class="clear"></div>
+	                                </div>
+
+	                                <div class="radio">
+	                                    <span class="rad">
+	                                        <input type="radio" name="shareFriend" value="2" />
+	                                    </span>
+	                                    <i class="radLabel">Нет</i>
+	                                    <div class="clear"></div>
+	                                </div>
+									<div class="clear"></div>
+	                            </div><!-- .radioGroup -->
+								<div class="clear"></div>
+
+								<button type="submit">Отправить</button>
+							</form>
+						</div><!-- .formWrapper -->
+
+					</div><!-- #comments -->
+				</div><!-- .inner -->
+			</div><!-- .contentBlock -->
+		</div><!-- #mainLeft -->
+
+		<div id="mainRight">
+			<div class="userCab">
+				<div class="name">Кнопик Плюшкин Пуговочкин</div>
+				<form action="" method="" class="avatar" enctype="multipart/form-data">
+					<img src="img/no_avatar.jpg" alt="" />
+					<input type="file" name="avatar" />
+				</form>
+				<ul class="userMenu">
+					<li><a href="#">Мой профиль</a></li>
+					<li><a href="#">Сообщения <span>12</span></a></li>
+					<li><a href="#">Друзья</a></li>
+					<li><a href="#">Мои объявления</a></li>
+					<li><a href="#">Баланс</a></li>
+					<li><a href="#">Мои настройки</a></li>
+					<li><a href="#">Выход</a></li>
+				</ul>
+			</div><!-- .userCab -->
+
+			<div class="rightBanner">
+				<img src="img/right_banner.jpg" alt="" />
+			</div>
+		</div><!-- #mainRight -->
+
+		<div class="clear"></div>
+
+		<div class="banner"><img src="img/banner.gif" alt="" /></div>
+	</div><!-- #content-->
+
+</div><!-- #wrapper -->
+
+<div id="footer">
+	<div id="footerBg">
+		<div id="footerInner">
+			<dl>
+				<dt>Объявления</dt>
+				<dd><a href="#">Продажа</a></dd>
+				<dd><a href="#">Покупка</a></dd>
+				<dd><a href="#">Вязка</a></dd>
+				<dd><a href="#">Возьму в дар</a></dd>
+				<dd><a href="#">Отдам в дар</a></dd>
+				<dd><a href="#">Другое</a></dd>
+			</dl>
+			<dl>
+				<dt>Каталог</dt>
+				<dd><a href="#">Продажа</a></dd>
+				<dd><a href="#">Покупка</a></dd>
+				<dd><a href="#">Вязка</a></dd>
+				<dd><a href="#">Возьму в дар</a></dd>
+				<dd><a href="#">Отдам в дар</a></dd>
+				<dd><a href="#">Другое</a></dd>
+			</dl>
+			<dl>
+				<dt>События</dt>
+				<dd><a href="#">Продажа</a></dd>
+				<dd><a href="#">Покупка</a></dd>
+				<dd><a href="#">Вязка</a></dd>
+				<dd><a href="#">Возьму в дар</a></dd>
+				<dd><a href="#">Отдам в дар</a></dd>
+				<dd><a href="#">Другое</a></dd>
+			</dl>
+			<dl>
+				<dt>Интересное</dt>
+				<dd><a href="#">Продажа</a></dd>
+				<dd><a href="#">Покупка</a></dd>
+				<dd><a href="#">Вязка</a></dd>
+				<dd><a href="#">Возьму в дар</a></dd>
+				<dd><a href="#">Отдам в дар</a></dd>
+				<dd><a href="#">Другое</a></dd>
+			</dl>
+			<div class="clear"></div>
+
+			<div class="copyright">&copy; PetsNet 2012</div>
+			<div class="socialIcons">
+				<a class="vk" href="#"></a>
+				<a class="tw" href="#"></a>
+				<a class="fb" href="#"></a>
+				<a class="gp" href="#"></a>
+				<div class="clear"></div>
+			</div>
+			<div class="bottomLinks">
+				<a href="#">О проекте</a> |
+				<a href="#">Соглашение пользователя</a> |
+				<a href="#">Реклама</a>
+			</div>
+			<div class="produce">Проект студии <a href="#">Stylepix</a></div>
+		</div><!-- #footerInner -->
+	</div><!-- #footerBg -->
+</div><!-- #footer -->
+<!--[if IE 6]><script src="js/fix.js"></script><![endif]-->
+</body>
+</html>

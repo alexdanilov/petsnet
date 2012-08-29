@@ -1,0 +1,2456 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-01-03 16:11+0200\n"
+"PO-Revision-Date: 2012-01-03 16:26+0300\n"
+"Last-Translator: Alex V. Danilov <alexander.danilov@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: animals/models.py:13
+#: animals/models.py:26
+#: animals/models.py:51
+#: announcements/models.py:12
+#: catalog/models.py:38
+#: catalog/models.py:53
+#: catalog/models.py:84
+#: catalog/models.py:140
+#: catalog/models.py:169
+#: catalog/models.py:213
+#: catalog/models.py:235
+#: catalog/models.py:268
+#: catalog/models.py:280
+#: content/models.py:10
+#: system/models.py:10
+#: templates/announcements/edit.html:12
+#: templates/blogs/edit.html:12
+#: templates/clubs/edit.html:13
+#: templates/meetings/edit.html:12
+#: templates/photoalbums/edit.html:12
+#: templates/qa/edit.html:12
+msgid "name"
+msgstr "Название"
+
+#: animals/models.py:14
+#: animals/models.py:28
+#: announcements/models.py:41
+#: blogs/models.py:16
+#: blogs/models.py:50
+#: catalog/models.py:19
+#: catalog/models.py:39
+#: catalog/models.py:54
+#: catalog/models.py:86
+#: catalog/models.py:150
+#: catalog/models.py:174
+#: catalog/models.py:214
+#: catalog/models.py:245
+#: catalog/models.py:281
+#: content/models.py:12
+#: content/models.py:37
+#: content/models.py:93
+#: photoalbums/models.py:18
+#: qa/models.py:44
+#: system/models.py:47
+#: templates/announcements/edit.html:54
+#: templates/blogs/edit.html:15
+#: templates/clinics/item.html:35
+#: templates/clubs/edit.html:37
+#: templates/exhibitions/item.html:27
+#: templates/meetings/edit.html:33
+#: templates/nurseries/item.html:26
+#: templates/pharmacies/item.html:26
+#: templates/photoalbums/edit.html:15
+#: templates/qa/edit.html:22
+#: templates/users/my-new-message.html:27
+msgid "description"
+msgstr "Описание"
+
+#: animals/models.py:21
+#: templates/animals/animals-edit.html:12
+#: templates/qa/edit.html:16
+msgid "animal-type"
+msgstr "Животное"
+
+#: animals/models.py:22
+msgid "animal-types"
+msgstr "Виды животных"
+
+#: animals/models.py:27
+#: animals/models.py:45
+#: announcements/models.py:39
+#: catalog/models.py:85
+#: catalog/models.py:139
+#: catalog/models.py:234
+#: templates/announcements/edit.html:16
+msgid "type"
+msgstr "Тип"
+
+#: animals/models.py:29
+#: animals/models.py:69
+#: announcements/models.py:50
+#: blogs/models.py:80
+#: catalog/models.py:24
+#: catalog/models.py:63
+#: catalog/models.py:96
+#: catalog/models.py:152
+#: catalog/models.py:179
+#: catalog/models.py:247
+#: catalog/models.py:288
+#: content/models.py:14
+#: content/models.py:44
+#: content/models.py:70
+#: content/models.py:98
+#: photoalbums/models.py:62
+#: system/models.py:52
+msgid "visibility"
+msgstr "Виден"
+
+#: animals/models.py:36
+#: animals/models.py:48
+#: templates/animals/animals-base.html:15
+#: templates/animals/animals-edit.html:21
+msgid "breed"
+msgstr "Порода"
+
+#: animals/models.py:37
+#: catalog/models.py:240
+#: templates/base.html:108
+msgid "breeds"
+msgstr "Породы"
+
+#: animals/models.py:41
+#: templates/users/register.html:61
+#: templates/users/user-settings.html:32
+#: users/models.py:11
+msgid "gender-male"
+msgstr "Мужской"
+
+#: animals/models.py:42
+#: templates/users/register.html:62
+#: templates/users/user-settings.html:33
+#: users/models.py:12
+msgid "gender-female"
+msgstr "Женский"
+
+#: animals/models.py:46
+#: announcements/models.py:36
+#: blogs/models.py:47
+#: blogs/models.py:76
+#: content/models.py:65
+#: photoalbums/models.py:16
+#: photoalbums/models.py:58
+#: qa/models.py:40
+#: qa/models.py:42
+#: qa/models.py:69
+#: templates/catalog/question-answers.html:16
+#: users/models.py:57
+#: users/models.py:105
+msgid "user"
+msgstr "Пользователь"
+
+#: animals/models.py:47
+#: announcements/models.py:37
+#: catalog/models.py:52
+#: catalog/models.py:83
+#: catalog/models.py:138
+#: catalog/models.py:167
+#: catalog/models.py:233
+#: catalog/models.py:279
+#: templates/animals/animals-base.html:11
+#: templates/announcements/base.html:17
+#: users/models.py:18
+msgid "region"
+msgstr "Город"
+
+#: animals/models.py:49
+#: templates/animals/animals-edit.html:15
+#: templates/users/my-settings.html:28
+#: templates/users/user-settings.html:30
+msgid "gender"
+msgstr "Пол"
+
+#: animals/models.py:50
+#: templates/users/user-settings.html:37
+#: users/models.py:20
+msgid "birth_day"
+msgstr "День рождения"
+
+#: animals/models.py:52
+#: templates/animals/animals-edit.html:49
+msgid "animal-weight"
+msgstr "Вес"
+
+#: animals/models.py:53
+#: templates/animals/animals-edit.html:52
+msgid "animal-height"
+msgstr "Рост"
+
+#: animals/models.py:54
+#: templates/animals/animals-edit.html:46
+msgid "animal-color"
+msgstr "Окрас"
+
+#: animals/models.py:55
+#: templates/animals/animals-edit.html:58
+#: templates/animals/animals-item.html:50
+msgid "animal-history"
+msgstr "История появления"
+
+#: animals/models.py:56
+#: templates/animals/animals-edit.html:61
+#, fuzzy
+msgid "animal-description"
+msgstr "Описание"
+
+#: animals/models.py:57
+#: templates/animals/animals-edit.html:64
+#: templates/animals/animals-item.html:29
+msgid "animal-it-like"
+msgstr "Любит кушать"
+
+#: animals/models.py:58
+#: templates/animals/animals-edit.html:68
+#: templates/animals/animals-item.html:30
+msgid "animal-it-not-like"
+msgstr "Не любит кушать"
+
+#: animals/models.py:59
+msgid "animal-loved-toy"
+msgstr "Любимая игрушка"
+
+#: animals/models.py:60
+#, fuzzy
+msgid "animal-loved-eat"
+msgstr "Любимая игрушка"
+
+#: animals/models.py:61
+#: templates/animals/animals-edit.html:78
+#: templates/animals/animals-item.html:33
+msgid "animal-can-do"
+msgstr "Умеет делать"
+
+#: animals/models.py:62
+#: templates/animals/animals-edit.html:55
+#: templates/animals/animals-item.html:28
+msgid "animal-children"
+msgstr "Питомцы"
+
+#: animals/models.py:63
+#: templates/animals/animals-edit.html:31
+msgid "animal-died"
+msgstr "Животного уже нет"
+
+#: animals/models.py:65
+msgid "intellect_level"
+msgstr "Уровень интеллекта"
+
+#: animals/models.py:66
+msgid "energy_level"
+msgstr "Уровень энергичности"
+
+#: animals/models.py:67
+msgid "friendly_level"
+msgstr "Уровень дружелюбности"
+
+#: animals/models.py:68
+msgid "game_level"
+msgstr "Уровень игривости"
+
+#: animals/models.py:93
+#: animals/models.py:104
+msgid "animal"
+msgstr "Питомец"
+
+#: animals/models.py:94
+#: templates/base.html:25
+#: templates/animals/animals-item.html:3
+#: templates/animals/animals-list.html:3
+#: templates/animals/animals-list.html:5
+#: templates/users/user-animals.html:3
+#: templates/users/user-animals.html:5
+#: templates/users/user-profile.html:78
+msgid "animals"
+msgstr "Питомцы"
+
+#: animals/models.py:105
+#: announcements/models.py:88
+#: photoalbums/models.py:40
+#: photoalbums/models.py:59
+msgid "photo"
+msgstr "Фото"
+
+#: animals/models.py:112
+msgid "animals_image"
+msgstr "Фотография"
+
+#: animals/models.py:113
+msgid "animals_images"
+msgstr "Фотографии"
+
+#: announcements/models.py:20
+#: announcements/models.py:38
+msgid "announcement-category"
+msgstr "Категория"
+
+#: announcements/models.py:21
+msgid "announcement-categories"
+msgstr "Категории"
+
+#: announcements/models.py:25
+#: templates/announcements/base.html:34
+msgid "announcements-sale"
+msgstr "Продажа"
+
+#: announcements/models.py:26
+#: templates/mainpage.html:36
+#: templates/announcements/base.html:35
+msgid "announcements-buy"
+msgstr "Покупка"
+
+#: announcements/models.py:27
+#: templates/announcements/base.html:36
+msgid "announcements-coupling"
+msgstr "Вязка"
+
+#: announcements/models.py:28
+#: templates/announcements/base.html:37
+msgid "announcements-take-free"
+msgstr "Возьму в дар"
+
+#: announcements/models.py:29
+#: templates/announcements/base.html:38
+msgid "announcements-give-free"
+msgstr "Отдам в дар"
+
+#: announcements/models.py:30
+msgid "Other"
+msgstr "Другие"
+
+#: announcements/models.py:40
+#: blogs/models.py:15
+#: blogs/models.py:32
+#: blogs/models.py:49
+#: catalog/models.py:18
+#: content/models.py:35
+#: content/models.py:91
+#: photoalbums/models.py:17
+#: photoalbums/models.py:41
+#: qa/models.py:11
+#: qa/models.py:25
+#: qa/models.py:43
+#: system/models.py:45
+#: system/models.py:67
+msgid "title"
+msgstr "Заголовок"
+
+#: announcements/models.py:42
+#: catalog/models.py:55
+#: catalog/models.py:87
+#: catalog/models.py:143
+#: catalog/models.py:170
+#: catalog/models.py:238
+#: catalog/models.py:282
+#: templates/mainpage.html:139
+#: templates/announcements/edit.html:30
+#: templates/announcements/item.html:38
+#: templates/clinics/list.html:15
+#: templates/clubs/edit.html:25
+#: templates/meetings/edit.html:24
+#: templates/pharmacies/list.html:15
+#: templates/users/user-settings.html:72
+msgid "address"
+msgstr "Адрес"
+
+#: announcements/models.py:43
+#: templates/announcements/edit.html:33
+#: templates/announcements/item.html:39
+#: templates/clubs/edit.html:28
+#: templates/users/user-settings.html:79
+msgid "phone"
+msgstr "Телефон"
+
+#: announcements/models.py:44
+#: templates/announcements/base.html:21
+#: templates/announcements/edit.html:37
+msgid "price"
+msgstr "Цена"
+
+#: announcements/models.py:46
+msgid "is_top"
+msgstr "Показывать на главной"
+
+#: announcements/models.py:47
+msgid "is_border"
+msgstr "Показывать в рамке"
+
+#: announcements/models.py:48
+#: catalog/models.py:146
+#: catalog/models.py:173
+msgid "end_date"
+msgstr "Дата окончания"
+
+#: announcements/models.py:51
+msgid "deleted"
+msgstr "Удаленное"
+
+#: announcements/models.py:75
+msgid "announcement"
+msgstr "Объявление"
+
+#: announcements/models.py:76
+#: templates/base.html:26
+#: templates/base.html.py:50
+#: templates/base.html:90
+#: templates/announcements/item.html:3
+#: templates/announcements/list.html:3
+#: templates/announcements/list.html:5
+msgid "announcements"
+msgstr "Обяъвления"
+
+#: announcements/models.py:86
+#: catalog/models.py:274
+msgid "image"
+msgstr "Картинка"
+
+#: announcements/models.py:95
+#: announcements/models.py:96
+msgid "announcements_image"
+msgstr "Картинка"
+
+#: blogs/models.py:9
+#: photoalbums/models.py:10
+#: templates/blogs/edit.html:25
+#: templates/clubs/edit.html:43
+#: templates/meetings/edit.html:39
+#: templates/photoalbums/edit.html:21
+msgid "friends-users"
+msgstr "Друзья"
+
+#: blogs/models.py:10
+#: photoalbums/models.py:11
+#: templates/blogs/edit.html:24
+#: templates/clubs/edit.html:42
+#: templates/meetings/edit.html:38
+#: templates/photoalbums/edit.html:20
+msgid "register-users"
+msgstr "Зарегистрированные"
+
+#: blogs/models.py:11
+#: photoalbums/models.py:12
+#: templates/blogs/edit.html:23
+#: templates/clubs/edit.html:41
+#: templates/meetings/edit.html:37
+#: templates/photoalbums/edit.html:19
+msgid "all-users"
+msgstr "Все пользователи"
+
+#: blogs/models.py:17
+#: blogs/models.py:51
+#: catalog/models.py:91
+#: catalog/models.py:175
+#: photoalbums/models.py:19
+#: templates/blogs/edit.html:22
+#: templates/clubs/edit.html:40
+#: templates/meetings/edit.html:36
+#: templates/photoalbums/edit.html:18
+msgid "allow_comments"
+msgstr "Позволить комментировать"
+
+#: blogs/models.py:26
+#: blogs/models.py:48
+#: templates/base.html:31
+msgid "blog"
+msgstr "Дневник"
+
+#: blogs/models.py:27
+#: templates/base.html:75
+#: templates/blogs/item.html:3
+#: templates/blogs/list.html:3
+#: templates/blogs/list.html.py:5
+#: templates/users/user-blog.html:3
+#: templates/users/user-blog.html.py:5
+#: templates/users/user-post.html:3
+msgid "blogs"
+msgstr "Дневники"
+
+#: blogs/models.py:33
+#: qa/models.py:26
+msgid "tags_count"
+msgstr "Кол-во тегов"
+
+#: blogs/models.py:41
+#: qa/models.py:34
+msgid "tag"
+msgstr "Тег"
+
+#: blogs/models.py:42
+#: blogs/models.py:54
+#: qa/models.py:35
+#: qa/models.py:47
+#: templates/blogs/edit.html:18
+#: templates/content/articles.html:29
+#: templates/qa/edit.html:26
+msgid "tags"
+msgstr "Теги"
+
+#: blogs/models.py:52
+#: catalog/models.py:22
+#: catalog/models.py:93
+#: catalog/models.py:177
+#: content/models.py:42
+#: photoalbums/models.py:42
+#: qa/models.py:45
+#: templates/blogs/item.html:12
+#: templates/blogs/list.html:18
+#: templates/blogs/my.html:22
+#: templates/clubs/item.html:30
+#: templates/clubs/list.html:19
+#: templates/clubs/my.html:22
+#: templates/meetings/item.html:34
+#: templates/meetings/list.html:19
+#: templates/meetings/my.html:23
+#: templates/news/item.html:11
+#: templates/news/list.html:18
+#: templates/photoalbums/item.html:11
+#: templates/photoalbums/list.html:17
+#: templates/photoalbums/my.html:21
+#: templates/users/my-home.html:45
+#: templates/users/my-home.html.py:68
+#: templates/users/user-blog.html:18
+#: templates/users/user-meetings.html:26
+#: templates/users/user-post.html:12
+#: templates/users/user-profile.html:31
+#: templates/users/user-profile.html:50
+msgid "comments_count"
+msgstr "Комментариев"
+
+#: blogs/models.py:53
+#: catalog/models.py:21
+#: catalog/models.py:92
+#: catalog/models.py:176
+#: photoalbums/models.py:43
+#: qa/models.py:46
+#: templates/blogs/item.html:13
+#: templates/blogs/list.html:19
+#: templates/blogs/my.html:23
+#: templates/clubs/item.html:31
+#: templates/clubs/list.html:20
+#: templates/clubs/my.html:23
+#: templates/meetings/item.html:35
+#: templates/meetings/list.html:20
+#: templates/meetings/my.html:24
+#: templates/news/item.html:12
+#: templates/news/list.html:19
+#: templates/photoalbums/item.html:12
+#: templates/photoalbums/list.html:18
+#: templates/photoalbums/my.html:22
+#: templates/qa/item.html:13
+#: templates/qa/list.html:19
+#: templates/qa/my.html:21
+#: templates/users/my-home.html:46
+#: templates/users/my-home.html.py:69
+#: templates/users/user-blog.html:19
+#: templates/users/user-meetings.html:27
+#: templates/users/user-post.html:13
+#: templates/users/user-profile.html:32
+#: templates/users/user-profile.html:51
+msgid "show_count"
+msgstr "Просмотров"
+
+#: blogs/models.py:63
+#: blogs/models.py:77
+msgid "post"
+msgstr "Запись"
+
+#: blogs/models.py:64
+msgid "posts"
+msgstr "Записи"
+
+#: blogs/models.py:75
+msgid "site"
+msgstr "Сайт"
+
+#: blogs/models.py:78
+#: content/models.py:68
+#: photoalbums/models.py:60
+#: system/models.py:12
+#: templates/users/my-new-message.html:24
+#: users/models.py:88
+msgid "subject"
+msgstr "Тема"
+
+#: blogs/models.py:79
+#: blogs/models.py:89
+#: content/models.py:69
+#: content/models.py:79
+#: photoalbums/models.py:61
+#: photoalbums/models.py:71
+msgid "comment"
+msgstr "Сообщение"
+
+#: blogs/models.py:81
+#: catalog/models.py:23
+#: content/models.py:45
+#: content/models.py:71
+#: content/models.py:99
+#: photoalbums/models.py:63
+#: qa/models.py:72
+#: system/models.py:53
+#: templates/announcements/my.html:27
+#: templates/users/my-home.html:97
+msgid "created"
+msgstr "Дата создания"
+
+#: blogs/models.py:90
+#: content/models.py:80
+#: photoalbums/models.py:72
+#: templates/animals/animals-item.html:55
+#: templates/blocks/news-comments.html:16
+#: templates/blogs/item.html:16
+#: templates/clubs/item.html:45
+#: templates/exhibitions/item.html:56
+#: templates/meetings/item.html:49
+#: templates/news/item.html:15
+#: templates/photoalbums/item.html:15
+#: templates/users/user-post.html:16
+msgid "comments"
+msgstr "Комментарии"
+
+#: catalog/exhibitions.py:46
+#: catalog/meetings.py:103
+#, python-format
+msgid "monthes-%s"
+msgstr ""
+
+#: catalog/models.py:16
+#: content/models.py:66
+msgid "entity"
+msgstr "Раздел"
+
+#: catalog/models.py:17
+#: content/models.py:67
+msgid "entity_id"
+msgstr "ID записи"
+
+#: catalog/models.py:20
+#: content/models.py:38
+#: content/models.py:94
+#: system/models.py:32
+#: system/models.py:48
+msgid "body"
+msgstr "Полное описание"
+
+#: catalog/models.py:32
+#: catalog/models.py:33
+#: templates/base.html:70
+#: templates/mainpage.html:153
+#: templates/blocks/news-comments.html:2
+#: templates/news/item.html:3
+#: templates/news/list.html:3
+msgid "news"
+msgstr "Новость"
+
+#: catalog/models.py:47
+msgid "clinic-service"
+msgstr "Услуга в клинике"
+
+#: catalog/models.py:48
+#: catalog/models.py:60
+msgid "clinic-services"
+msgstr "Услуги в клинике"
+
+#: catalog/models.py:56
+#: catalog/models.py:88
+#: catalog/models.py:144
+#: catalog/models.py:239
+#: catalog/models.py:283
+#: templates/mainpage.html:143
+#: templates/clinics/item.html:18
+#: templates/clinics/list.html:19
+#: templates/exhibitions/item.html:19
+#: templates/exhibitions/list.html:21
+#: templates/nurseries/item.html:18
+#: templates/pharmacies/item.html:18
+#: templates/pharmacies/list.html:19
+msgid "phones"
+msgstr "Телефоны"
+
+#: catalog/models.py:57
+#: catalog/models.py:284
+#: templates/clinics/item.html:19
+#: templates/pharmacies/item.html:19
+msgid "working_hours"
+msgstr "Время работы"
+
+#: catalog/models.py:58
+#: catalog/models.py:89
+#: catalog/models.py:141
+#: catalog/models.py:236
+#: catalog/models.py:285
+#: templates/clubs/edit.html:31
+#: templates/exhibitions/item.html:21
+#: templates/users/my-settings.html:57
+#: templates/users/user-profile.html:71
+#: users/models.py:26
+msgid "website"
+msgstr "Вебсайт"
+
+#: catalog/models.py:59
+#: catalog/models.py:90
+#: catalog/models.py:142
+#: catalog/models.py:237
+#: catalog/models.py:286
+#: templates/clinics/item.html:20
+#: templates/clubs/edit.html:34
+#: templates/exhibitions/item.html:20
+#: templates/nurseries/item.html:19
+#: templates/pharmacies/item.html:20
+#: templates/users/auth.html:16
+msgid "email"
+msgstr "E-mail"
+
+#: catalog/models.py:61
+msgid "prices"
+msgstr "Цены"
+
+#: catalog/models.py:62
+#: catalog/models.py:95
+#: catalog/models.py:246
+#: catalog/models.py:269
+#: catalog/models.py:287
+#: qa/models.py:12
+msgid "order_num"
+msgstr "Порядок"
+
+#: catalog/models.py:71
+msgid "clinic"
+msgstr "Клиника"
+
+#: catalog/models.py:72
+#: templates/base.html:62
+#: templates/mainpage.html:131
+#: templates/clinics/item.html:3
+#: templates/clinics/list.html:3
+#: templates/clinics/list.html.py:5
+msgid "clinics"
+msgstr "Клиники"
+
+#: catalog/models.py:77
+msgid "club-real"
+msgstr "Клуб"
+
+#: catalog/models.py:78
+msgid "club-virtual"
+msgstr "Виртуальное сообщество"
+
+#: catalog/models.py:82
+#: catalog/models.py:119
+#: catalog/models.py:168
+#: catalog/models.py:242
+#: templates/announcements/item.html:24
+msgid "owner"
+msgstr "Владелец"
+
+#: catalog/models.py:94
+#: catalog/models.py:178
+#: templates/clubs/item.html:29
+#: templates/clubs/list.html:18
+#: templates/clubs/my.html:21
+#: templates/meetings/item.html:33
+#: templates/meetings/list.html:18
+#: templates/meetings/my.html:22
+#: templates/users/my-home.html:44
+#: templates/users/user-meetings.html:25
+#: templates/users/user-profile.html:30
+msgid "members_count"
+msgstr "Подписчики"
+
+#: catalog/models.py:107
+#: catalog/models.py:120
+msgid "club"
+msgstr "Клуб"
+
+#: catalog/models.py:108
+#: templates/base.html:29
+#: templates/base.html.py:64
+#: templates/base.html:100
+#: templates/clubs/list.html:3
+#: templates/clubs/list.html.py:5
+msgid "clubs"
+msgstr "Клубы"
+
+#: catalog/models.py:127
+msgid "clubs_member"
+msgstr "Участник клуба"
+
+#: catalog/models.py:128
+msgid "clubs_members"
+msgstr "Участники клуба"
+
+#: catalog/models.py:134
+msgid "exhibitions-cats"
+msgstr "Выставки кошек"
+
+#: catalog/models.py:135
+msgid "exhibitions-dogs"
+msgstr "Выставки собак"
+
+#: catalog/models.py:145
+#: catalog/models.py:172
+msgid "begin_date"
+msgstr "Дата начала"
+
+#: catalog/models.py:147
+#: templates/mainpage.html:68
+#: templates/catalog/events.html:20
+#: templates/exhibitions/item.html:22
+#: templates/exhibitions/list.html:24
+msgid "organizator"
+msgstr "Организатор"
+
+#: catalog/models.py:148
+msgid "enter_price"
+msgstr "Стоимость билета"
+
+#: catalog/models.py:149
+#: catalog/models.py:243
+msgid "system"
+msgstr "Система"
+
+#: catalog/models.py:151
+msgid "experts"
+msgstr "Эксперты"
+
+#: catalog/models.py:160
+msgid "exhibition"
+msgstr "Выставка"
+
+#: catalog/models.py:161
+#: templates/base.html:68
+#: templates/base.html.py:91
+#: templates/exhibitions/item.html:3
+#: templates/exhibitions/list.html:3
+#: templates/exhibitions/list.html.py:5
+msgid "exhibitions"
+msgstr "Выставки"
+
+#: catalog/models.py:171
+msgid "begin_time"
+msgstr "Время начала"
+
+#: catalog/models.py:187
+#: catalog/models.py:199
+msgid "meeting"
+msgstr "Встреча"
+
+#: catalog/models.py:188
+#: templates/base.html:30
+#: templates/base.html.py:69
+#: templates/base.html:101
+#: templates/meetings/item.html:3
+#: templates/meetings/list.html:3
+#: templates/meetings/list.html.py:5
+#: templates/news/list.html:5
+#: templates/users/user-meetings.html:3
+#: templates/users/user-meetings.html:5
+#: templates/users/user-profile.html:21
+msgid "meetings"
+msgstr "Встречи"
+
+#: catalog/models.py:198
+msgid "member"
+msgstr "Участник"
+
+#: catalog/models.py:206
+msgid "meetings_member"
+msgstr "Участник встречи"
+
+#: catalog/models.py:207
+msgid "meetings_members"
+msgstr "Участники встречи"
+
+#: catalog/models.py:222
+msgid "nursery-service"
+msgstr "Услуга питомника"
+
+#: catalog/models.py:223
+#: catalog/models.py:241
+#: templates/nurseries/item.html:15
+#: templates/nurseries/list.html:15
+msgid "nursery-services"
+msgstr "Услуги питомника"
+
+#: catalog/models.py:227
+msgid "nurseries-cats"
+msgstr "Питомники кошек"
+
+#: catalog/models.py:228
+msgid "nurseries-dogs"
+msgstr "Питомники собак"
+
+#: catalog/models.py:244
+msgid "nurseries-children"
+msgstr "Щенки"
+
+#: catalog/models.py:261
+msgid "nursery"
+msgstr "Питомник"
+
+#: catalog/models.py:262
+#: templates/base.html:63
+#: templates/base.html.py:99
+#: templates/nurseries/item.html:3
+#: templates/nurseries/list.html:3
+#: templates/nurseries/list.html.py:5
+msgid "nurseries"
+msgstr "Питомники"
+
+#: catalog/models.py:296
+msgid "pharmacy"
+msgstr "Аптека"
+
+#: catalog/models.py:297
+#: templates/base.html:65
+#: templates/base.html.py:98
+#: templates/pharmacies/item.html:3
+#: templates/pharmacies/list.html:3
+#: templates/pharmacies/list.html.py:5
+msgid "pharmacies"
+msgstr "Аптеки"
+
+#: content/models.py:11
+#: content/models.py:36
+#: content/models.py:92
+#: system/models.py:11
+#: system/models.py:31
+#: system/models.py:46
+#: system/models.py:68
+msgid "slug"
+msgstr "URL-мия"
+
+#: content/models.py:13
+msgid "items_count"
+msgstr "Количество"
+
+#: content/models.py:22
+#: content/models.py:34
+#: qa/models.py:20
+#: templates/announcements/edit.html:19
+#: templates/qa/edit.html:19
+msgid "category"
+msgstr "Категория"
+
+#: content/models.py:23
+#: qa/models.py:21
+msgid "categories"
+msgstr "Категории"
+
+#: content/models.py:39
+#: content/models.py:95
+#: system/models.py:49
+msgid "page_title"
+msgstr "Заголовок страницы"
+
+#: content/models.py:40
+#: content/models.py:96
+#: system/models.py:50
+msgid "page_description"
+msgstr "Описание страницы"
+
+#: content/models.py:41
+#: content/models.py:97
+#: system/models.py:51
+msgid "page_keywords"
+msgstr "Ключевые слова"
+
+#: content/models.py:43
+msgid "allow_comment"
+msgstr "Разрешить комментировать"
+
+#: content/models.py:53
+msgid "article"
+msgstr "Статья"
+
+#: content/models.py:54
+#: templates/base.html:74
+#: templates/base.html.py:106
+msgid "articles"
+msgstr "Статьи"
+
+#: content/models.py:107
+#: system/models.py:61
+msgid "page"
+msgstr "Страница"
+
+#: content/models.py:108
+#: system/models.py:62
+msgid "pages"
+msgstr "Страниц"
+
+#: photoalbums/models.py:28
+msgid "photoalbum"
+msgstr "Фотоальбом"
+
+#: photoalbums/models.py:29
+#: templates/base.html:32
+#: templates/photoalbums/list.html:4
+#: templates/users/user-profile.html:60
+msgid "photoalbums"
+msgstr "Фотоальбомы"
+
+#: photoalbums/models.py:39
+msgid "album"
+msgstr "Альбом"
+
+#: photoalbums/models.py:52
+msgid "photoalbum_photo"
+msgstr "Фотография"
+
+#: photoalbums/models.py:53
+msgid "photoalbum_photos"
+msgstr "Фотографии"
+
+#: qa/models.py:41
+msgid "animal_type"
+msgstr "Вид животного"
+
+#: qa/models.py:56
+#: qa/models.py:70
+msgid "question"
+msgstr "Вопрос"
+
+#: qa/models.py:57
+#: templates/base.html:33
+msgid "questions"
+msgstr "Вопросы"
+
+#: qa/models.py:68
+msgid "parent"
+msgstr ""
+
+#: qa/models.py:71
+#: qa/models.py:80
+msgid "answer"
+msgstr "Ответ"
+
+#: qa/models.py:81
+msgid "answers"
+msgstr "Ответы"
+
+#: system/models.py:13
+msgid "template"
+msgstr "Шаблон"
+
+#: system/models.py:24
+msgid "mail_template"
+msgstr "Почтовый шаблон"
+
+#: system/models.py:25
+msgid "mail_templates"
+msgstr "Почтовые шаблоны"
+
+#: system/models.py:30
+#: templates/announcements/edit.html:22
+#: templates/clubs/edit.html:17
+#: templates/meetings/edit.html:16
+#: templates/users/my-settings.html:39
+#: templates/users/register.html:52
+#: templates/users/user-settings.html:45
+msgid "city"
+msgstr "Город"
+
+#: system/models.py:39
+msgid "textblock"
+msgstr "Текстовый блок"
+
+#: system/models.py:40
+msgid "textblocks"
+msgstr "Текстовые блоки"
+
+#: system/models.py:69
+msgid "value"
+msgstr "Значение"
+
+#: system/models.py:76
+#: system/models.py:77
+#: templates/base.html:34
+#: templates/users/user-settings.html:3
+msgid "settings"
+msgstr "Настройки"
+
+#: system/views.py:17
+msgid "monthes-01"
+msgstr "Январь"
+
+#: system/views.py:18
+msgid "monthes-02"
+msgstr "Февраль"
+
+#: system/views.py:19
+msgid "monthes-03"
+msgstr "Март"
+
+#: system/views.py:20
+msgid "monthes-04"
+msgstr "Апрель"
+
+#: system/views.py:21
+msgid "monthes-05"
+msgstr "Май"
+
+#: system/views.py:22
+msgid "monthes-06"
+msgstr "Июнь"
+
+#: system/views.py:23
+msgid "monthes-07"
+msgstr "Июль"
+
+#: system/views.py:24
+msgid "monthes-08"
+msgstr "Август"
+
+#: system/views.py:25
+msgid "monthes-09"
+msgstr "Сентябрь"
+
+#: system/views.py:26
+msgid "monthes-10"
+msgstr "Октябрь"
+
+#: system/views.py:27
+msgid "monthes-11"
+msgstr "Ноябрь"
+
+#: system/views.py:28
+msgid "monthes-12"
+msgstr "Декабрь"
+
+#: system/views.py:31
+msgid "monthes-r-01"
+msgstr ""
+
+#: system/views.py:32
+msgid "monthes-r-02"
+msgstr ""
+
+#: system/views.py:33
+msgid "monthes-r-03"
+msgstr ""
+
+#: system/views.py:34
+msgid "monthes-r-04"
+msgstr ""
+
+#: system/views.py:35
+msgid "monthes-r-05"
+msgstr ""
+
+#: system/views.py:36
+msgid "monthes-r-06"
+msgstr ""
+
+#: system/views.py:37
+msgid "monthes-r-07"
+msgstr ""
+
+#: system/views.py:38
+msgid "monthes-r-08"
+msgstr ""
+
+#: system/views.py:39
+msgid "monthes-r-09"
+msgstr ""
+
+#: system/views.py:40
+msgid "monthes-r-10"
+msgstr ""
+
+#: system/views.py:41
+msgid "monthes-r-11"
+msgstr ""
+
+#: system/views.py:42
+msgid "monthes-r-12"
+msgstr ""
+
+#: templates/base.html:27
+msgid "messages"
+msgstr "Сообщения"
+
+#: templates/base.html:28
+#: templates/users/user-friends.html:3
+#: templates/users/user-profile.html:7
+msgid "friends"
+msgstr "Друзья"
+
+#: templates/base.html:51
+#: templates/base.html.py:88
+msgid "catalog"
+msgstr "Каталог"
+
+#: templates/base.html:52
+#: templates/base.html.py:105
+#: templates/catalog/events.html:4
+msgid "events"
+msgstr "События"
+
+#: templates/base.html:53
+#: templates/base.html.py:104
+msgid "interesting"
+msgstr "Интересы"
+
+#: templates/base.html:58
+msgid "announcements-"
+msgstr ""
+
+#: templates/base.html:73
+#: templates/qa/item.html:3
+#: templates/qa/list.html:3
+#: templates/qa/list.html.py:5
+msgid "qa"
+msgstr "Вопросы и ответы"
+
+#: templates/base.html:89
+msgid "animals-catalog"
+msgstr "Каталог животных"
+
+#: templates/base.html:92
+msgid "clinics-short"
+msgstr "Клиника"
+
+#: templates/base.html:93
+msgid "shop"
+msgstr "Магазин"
+
+#: templates/base.html:96
+msgid "useful"
+msgstr "Полезное"
+
+#: templates/base.html:97
+msgid "shops"
+msgstr "Магазины"
+
+#: templates/base.html:107
+#: templates/catalog/question-answers.html:6
+#: templates/catalog/question-answers.html:39
+msgid "faqs"
+msgstr "Вопросы"
+
+#: templates/base.html:109
+msgid "names"
+msgstr "Клички"
+
+#: templates/base.html:112
+msgid "about-info"
+msgstr "О сервисе"
+
+#: templates/base.html:113
+msgid "about-project"
+msgstr "О проекте"
+
+#: templates/base.html:114
+msgid "about-news"
+msgstr "Новости проекта"
+
+#: templates/base.html:115
+msgid "about-advert"
+msgstr "Реклама на сайте"
+
+#: templates/base.html:116
+msgid "about-agreement"
+msgstr "Пользовательское соглашение"
+
+#: templates/base.html:117
+msgid "about-stat"
+msgstr "Статистика"
+
+#: templates/base.html:118
+msgid "about-rules"
+msgstr "Правила использования"
+
+#: templates/base.html:121
+msgid "petsnet-in-world"
+msgstr "PetsNet в мире"
+
+#: templates/base.html:122
+msgid "country-ua"
+msgstr "Украина"
+
+#: templates/base.html:123
+msgid "country-ru"
+msgstr "Россия"
+
+#: templates/base.html:124
+msgid "country-by"
+msgstr "Белоруссия"
+
+#: templates/base.html:125
+msgid "country-kz"
+msgstr "Казахстан"
+
+#: templates/mainpage.html:56
+#: templates/mainpage.html.py:124
+#: templates/announcements/user-base.html:10
+msgid "announcements-all"
+msgstr "Все объявления"
+
+#: templates/mainpage.html:72
+#: templates/blocks/calendar.html:18
+msgid "events-all"
+msgstr "Все события"
+
+#: templates/mainpage.html:74
+msgid "articles-fresh"
+msgstr "Свежие статьи"
+
+#: templates/mainpage.html:87
+msgid "articles-all"
+msgstr "Все статьи"
+
+#: templates/mainpage.html:89
+msgid "comments-fresh"
+msgstr "Свежие комментарии"
+
+#: templates/mainpage.html:105
+msgid "annuncements-sale"
+msgstr "Продажа"
+
+#: templates/mainpage.html:126
+msgid "photo-dayly"
+msgstr "Фото дня"
+
+#: templates/mainpage.html:129
+#: templates/mainpage.html.py:151
+msgid "clinics-all"
+msgstr "Все клиники"
+
+#: templates/mainpage.html:146
+#: templates/clinics/item.html:27
+msgid "services"
+msgstr "Услуги"
+
+#: templates/mainpage.html:168
+msgid "news-all"
+msgstr "Все новости"
+
+#: templates/animals/animals-base.html:7
+msgid "search-by-params"
+msgstr "Поиск"
+
+#: templates/animals/animals-base.html:9
+#: templates/announcements/base.html:14
+msgid "im-search"
+msgstr "Найдено"
+
+#: templates/animals/animals-base.html:19
+#: templates/users/user-profile.html:63
+msgid "age"
+msgstr "Возраст"
+
+#: templates/animals/animals-base.html:23
+#: templates/announcements/base.html:25
+msgid "search"
+msgstr "Поиск"
+
+#: templates/animals/animals-edit.html:4
+#: templates/animals/animals-my.html:3
+#: templates/animals/animals-my.html:5
+#: templates/animals/user-base.html:7
+#: templates/users/my-home.html:10
+msgid "my-animals"
+msgstr "Мои животные"
+
+#: templates/animals/animals-edit.html:18
+msgid "animal-name"
+msgstr "Кличка"
+
+#: templates/animals/animals-edit.html:24
+msgid "breed_help"
+msgstr "Введите первые буквы названия породы и выберите породу из списка"
+
+#: templates/animals/animals-edit.html:26
+#: templates/users/my-settings.html:23
+#: templates/users/register.html:46
+msgid "birthday"
+msgstr "День рождения"
+
+#: templates/animals/animals-edit.html:33
+#: templates/announcements/edit.html:41
+msgid "photos"
+msgstr "Фотографии"
+
+#: templates/animals/animals-edit.html:38
+#: templates/announcements/edit.html:46
+#: templates/announcements/item.html:69
+#: templates/announcements/list.html:29
+#: templates/announcements/my.html:18
+#: templates/blogs/my.html:15
+#: templates/clubs/my.html:14
+#: templates/meetings/my.html:15
+#: templates/photoalbums/my.html:14
+#: templates/qa/item.html:55
+#: templates/users/my-home.html:37
+#: templates/users/my-home.html.py:61
+#: templates/users/my-home.html:88
+msgid "delete"
+msgstr "Удалить"
+
+#: templates/animals/animals-edit.html:49
+msgid "in-kg"
+msgstr "в кг"
+
+#: templates/animals/animals-edit.html:52
+msgid "in-sm"
+msgstr "в см"
+
+#: templates/animals/animals-edit.html:58
+msgid "animal-history-descr"
+msgstr "Опишите, как животное у Вас появилось"
+
+#: templates/animals/animals-edit.html:66
+msgid "animal-it-like-descr"
+msgstr "Опишите, что любит кушать животное"
+
+#: templates/animals/animals-edit.html:70
+msgid "animal-it-not-like-descr"
+msgstr "Опишите, что не любит кушать животное"
+
+#: templates/animals/animals-edit.html:72
+#: templates/animals/animals-item.html:31
+msgid "animal-like-toy"
+msgstr "Любимая игрушка"
+
+#: templates/animals/animals-edit.html:75
+#: templates/animals/animals-item.html:32
+msgid "animal-like-eat"
+msgstr "Любимая еда"
+
+#: templates/animals/animals-edit.html:87
+#: templates/announcements/edit.html:58
+#: templates/blogs/edit.html:28
+#: templates/clubs/edit.html:46
+#: templates/meetings/edit.html:42
+#: templates/photoalbums/edit.html:24
+#: templates/qa/edit.html:32
+#: templates/users/my-new-message.html:31
+#: templates/users/my-settings.html:78
+#: templates/users/user-settings.html:91
+msgid "save"
+msgstr "Сохранить"
+
+#: templates/animals/animals-item.html:25
+msgid "animal-properties"
+msgstr ""
+
+#: templates/animals/animals-item.html:28
+msgid "no"
+msgstr "Нет"
+
+#: templates/animals/animals-item.html:37
+msgid "about-owner"
+msgstr "О владельце"
+
+#: templates/animals/animals-item.html:68
+#: templates/exhibitions/item.html:68
+msgid "comments-no-rows"
+msgstr "Нет комментариев"
+
+#: templates/animals/animals-item.html:73
+#: templates/blocks/news-comments.html:31
+#: templates/exhibitions/item.html:74
+msgid "comments-add"
+msgstr "Добавить комментарий"
+
+#: templates/animals/animals-item.html:74
+#: templates/blocks/news-comments.html:32
+msgid "theme"
+msgstr "Тема"
+
+#: templates/animals/animals-item.html:76
+#: templates/blocks/news-comments.html:34
+#: templates/blogs/item.html:34
+#: templates/catalog/question-answers.html:64
+#: templates/clubs/item.html:64
+#: templates/exhibitions/item.html:76
+#: templates/meetings/item.html:68
+#: templates/news/item.html:34
+#: templates/photoalbums/item.html:33
+#: templates/users/user-post.html:34
+#: templates/users/user-profile.html:111
+msgid "send"
+msgstr "Отправить"
+
+#: templates/animals/animals-list.html:7
+#: templates/animals/animals-my.html:7
+#: templates/animals/breeds.html:23
+#: templates/animals/names.html:18
+#: templates/announcements/list.html:7
+#: templates/announcements/my.html:7
+#: templates/blogs/list.html:7
+#: templates/blogs/my.html:7
+#: templates/catalog/events.html:6
+#: templates/catalog/question-answers.html:9
+#: templates/clinics/list.html:7
+#: templates/clubs/list.html:7
+#: templates/clubs/my.html:6
+#: templates/exhibitions/list.html:7
+#: templates/meetings/list.html:7
+#: templates/meetings/my.html:7
+#: templates/news/list.html:7
+#: templates/nurseries/list.html:7
+#: templates/pharmacies/list.html:7
+#: templates/photoalbums/list.html:6
+#: templates/photoalbums/my.html:6
+#: templates/qa/list.html:7
+#: templates/qa/my.html:6
+#: templates/users/user-animals.html:7
+#: templates/users/user-blog.html:7
+#: templates/users/user-meetings.html:7
+msgid "show-from"
+msgstr ""
+
+#: templates/animals/animals-list.html:7
+#: templates/animals/animals-my.html:7
+#: templates/animals/breeds.html:23
+#: templates/animals/names.html:18
+#: templates/announcements/list.html:7
+#: templates/announcements/my.html:7
+#: templates/blogs/list.html:7
+#: templates/blogs/my.html:7
+#: templates/catalog/events.html:6
+#: templates/catalog/question-answers.html:9
+#: templates/clinics/list.html:7
+#: templates/clubs/list.html:7
+#: templates/clubs/my.html:6
+#: templates/exhibitions/list.html:7
+#: templates/meetings/list.html:7
+#: templates/meetings/my.html:7
+#: templates/news/list.html:7
+#: templates/nurseries/list.html:7
+#: templates/pharmacies/list.html:7
+#: templates/photoalbums/list.html:6
+#: templates/photoalbums/my.html:6
+#: templates/qa/list.html:7
+#: templates/qa/my.html:6
+#: templates/users/user-animals.html:7
+#: templates/users/user-blog.html:7
+#: templates/users/user-meetings.html:7
+msgid "show-to"
+msgstr ""
+
+#: templates/animals/animals-list.html:7
+#: templates/animals/animals-my.html:7
+#: templates/animals/breeds.html:23
+#: templates/animals/names.html:18
+#: templates/announcements/list.html:7
+#: templates/announcements/my.html:7
+#: templates/blogs/list.html:7
+#: templates/blogs/my.html:7
+#: templates/catalog/events.html:6
+#: templates/catalog/question-answers.html:9
+#: templates/clinics/list.html:7
+#: templates/clubs/list.html:7
+#: templates/clubs/my.html:6
+#: templates/exhibitions/list.html:7
+#: templates/meetings/list.html:7
+#: templates/meetings/my.html:7
+#: templates/news/list.html:7
+#: templates/nurseries/list.html:7
+#: templates/pharmacies/list.html:7
+#: templates/photoalbums/list.html:6
+#: templates/photoalbums/my.html:6
+#: templates/qa/list.html:7
+#: templates/qa/my.html:6
+#: templates/users/user-animals.html:7
+#: templates/users/user-blog.html:7
+#: templates/users/user-meetings.html:7
+msgid "show-fromall"
+msgstr ""
+
+#: templates/animals/animals-list.html:24
+#: templates/animals/animals-my.html:27
+#: templates/announcements/list.html:39
+#: templates/announcements/my.html:38
+#: templates/blogs/list.html:27
+#: templates/blogs/my.html:31
+#: templates/catalog/events.html:34
+#: templates/clinics/list.html:29
+#: templates/clubs/list.html:28
+#: templates/clubs/my.html:31
+#: templates/exhibitions/list.html:38
+#: templates/meetings/list.html:28
+#: templates/meetings/my.html:32
+#: templates/news/list.html:27
+#: templates/nurseries/list.html:34
+#: templates/pharmacies/list.html:29
+#: templates/photoalbums/list.html:26
+#: templates/photoalbums/my.html:30
+#: templates/qa/list.html:27
+#: templates/qa/my.html:29
+#: templates/users/user-animals.html:27
+#: templates/users/user-blog.html:27
+#: templates/users/user-meetings.html:35
+msgid "pager-back"
+msgstr "Назад"
+
+#: templates/animals/animals-list.html:27
+#: templates/animals/animals-my.html:30
+#: templates/announcements/list.html:42
+#: templates/announcements/my.html:41
+#: templates/blogs/list.html:30
+#: templates/blogs/my.html:34
+#: templates/catalog/events.html:37
+#: templates/clinics/list.html:32
+#: templates/clubs/list.html:31
+#: templates/clubs/my.html:34
+#: templates/exhibitions/list.html:41
+#: templates/meetings/list.html:31
+#: templates/meetings/my.html:35
+#: templates/news/list.html:30
+#: templates/nurseries/list.html:37
+#: templates/pharmacies/list.html:32
+#: templates/photoalbums/list.html:29
+#: templates/photoalbums/my.html:33
+#: templates/qa/list.html:30
+#: templates/qa/my.html:32
+#: templates/users/user-animals.html:30
+#: templates/users/user-blog.html:30
+#: templates/users/user-meetings.html:38
+msgid "pager-page"
+msgstr "страница"
+
+#: templates/animals/animals-list.html:27
+#: templates/animals/animals-my.html:30
+#: templates/announcements/list.html:42
+#: templates/announcements/my.html:41
+#: templates/blogs/list.html:30
+#: templates/blogs/my.html:34
+#: templates/catalog/events.html:37
+#: templates/clinics/list.html:32
+#: templates/clubs/list.html:31
+#: templates/clubs/my.html:34
+#: templates/exhibitions/list.html:41
+#: templates/meetings/list.html:31
+#: templates/meetings/my.html:35
+#: templates/news/list.html:30
+#: templates/nurseries/list.html:37
+#: templates/pharmacies/list.html:32
+#: templates/photoalbums/list.html:29
+#: templates/photoalbums/my.html:33
+#: templates/qa/list.html:30
+#: templates/qa/my.html:32
+#: templates/users/user-animals.html:30
+#: templates/users/user-blog.html:30
+#: templates/users/user-meetings.html:38
+msgid "pager-of"
+msgstr "из"
+
+#: templates/animals/animals-list.html:30
+#: templates/animals/animals-my.html:33
+#: templates/announcements/list.html:45
+#: templates/announcements/my.html:44
+#: templates/blogs/list.html:33
+#: templates/blogs/my.html:37
+#: templates/catalog/events.html:40
+#: templates/clinics/list.html:35
+#: templates/clubs/list.html:34
+#: templates/clubs/my.html:37
+#: templates/exhibitions/list.html:44
+#: templates/meetings/list.html:34
+#: templates/meetings/my.html:38
+#: templates/news/list.html:33
+#: templates/nurseries/list.html:40
+#: templates/pharmacies/list.html:35
+#: templates/photoalbums/list.html:32
+#: templates/photoalbums/my.html:36
+#: templates/qa/list.html:33
+#: templates/qa/my.html:35
+#: templates/users/user-animals.html:33
+#: templates/users/user-blog.html:33
+#: templates/users/user-meetings.html:41
+msgid "pager-next"
+msgstr "Далее"
+
+#: templates/animals/animals-list.html:34
+#: templates/animals/animals-my.html:37
+#: templates/users/user-animals.html:37
+msgid "animals-no-rows"
+msgstr "Нет ни одного животного"
+
+#: templates/animals/animals-my.html:16
+#: templates/announcements/item.html:68
+#: templates/announcements/list.html:28
+#: templates/announcements/my.html:17
+#: templates/blogs/my.html:14
+#: templates/catalog/events.html:25
+#: templates/clubs/my.html:13
+#: templates/exhibitions/list.html:29
+#: templates/meetings/my.html:14
+#: templates/photoalbums/my.html:13
+#: templates/qa/item.html:54
+#: templates/qa/my.html:13
+#: templates/users/my-home.html:19
+#: templates/users/my-home.html.py:36
+#: templates/users/my-home.html:60
+#: templates/users/my-home.html.py:87
+#: templates/users/user-animals.html:16
+msgid "edit"
+msgstr "Редактировать"
+
+#: templates/animals/breeds.html:37
+#: templates/animals/names.html:27
+msgid "no-rows"
+msgstr "Ничего не найдено"
+
+#: templates/animals/user-base.html:9
+#: templates/announcements/user-base.html:9
+#: templates/blogs/user-base.html:9
+#: templates/clubs/user-base.html:9
+#: templates/meetings/user-base.html:9
+#: templates/photoalbums/user-base.html:9
+#: templates/qa/user-base.html:9
+#: templates/users/my-messages.html:11
+msgid "add-new"
+msgstr "Добавить новое"
+
+#: templates/animals/user-base.html:10
+msgid "animals-all"
+msgstr "Все животные"
+
+#: templates/announcements/base.html:39
+#: templates/announcements/item.html:47
+msgid "announcements-other"
+msgstr "Другое"
+
+#: templates/announcements/edit.html:4
+msgid "my-announcements-edit"
+msgstr "Редактировать объявление"
+
+#: templates/announcements/edit.html:14
+msgid "ann_name_help"
+msgstr ""
+
+#: templates/announcements/edit.html:25
+#: templates/clubs/edit.html:20
+#: templates/meetings/edit.html:19
+#: templates/users/my-settings.html:42
+msgid "city_help"
+msgstr "Введите первые буквы города"
+
+#: templates/announcements/edit.html:35
+#: templates/users/my-settings.html:52
+msgid "phone_help"
+msgstr "Укажите телефон"
+
+#: templates/announcements/edit.html:39
+msgid "ann_price_help"
+msgstr ""
+
+#: templates/announcements/item.html:14
+#: templates/announcements/item.html:58
+#: templates/announcements/list.html:18
+#: templates/announcements/my.html:28
+#: templates/users/my-home.html:98
+msgid "active-to"
+msgstr "Активно до"
+
+#: templates/announcements/item.html:35
+msgid "contacts"
+msgstr "Контакты"
+
+#: templates/announcements/list.html:49
+#: templates/announcements/my.html:48
+msgid "announcements-no-rows"
+msgstr "Не найдено ни одного объявления"
+
+#: templates/announcements/my.html:3
+#: templates/announcements/my.html.py:5
+#: templates/announcements/user-base.html:7
+#: templates/users/my-home.html:77
+msgid "my-announcements"
+msgstr "Мои объявления"
+
+#: templates/blocks/calendar.html:3
+msgid "calendar"
+msgstr "Календарь"
+
+#: templates/blogs/edit.html:4
+msgid "my-posts-edit"
+msgstr "Редактировать пост"
+
+#: templates/blogs/edit.html:20
+msgid "blog_tags_help"
+msgstr "Теги"
+
+#: templates/blogs/item.html:32
+#: templates/photoalbums/item.html:31
+#: templates/qa/item.html:32
+#: templates/users/user-post.html:32
+msgid "qa-add-answer"
+msgstr "Задать вопрос"
+
+#: templates/blogs/list.html:37
+#: templates/users/user-blog.html:37
+#: templates/users/user-profile.html:57
+msgid "blogs-no-rows"
+msgstr "Записей пока нет"
+
+#: templates/blogs/my.html:3
+#: templates/blogs/my.html.py:5
+#: templates/users/my-home.html:53
+msgid "my-blog-posts"
+msgstr "Мои заметки"
+
+#: templates/blogs/my.html:41
+msgid "posts-no-rows"
+msgstr "Заметок нет"
+
+#: templates/blogs/user-base.html:7
+#, fuzzy
+msgid "my-blogs"
+msgstr "Дневники"
+
+#: templates/blogs/user-base.html:10
+#: templates/users/my-home.html:53
+#, fuzzy
+msgid "blogs-all"
+msgstr "Дневники"
+
+#: templates/catalog/events.html:44
+#: templates/exhibitions/list.html:48
+msgid "exhibitions-no-rows"
+msgstr "Выставок пока нет"
+
+#: templates/catalog/question-answers.html:17
+msgid "qa-answers-count"
+msgstr "Кол-во ответов"
+
+#: templates/catalog/question-answers.html:34
+#: templates/clinics/list.html:39
+#: templates/nurseries/list.html:44
+#: templates/pharmacies/list.html:39
+msgid "clinics-no-rows"
+msgstr "Клиник пока нет"
+
+#: templates/catalog/question-answers.html:58
+#: templates/qa/list.html:37
+msgid "qa-no-rows"
+msgstr "Вопросов пока нет"
+
+#: templates/catalog/question-answers.html:62
+msgid "qa-answer-add"
+msgstr ""
+
+#: templates/clinics/base.html:8
+#: templates/clubs/base.html:15
+#: templates/exhibitions/base.html:14
+#: templates/meetings/base.html:9
+#: templates/nurseries/base.html:20
+#: templates/pharmacies/base.html:8
+msgid "regions-all"
+msgstr ""
+
+#: templates/clinics/item.html:13
+#: templates/pharmacies/item.html:13
+msgid "map"
+msgstr ""
+
+#: templates/clinics/item.html:21
+#: templates/pharmacies/item.html:21
+msgid "messages-write"
+msgstr ""
+
+#: templates/clinics/list.html:20
+#: templates/nurseries/list.html:26
+#: templates/pharmacies/list.html:20
+msgid "comments-count"
+msgstr ""
+
+#: templates/clubs/base.html:9
+#: templates/exhibitions/base.html:8
+#: templates/nurseries/base.html:8
+#: templates/qa/base.html:9
+msgid "types-all"
+msgstr ""
+
+#: templates/clubs/edit.html:4
+msgid "my-clubs-edit"
+msgstr ""
+
+#: templates/clubs/edit.html:15
+#: templates/meetings/edit.html:14
+msgid "meetings_name_help"
+msgstr ""
+
+#: templates/clubs/item.html:34
+msgid "clubs-members"
+msgstr ""
+
+#: templates/clubs/item.html:62
+#: templates/meetings/item.html:66
+#: templates/news/item.html:32
+msgid "add-comment"
+msgstr ""
+
+#: templates/clubs/list.html:38
+#: templates/clubs/my.html:41
+msgid "clubs-no-rows"
+msgstr ""
+
+#: templates/clubs/my.html:4
+#: templates/clubs/user-base.html:7
+msgid "my-clubs"
+msgstr ""
+
+#: templates/clubs/user-base.html:10
+msgid "clubs-all"
+msgstr ""
+
+#: templates/content/articles.html:32
+#: templates/content/content.html:28
+msgid "content-no-rows"
+msgstr ""
+
+#: templates/content/content.html:20
+msgid "more"
+msgstr ""
+
+#: templates/exhibitions/base.html:20
+#: templates/meetings/base.html:15
+msgid "date-all"
+msgstr ""
+
+#: templates/exhibitions/item.html:23
+#: templates/exhibitions/list.html:25
+msgid "exhibition-enter-price"
+msgstr ""
+
+#: templates/exhibitions/item.html:23
+#: templates/exhibitions/list.html:25
+msgid "exhibition-enter-free"
+msgstr ""
+
+#: templates/exhibitions/item.html:32
+msgid "exhibition-experts"
+msgstr ""
+
+#: templates/exhibitions/item.html:37
+msgid "exhibitions-members"
+msgstr ""
+
+#: templates/exhibitions/item.html:52
+msgid "exhibitions-no-members"
+msgstr ""
+
+#: templates/exhibitions/item.html:80
+msgid "comments-need-auth"
+msgstr ""
+
+#: templates/exhibitions/item.html:83
+msgid "exhibitions-other"
+msgstr ""
+
+#: templates/meetings/edit.html:4
+msgid "my-meetings-edit"
+msgstr ""
+
+#: templates/meetings/edit.html:27
+msgid "begin_end_date"
+msgstr ""
+
+#: templates/meetings/edit.html:31
+msgid "meeting_time"
+msgstr ""
+
+#: templates/meetings/item.html:38
+msgid "meeting-members"
+msgstr ""
+
+#: templates/meetings/list.html:38
+#: templates/meetings/my.html:42
+#: templates/users/user-meetings.html:45
+#: templates/users/user-profile.html:38
+msgid "meetings-no-rows"
+msgstr ""
+
+#: templates/meetings/my.html:3
+#: templates/meetings/my.html.py:5
+#: templates/meetings/user-base.html:7
+#: templates/users/my-home.html:29
+msgid "my-meetings"
+msgstr ""
+
+#: templates/meetings/user-base.html:10
+msgid "meetings-all"
+msgstr ""
+
+#: templates/news/list.html:37
+msgid "news-no-rows"
+msgstr ""
+
+#: templates/nurseries/base.html:14
+msgid "services-all"
+msgstr ""
+
+#: templates/nurseries/item.html:14
+#: templates/nurseries/list.html:14
+msgid "nursery-breeds"
+msgstr ""
+
+#: templates/nurseries/item.html:22
+msgid "nurseries-owner"
+msgstr ""
+
+#: templates/nurseries/item.html:23
+msgid "nurseries-system"
+msgstr ""
+
+#: templates/photoalbums/edit.html:4
+msgid "my-photoalbums-edit"
+msgstr ""
+
+#: templates/photoalbums/list.html:36
+#: templates/photoalbums/my.html:40
+msgid "photoalbums-no-rows"
+msgstr ""
+
+#: templates/photoalbums/my.html:4
+msgid "my-photoalbums"
+msgstr ""
+
+#: templates/photoalbums/user-base.html:7
+msgid "my-blogs-posts"
+msgstr ""
+
+#: templates/photoalbums/user-base.html:10
+msgid "blogs-posts-all"
+msgstr ""
+
+#: templates/qa/base.html:15
+msgid "categories-all"
+msgstr ""
+
+#: templates/qa/edit.html:4
+msgid "my-questions-edit"
+msgstr ""
+
+#: templates/qa/edit.html:14
+msgid "qa_name_help"
+msgstr ""
+
+#: templates/qa/edit.html:24
+msgid "qa_description_help"
+msgstr ""
+
+#: templates/qa/edit.html:28
+msgid "qa_tags_help"
+msgstr ""
+
+#: templates/qa/item.html:12
+#: templates/qa/list.html:18
+#: templates/qa/my.html:20
+msgid "answers_count"
+msgstr ""
+
+#: templates/qa/item.html:16
+msgid "qa-answers"
+msgstr ""
+
+#: templates/qa/item.html:34
+msgid "qa-ask"
+msgstr ""
+
+#: templates/qa/item.html:40
+msgid "qa-questions-other"
+msgstr ""
+
+#: templates/qa/my.html:4
+msgid "my-qa-questions"
+msgstr ""
+
+#: templates/qa/my.html:39
+msgid "questions-no-rows"
+msgstr ""
+
+#: templates/qa/user-base.html:7
+msgid "my-qa-qustions"
+msgstr ""
+
+#: templates/qa/user-base.html:10
+msgid "qa-questions-all"
+msgstr ""
+
+#: templates/users/auth.html:6
+#: templates/users/auth.html.py:9
+#: templates/users/signin.html:6
+#: templates/users/signin.html.py:9
+msgid "auth-failed"
+msgstr ""
+
+#: templates/users/auth.html:20
+#: templates/users/register.html:38
+msgid "password"
+msgstr ""
+
+#: templates/users/base.html:17
+#, fuzzy
+msgid "message-write"
+msgstr "Сообщения"
+
+#: templates/users/base.html:18
+#, fuzzy
+msgid "friends-add"
+msgstr "Друзья"
+
+#: templates/users/base.html:19
+msgid "user-profile"
+msgstr ""
+
+#: templates/users/my-friends.html:3
+#: templates/users/my-friends.html.py:24
+#: templates/users/my-home.html:110
+#: templates/users/user-friends.html:6
+msgid "my-friends"
+msgstr ""
+
+#: templates/users/my-friends.html:11
+msgid "my-friends-waiting"
+msgstr ""
+
+#: templates/users/my-home.html:10
+#: templates/users/my-home.html.py:29
+#: templates/users/my-home.html:77
+msgid "add"
+msgstr ""
+
+#: templates/users/my-home.html:107
+#, fuzzy
+msgid "my-events"
+msgstr "События"
+
+#: templates/users/my-home.html:107
+msgid "all"
+msgstr ""
+
+#: templates/users/my-home.html:110
+msgid "friends-all"
+msgstr ""
+
+#: templates/users/my-messages.html:3
+#: templates/users/my-messages.html.py:9
+#: templates/users/my-messages.html:18
+#: templates/users/my-new-message.html:3
+#: templates/users/my-show-dialog.html:10
+msgid "my-messages"
+msgstr ""
+
+#: templates/users/my-messages.html:12
+#, fuzzy
+msgid "messages-inbox"
+msgstr "Сообщения"
+
+#: templates/users/my-messages.html:13
+#, fuzzy
+msgid "messages-sent"
+msgstr "Сообщения"
+
+#: templates/users/my-new-message.html:3
+#: templates/users/my-new-message.html:5
+#, fuzzy
+msgid "new-messages"
+msgstr "Сообщения"
+
+#: templates/users/my-new-message.html:12
+msgid "recepient"
+msgstr ""
+
+#: templates/users/my-settings.html:3
+#: templates/users/my-settings.html:10
+msgid "my-settings"
+msgstr ""
+
+#: templates/users/my-settings.html:16
+msgid "settings-general"
+msgstr ""
+
+#: templates/users/my-settings.html:17
+#: templates/users/register.html:24
+#: templates/users/user-settings.html:18
+msgid "first_name"
+msgstr ""
+
+#: templates/users/my-settings.html:20
+#: templates/users/register.html:28
+#: templates/users/user-settings.html:26
+msgid "last_name"
+msgstr ""
+
+#: templates/users/my-settings.html:31
+#: templates/users/user-settings.html:53
+msgid "avatar"
+msgstr ""
+
+#: templates/users/my-settings.html:37
+msgid "settings-contacts"
+msgstr ""
+
+#: templates/users/my-settings.html:47
+#: templates/users/user-profile.html:70
+#: users/models.py:23
+msgid "contact_email"
+msgstr ""
+
+#: templates/users/my-settings.html:50
+#: templates/users/user-profile.html:67
+#: users/models.py:24
+msgid "contact_phone"
+msgstr ""
+
+#: templates/users/my-settings.html:54
+#: templates/users/user-profile.html:68
+#: users/models.py:25
+msgid "contact_skype"
+msgstr ""
+
+#: templates/users/my-settings.html:60
+msgid "settings-about"
+msgstr ""
+
+#: templates/users/my-settings.html:62
+#: users/models.py:29
+msgid "interests"
+msgstr ""
+
+#: templates/users/my-settings.html:65
+#: users/models.py:30
+msgid "like_books"
+msgstr ""
+
+#: templates/users/my-settings.html:68
+#: users/models.py:31
+msgid "like_films"
+msgstr ""
+
+#: templates/users/my-settings.html:71
+#: users/models.py:32
+msgid "like_phrases"
+msgstr ""
+
+#: templates/users/my-settings.html:74
+#: users/models.py:33
+msgid "about"
+msgstr ""
+
+#: templates/users/my-show-dialog.html:3
+msgid "my-dialog"
+msgstr ""
+
+#: templates/users/register.html:11
+msgid "register-success"
+msgstr ""
+
+#: templates/users/register.html:14
+msgid "register-failed"
+msgstr ""
+
+#: templates/users/register.html:40
+#: templates/users/user-settings.html:112
+msgid "password-repeat"
+msgstr ""
+
+#: templates/users/register.html:55
+#: templates/users/user-settings.html:49
+msgid "choose-city-descr"
+msgstr ""
+
+#: templates/users/register.html:60
+msgid "user-gender"
+msgstr ""
+
+#: templates/users/register.html:65
+msgid "register"
+msgstr ""
+
+#: templates/users/user-profile.html:18
+msgid "friends-no-rows"
+msgstr ""
+
+#: templates/users/user-profile.html:41
+#, fuzzy
+msgid "blog-posts"
+msgstr "Записи"
+
+#: templates/users/user-profile.html:65
+msgid "user_about"
+msgstr ""
+
+#: templates/users/user-profile.html:73
+msgid "user_activity"
+msgstr ""
+
+#: templates/users/user-profile.html:74
+msgid "user_interests"
+msgstr ""
+
+#: templates/users/user-profile.html:75
+msgid "user_like_books"
+msgstr ""
+
+#: templates/users/user-profile.html:76
+msgid "user_like_phrases"
+msgstr ""
+
+#: templates/users/user-profile.html:89
+msgid "animals-no-added"
+msgstr ""
+
+#: templates/users/user-profile.html:92
+msgid "wall"
+msgstr ""
+
+#: templates/users/user-profile.html:104
+msgid "wall-no-rows"
+msgstr ""
+
+#: templates/users/user-profile.html:109
+msgid "wall-write"
+msgstr ""
+
+#: templates/users/user-settings.html:5
+msgid "my-profile"
+msgstr ""
+
+#: templates/users/user-settings.html:7
+msgid "tab-general"
+msgstr ""
+
+#: templates/users/user-settings.html:8
+msgid "tab-change-pass"
+msgstr ""
+
+#: templates/users/user-settings.html:9
+msgid "tab-notifications"
+msgstr ""
+
+#: templates/users/user-settings.html:22
+msgid "second_name"
+msgstr ""
+
+#: templates/users/user-settings.html:57
+msgid "avatar-descr"
+msgstr ""
+
+#: templates/users/user-settings.html:61
+msgid "marital"
+msgstr ""
+
+#: templates/users/user-settings.html:65
+msgid "profession"
+msgstr ""
+
+#: templates/users/user-settings.html:68
+msgid "profession-descr"
+msgstr ""
+
+#: templates/users/user-settings.html:72
+msgid "its-important"
+msgstr ""
+
+#: templates/users/user-settings.html:75
+msgid "address-descr"
+msgstr ""
+
+#: templates/users/user-settings.html:104
+msgid "password-old"
+msgstr ""
+
+#: templates/users/user-settings.html:108
+msgid "password-new"
+msgstr ""
+
+#: templates/users/user-settings.html:116
+msgid "change-pass"
+msgstr ""
+
+#: users/models.py:28
+msgid "activity"
+msgstr ""
+
+#: users/models.py:58
+msgid "users"
+msgstr ""
+
+#: users/models.py:71
+msgid "friend_accept"
+msgstr ""
+
+#: users/models.py:80
+msgid "user_friend"
+msgstr ""
+
+#: users/models.py:81
+msgid "user_friends"
+msgstr ""
+
+#: users/models.py:89
+#: users/models.py:107
+msgid "message"
+msgstr ""
+
+#: users/models.py:90
+msgid "readed"
+msgstr ""
+
+#: users/models.py:99
+msgid "user_message"
+msgstr ""
+
+#: users/models.py:100
+msgid "user_messages"
+msgstr ""
+
+#: users/models.py:116
+msgid "user_wall"
+msgstr ""
+
+#: users/models.py:117
+msgid "user_walls"
+msgstr ""
+
+#: users/my.py:58
+#, fuzzy
+msgid "friend-added"
+msgstr "Друзья"
+
+#: users/my.py:60
+msgid "friend-added-yet"
+msgstr ""
+
+#~ msgid "weight"
+#~ msgstr "Вес"
+
+#~ msgid "height"
+#~ msgstr "Рост"
+
+#~ msgid "color"
+#~ msgstr "Окрас"
+
+#~ msgid "history"
+#~ msgstr "История появления"
+
+#~ msgid "it_like"
+#~ msgstr "Любит"
+
+#~ msgid "it_not_like"
+#~ msgstr "Не любит"

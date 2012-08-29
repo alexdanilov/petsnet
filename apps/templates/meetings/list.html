@@ -1,0 +1,40 @@
+{% extends "meetings/base.html" %}
+
+{% block title %}{{ _('meetings') }} &mdash; PetsNet - социальная сеть для владельцев домашних животных{% endblock %}
+{% block centercol %}
+    <h2>{{ _('meetings') }}</h2>
+    {% if items.object_list %}
+    <div class="search-result">{{ _('show-from') }} {{ start_index }} {{ _('show-to') }} {{ end_index }} {{ _('show-fromall') }} {{ items.paginator.count }}</div>
+    <div class="content" id="blogs-list">
+        <ul class="list infoblock">
+            {% for item in items.object_list %}
+            <li class="info">
+                <div>
+                    <a href="/meetings/show/{{ item.id }}" class="title">{{ item.name }}</a>
+                </div>
+                <p>{{ item.description|safe|truncatewords_html:20 }}</p>
+                <div class="infoparts">
+                    <span><a href="/users/{{ item.user.id }}">{{ item.user.name }}</a></span>
+                    <span>{{ _('members_count') }}: {{ item.members_count }}</span>
+                    <span>{{ _('comments_count') }}: {{ item.comments_count }}</span>
+                    <span>{{ _('show_count') }}: {{ item.show_count }}</span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="pager">
+        {% if items.has_previous %}
+            <a href="?{{ url }}&page={{ items.previous_page_number }}">{{ _('pager-back') }}</a>
+        {% endif %}
+        <span class="current">
+            {{ _('pager-page') }} {{ items.number }} {{ _('pager-of') }} {{ items.paginator.num_pages }}.
+        </span>
+        {% if items.has_next %}
+            <a href="?{{ url }}&page={{ items.next_page_number }}">{{ _('pager-next') }}</a>
+        {% endif %}
+    </div>
+    {% else %}
+    <div class="content"><p class="no-rows">{{ _('meetings-no-rows') }}</p></div>
+    {% endif %}
+{% endblock %}

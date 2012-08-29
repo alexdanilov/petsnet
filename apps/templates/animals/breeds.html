@@ -1,0 +1,40 @@
+{% extends "page.html" %}
+{% from '_macros.html' import select, radio %}
+{% block centercol %}
+    <h2>{{  section  }}</h2>
+    <div class="content">
+    <form action="?" method="get" class="search-box">
+        <div class="search-box-item">
+            <select name="type">{{  select(A.L.get('animals-types'), type)  }}</select>
+        </div>
+        <div class="search-box-item">
+            <input type="text" name="q" class="txt" size="20" value="{{  q  }}" />
+        </div>
+        <div class="search-box-item">
+            <input type="submit" value="Найти" class="btn" />
+        </div>
+    </form>
+    <div class="letters-box">
+        {% for letter in letters %}
+        <a href="?l={{  letter  }}" {% if letter == l %} class="c"{% endif %}>{{  letter  }}</a>
+        {% endfor %}
+    </div>
+    {% if items.items_count > 0 %}
+    <div class="search-result">{{ _('show-from') }} {{ pager.start + 1 }} {{ _('show-to') }} {{ items['show_count'] }} {{ _('show-fromall') }} {{ items['items_count'] }}</div>
+    <div class="items-list breeds">
+        {% for item in items['items'] %}
+        <div class="item">
+            <a href="#"><img src="/u/b/{{ item.id }}.jpg" alt="" /></a>
+            <a href="#" class="item-title">{{  item.name  }}</a>
+            <div class="item-info">
+                <span><img src="/i/ico-comment.png" class="ico" /> 16</span>
+                <img src="/i/ico-user.png" class="ico" /> 16
+            </div>
+        </div>
+        {% endfor %}
+     </div>
+    {% else %}
+    <p class="no-rows">{{ _('no-rows') }}</p>
+    {% endif %}
+    </div>
+{% endblock %}

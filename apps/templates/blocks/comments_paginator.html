@@ -1,0 +1,15 @@
+<div class="pageNavigation">
+    {% if comments.has_previous %}<a class="back" href="?{{ url }}&page={{ items.previous_page_number }}">Предыдущая</a>
+    {% else %}<span class="back">Предыдущая</span>
+    {% endif %}
+
+    {% for p in comments.paginator.page_range %}
+    {% if comments.number == p %}<span class="numPage">{{ p }}</span>
+    {% else %}<a class="numPage" href="?{{ url }}&page={{ p }}">{{ p }}</a>
+    {% endif %}
+    {% endfor %}
+
+    {% if comments.has_previous %}<a class="next" href="?{{ url }}&page={{ items.next_page_number }}">Следующая</a>
+    {% else %}<span class="next">Следующая</span>
+    {% endif %}
+</div>

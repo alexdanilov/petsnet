@@ -1,0 +1,5 @@
+a - animals
+u - avatars
+i - images
+p - photos
+an - announcements

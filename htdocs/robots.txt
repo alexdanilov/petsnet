@@ -1,0 +1,15 @@
+User-Agent: *
+Disallow: /account
+Disallow: /user
+Disallow: /ajax
+Disallow: */edit
+Sitemap: http://petsnet.in.ua/sitemap.xml
+Crawl-Delay: 0.3
+
+User-Agent: Yandex
+Disallow: /account
+Disallow: /user
+Disallow: /ajax
+Disallow: */edit
+Sitemap: http://petsnet.in.ua/sitemap.xml
+Crawl-Delay: 0.3

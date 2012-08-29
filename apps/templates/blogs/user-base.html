@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <div id="leftcol">
+        {% block leftcol %}
+        <div class="box borders">
+            <h2>{{ _('my-blogs') }}</h2>
+            <ul class="usermenu">
+                <li{% if user_menu == 'edit' %} class="c"{% endif %}><a href="/my/blog/add/">{{ _('add-new') }}</a></li>
+                <li{% if user_menu == 'list' %} class="c"{% endif %}><a href="/my/blog/">{{ _('blogs-all') }}</a></li>
+            </ul>
+        </div>
+        {% include "blocks/social.html" %}
+        {% endblock %}
+    </div>
+    <div id="centercol2" class="borders">
+        {% block centercol %}{% endblock %}
+    </div>
+{% endblock %}

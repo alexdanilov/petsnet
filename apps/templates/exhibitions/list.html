@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('exhibitions') }} &mdash; PetsNet - Сообщество владельцев домашних животных{% endblock %}
+
+{% block main %}
+<div class="navigation">
+    <div class="navigationBorder">
+        <div class="navigationInner">
+            <a href="/">Главная</a>
+            <span>{{ _('exhibitions') }}</span>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="mainLeft">
+        <div class="contentBlock">
+            <div class="headBlock">Поиск по выставкам</div>
+            <form action="" method="get" class="inner search">
+                <a class="showHide" href="#">Свернуть блок поиска</a>
+
+                <div class="label">Название:</div>
+                <input class="searchClinic" type="text" name="search" />
+                <div class="clear"></div>
+
+                <div class="label">Укажите регион:</div>
+                <div class="state">
+                    <select id="searchState" name="region">
+                        <option value="">Все регионы</option>
+                        {% for region in regions %}<option value="{{ region.id }}"{% if filter.region == region.id %} selected{% endif %}>{{ region.region__region }}</option>{% endfor %}
+                    </select>
+                </div>
+                <i class="sep">-</i>
+                <div class="city">
+                    <select id="searchCity" name="city">
+                        <option value="0">Все города</option>
+                        {% for city in cities %}<option value="{{ city.id }}"{% if filter.city == city.id %} selected{% endif %}>{{ city.city }}</option>{% endfor %}
+                    </select>
+                </div>
+                <div class="clear"></div>
+
+                <div class="label">Тип вставки:</div>
+                <div class="checkboxs">
+                    <div class="check">
+                        <span class="checkbox">
+                            <input type="checkbox" value="dogs" name="type">
+                        </span>
+                        <i class="checkLabel">Собаки</i>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="check">
+                        <span class="checkbox">
+                            <input type="checkbox" value="cats" name="type">
+                        </span>
+                        <i class="checkLabel">Кошки</i>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+
+                <button type="submit" name="searchButton"></button>
+                <div class="clear"></div>
+            </form>
+            <br />
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#searchState').change(function() {
+                        alert($(this).val());
+                        $('#searchCity').load('/ajax/get-cities/', 'r='+$(this).val());
+                    });
+                })
+            </script>
+
+            <div class="headBlock">{{ _('exhibitions') }}</div>
+            <div class="inner">
+                <div class="cats">
+                    <span>Сортировать:</span>
+                    <a{% if filter.order_by == 'begin_date' %} class="active"{% endif %} href="?{{ url }}&sort=begin_date">По дате</a>
+                    <a{% if filter.order_by == 'name' %} class="active"{% endif %} href="?{{ url }}&sort=name">По имени</a>
+                </div>
+                {% for item in object_list %}
+                <div class="preview items-list{% if forloop.last %} lastPreview{% endif %}">
+                    <div class="link" href="{{ item.url }}">
+                        <div class="image"><img src="/static/img/clinic_image.jpg" alt="Выставка {{ item.name }}" /></div>
+                        <div class="middle">
+                            <a class="name" href="{{ item.url }}">{{ item.name }}</a>
+                            <div class="clear"></div>
+                            <div class="address">{{ item.region }}, {{ item.address }}</div>
+                            <div class="clear"></div>
+                            <ul>
+                                <li>{{ item.begin_date }} &mdash; {{ item.end_date }}</li>
+                                <li>{{ item.working_hours }}</li>
+                                <li>{% if item.enter_price %}{{ item.enter_price }} грн{% else %}{{ _('free-entrence') }}{% endif %}</li>
+                            </ul>
+                            <ul>
+                                {% if item.email %}<li>{{ item.email }}</li>{% endif %}
+                                {% if item.website %}<li>{{ item.website }}</li>{% endif %}
+                                {% if item.system %}<li>{{ item.system }}</li>{% endif %}
+                                {% if item.organizator %}<li>{{ item.organizator }}</li>{% endif %}
+                            </ul>
+                            <ul class="last">
+                                {% for phone in item.phones_list %}<li>{{ phone }}</li>{% endfor %}
+                            </ul>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="right">
+                            <ul>
+                                <li><a href="{{ item.url }}#program">Программа</a></li>
+                                <li><a href="{{ item.url }}#about">О выставке</a></li>
+                                <li><a href="{{ item.url }}#members">Участники</a></li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% if is_paginated %}{% include "blocks/paginator.html" %}{% endif %}
+            </div>
+        </div>
+    </div>
+    <div id="mainRight">
+        {% include "blocks/user-cabinet.html" %}
+        <div class="rightBanner">
+            {% banner "clinics-right" %}
+        </div>
+        {% include "blocks/social.html" %}
+    </div>
+    <div class="clear"></div>
+    <div class="banner">{% banner "site-bottom" %}</div>
+</div>
+{% endblock %}

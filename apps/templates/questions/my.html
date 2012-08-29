@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('qa') }} &mdash; PetsNet - Сообщество владельцев домашних животных{% endblock %}
+
+{% block main %}
+<div class="navigation">
+    <div class="navigationBorder">
+        <div class="navigationInner">
+            <a href="/">Главная</a>
+            <span>Каталог вопросов</span>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="mainLeft">
+        <div class="contentBlock">
+            <div class="headBlock">{{ _('qa') }}</div>
+            <div class="inner">
+                <div class="cats">
+                    <span>Сортировать:</span>
+                    <a{% if filter.order_by == 'rating' %} class="active"{% endif %} href="?{{ url }}&sort=rating">По дате</a>
+                    <a{% if filter.order_by == 'name' %} class="active"{% endif %} href="?{{ url }}&sort=name">По ответам</a>
+                </div>
+                {% for item in object_list %}
+                <div class="preview items-list{% if forloop.last %} lastPreview{% endif %}">
+                    <div class="link" href="{{ item.url }}">
+                        <div class="middle">
+                            <a class="name" href="{{ item.url }}">{{ item.title }}</a>
+                            <div class="clear"></div>
+			    {% if item.animal_type or item.category %}
+			    <div class="info">
+				{% if item.animal_type %}<a href="?category={{ item.animal_type.id }}">{{ item.animal_type.name }}</a>{% endif %}
+				{% if item.category %}<a href="?category={{ item.category.id }}">{{ item.category.name }}</a>{% endif %}
+			    </div>
+			    {% endif %}
+                            <div class="address">{{ item.created }}</div>
+                            <div class="clear"></div>
+                            <p>{{ item.text }}</p>
+			    {% if member %}
+			    <a href="/questions/edit/{{ item.id }}/" class="user-action edit">{{ _('edit') }}</a>
+                            <a href="/questions/delete/{{ item.id }}/" class="user-action delete">{{ _('delete') }}</a>
+			    {% endif %}
+                        </div>
+                        <div class="right">
+                            <div class="ratingBlock">
+                                <span class="ratingLable">Рейтинг</span>
+                                <span class="grade">{{ item.rating }}/5</span>
+                                <span class="clear"></span>
+                            </div>
+                            <div class="status open">Ответов: {{ item.answers_count }}</div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% if is_paginated %}{% include "blocks/paginator.html" %}{% endif %}
+            </div>
+        </div>
+    </div>
+    <div id="mainRight">
+        {% include "blocks/user-cabinet.html" %}
+        <div class="rightBanner">
+            {% banner "clinics-right" %}
+        </div>
+        {% include "blocks/social.html" %}
+    </div>
+    <div class="clear"></div>
+    <div class="banner">{% banner "site-bottom" %}</div>
+</div>
+{% endblock %}

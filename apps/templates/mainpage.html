@@ -1,0 +1,590 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div id="content">
+    <div class="contentBlock dayPhoto">
+        <div class="headBlock">Фото дня</div>
+        <div class="inner">
+            <a class="image" href="/static/img/day_photo.jpg">
+                <img src="/static/img/day_photo.jpg" alt="" />
+                <span></span>
+            </a>
+            <div class="author">Автор: <a href="#">Дмитрий Сорокин</a></div>
+            <div class="rating"><div class="fill" style="width: 80%"></div></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="blockSeparator"></div>
+
+    <div class="noReg cabinet">
+			<div class="inner">
+				<div class="head">Что такое PetsNet?</div>
+				<span>В Великобритании на днях запустили первую социальную сеть - сайт знакомств для собак. Разумеется, он ориентирован на владельцев дорогих, элитных животных.</span>
+				<ul>
+					<li>Информация о клиниках и аптеках</li>
+					<li>Поиск партнеров</li>
+					<li>Выставки и награды</li>
+					<li>Бла бла бла</li>
+					<li>И ещё что то вкусное</li>
+				</ul>
+				<a class="registration" href="#"></a>
+			</div>
+		</div>
+        <!--
+    <div class="cabinet">
+        <div class="inner">
+            <div class="name">Alexandriya</div>
+            <form action="" method="" class="avatar" enctype="multipart/form-data">
+                <img src="img/no_avatar.jpg" alt="" />
+                <input type="file" name="avatar" />
+            </form>
+            <ul class="userMenu">
+                <li><a href="#">Мой профиль</a></li>
+                <li><a href="#">Сообщения <span>12</span></a></li>
+                <li><a href="#">Друзья</a></li>
+                <li><a href="#">Мои объявления</a></li>
+                <li><a href="#">Баланс</a></li>
+                <li><a href="#">Мои настройки</a></li>
+                <li><a href="#">Выход</a></li>
+            </ul>
+            <div class"clear"></div>
+        </div>
+    </div>
+    -->
+    <div class="clear"></div>
+    <div class="contentBlock board">
+        <div class="headBlock">
+				{{ _('announcements') }}
+            <div style="width: 329px;"><a href="/announcements/">{{ _('goto-section') }}</a></div>
+            <div class="clear"></div>
+        </div>
+        <div class="inner">
+            <div class="cats">
+                <a class="active" href="/announcements/?type=sale" rel="sale">{{ _('announcements-sale') }}</a>
+                <a href="/announcements/?type=buy" rel="buy">{{ _('announcements-buy') }}</a>
+                <a href="/announcements/?type=coupling" rel="coupling">{{ _('announcements-coupling') }}</a>
+                <a href="/announcements/?type=take-free" rel="take-free">{{ _('announcements-take-free') }}</a>
+                <a href="/announcements/?type=give-free" rel="give-free">{{ _('announcements-give-free') }}</a>
+                <a class="last" href="/announcements/?type=other" rel="other">{{ _('announcements-other') }}</a>
+            </div>
+            <div class="content-block show" id="block-sale">
+                {% for item in announcements_sale %}
+                <div class="preview{% if forloop.last %} lastPreview{% endif %}">
+                    <a class="link" href="{{ item.url }}">
+                        <img class="image" src="/static/{{ item.image }}" alt="{{ _('announcement') }} {{ item.title }}" />
+                        <span class="info">
+                            <span class="name">{{ item.title }}</span>
+                            <span class="price">{{ item.price }} грн</span>
+                        </span>
+                        <span class="date">
+                                Воскресенье<br />15 апрель 2012,
+                            <span class="city">Киев</span>
+                        </span>
+                        <span class="clear"></span>
+                    </a>
+                    <a class="toFav" href="#">В избранное</a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="content-block" id="block-buy">
+                {% for item in announcements_buy %}
+                <div class="preview{% if forloop.last %} lastPreview{% endif %}">
+                    <a class="link" href="{{ item.url }}">
+                        <img class="image" src="/static/{{ item.image }}" alt="{{ _('announcement') }} {{ item.title }}" />
+                        <span class="info">
+                            <span class="name">{{ item.title }}</span>
+                            <span class="price">{{ item.price }} грн</span>
+                        </span>
+                        <span class="date">
+                                Воскресенье<br />15 апрель 2012,
+                            <span class="city">Киев</span>
+                        </span>
+                        <span class="clear"></span>
+                    </a>
+                    <a class="toFav" href="#">В избранное</a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="content-block" id="block-coupling">
+                {% for item in announcements_coupling %}
+                <div class="preview{% if forloop.last %} lastPreview{% endif %}">
+                    <a class="link" href="{{ item.url }}">
+                        <img class="image" src="/static/{{ item.image }}" alt="{{ _('announcement') }} {{ item.title }}" />
+                        <span class="info">
+                            <span class="name">{{ item.title }}</span>
+                            <span class="price">{{ item.price }} грн</span>
+                        </span>
+                        <span class="date">
+                                Воскресенье<br />15 апрель 2012,
+                            <span class="city">Киев</span>
+                        </span>
+                        <span class="clear"></span>
+                    </a>
+                    <a class="toFav" href="#">В избранное</a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="content-block" id="block-take-free">
+                {% for item in announcements_take_free %}
+                <div class="preview{% if forloop.last %} lastPreview{% endif %}">
+                    <a class="link" href="{{ item.url }}">
+                        <img class="image" src="/static/{{ item.image }}" alt="{{ _('announcement') }} {{ item.title }}" />
+                        <span class="info">
+                            <span class="name">{{ item.title }}</span>
+                            <span class="price">{{ item.price }} грн</span>
+                        </span>
+                        <span class="date">
+                                Воскресенье<br />15 апрель 2012,
+                            <span class="city">Киев</span>
+                        </span>
+                        <span class="clear"></span>
+                    </a>
+                    <a class="toFav" href="#">В избранное</a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="content-block" id="block-give-free">
+                {% for item in announcements_give_free %}
+                <div class="preview{% if forloop.last %} lastPreview{% endif %}">
+                    <a class="link" href="{{ item.url }}">
+                        <img class="image" src="/static/{{ item.image }}" alt="{{ _('announcement') }} {{ item.title }}" />
+                        <span class="info">
+                            <span class="name">{{ item.title }}</span>
+                            <span class="price">{{ item.price }} грн</span>
+                        </span>
+                        <span class="date">
+                                Воскресенье<br />15 апрель 2012,
+                            <span class="city">Киев</span>
+                        </span>
+                        <span class="clear"></span>
+                    </a>
+                    <a class="toFav" href="#">В избранное</a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="content-block" id="block-other">
+                {% for item in announcements_other %}
+                <div class="preview{% if forloop.last %} lastPreview{% endif %}">
+                    <a class="link" href="{{ item.url }}">
+                        <img class="image" src="/static/{{ item.image }}" alt="{{ _('announcement') }} {{ item.title }}" />
+                        <span class="info">
+                            <span class="name">{{ item.title }}</span>
+                            <span class="price">{{ item.price }} грн</span>
+                        </span>
+                        <span class="date">
+                                Воскресенье<br />15 апрель 2012,
+                            <span class="city">Киев</span>
+                        </span>
+                        <span class="clear"></span>
+                    </a>
+                    <a class="toFav" href="#">В избранное</a>
+                </div>
+                {% endfor %}
+            </div>
+            <center>
+                <a class="bottomButton" href="/announcements/add/">
+                    <span class="text">{{ _('announcement-add') }}</span>
+                    <span class="icon"></span>
+                </a>
+            </center>
+        </div>
+    </div>
+
+    <div class="blockSeparator"></div>
+
+    <div class="contentBlock clinic">
+        <div class="headBlock">
+				{{ _('catalog') }}
+            <div style="width: 368px;"><a href="/clinics/">{{ _('goto-section') }}</a></div>
+            <div class="clear"></div>
+        </div>
+        <div class="inner">
+            <div class="cats">
+                <a class="active" href="/clinics/" rel="clinics">{{ _('clinics') }}</a>
+                <a href="/nurseries/" rel="nurseries">{{ _('nurseries') }}</a>
+                <a class="last" href="/pharmacies/" rel="pharmacies">{{ _('pharmacies') }}</a>
+            </div>
+            <div class="content-block show" id="block-clinics">
+                <a class="toSearch" href="/clinics/">{{ _('search-by-params') }}</a>
+                {% for item in clinics %}
+                <div class="preview {% if forloop.last %}lastPreview{% endif %}">
+                    <a class="link" href="{{ item.url }}">
+                        <img class="image" src="/static/{% if item.image %}{{ item.image }}{% else %}img/clinic_image.jpg{% endif %}" alt="{{ _('clinic') }} {{ item.name }}" />
+                        <span class="info">
+                            <span class="name">{{ item.name }}</span>
+                            <span class="city">{{ item.region }}</span>
+                            <span class="address">{{ item.region }} {{ item.address }}</span>
+                            <span class="list">
+                                {% for service in item.services.all %}
+                                <span>{{ service }}</span>
+                                {% endfor %}
+                            </span>
+                            <span class="list">
+                                <span>Пн-Пт {{ item.working_hours }}</span>
+                                <span>Сб {{ item.working_hours_sartuday }}</span>
+                                <span>Вс {{ item.working_hours_sanday }}</span>
+                            </span>
+                            <span class="list lastList">
+                                {% for phone in item.phones_list %}<span>{{ phone }}</span>{% endfor %}
+                            </span>
+                            <span class="clear"></span>
+                        </span>
+                        <span class="clear"></span>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="content-block" id="block-nurseries">
+                <a class="toSearch" href="/nurseries/">{{ _('search-by-params') }}</a>
+                {% for item in nurseries %}
+                <div class="preview {% if forloop.last %}lastPreview{% endif %}">
+                    <a class="link" href="{{ item.url }}">
+                        <img class="image" src="/static/{% if item.image %}{{ item.image }}{% else %}img/clinic_image.jpg{% endif %}" alt="{{ _('nursery') }} {{ item.name }}" />
+                        <span class="info">
+                            <span class="name">{{ item.name }}</span>
+                            <span class="city">{{ item.region }}</span>
+                            <span class="address">{{ item.region }} {{ item.address }}</span>
+                            <span class="list">
+                                {% for service in item.breeds.all %}
+                                <span>{{ service }}</span>
+                                {% endfor %}
+                            </span>
+                            <span class="list">
+                                {% for service in item.services.all %}
+                                <span>{{ service }}</span>
+                                {% endfor %}
+                            </span>
+                            <span class="list lastList">
+                                {% for phone in item.phones_list %}<span>{{ phone }}</span>{% endfor %}
+                            </span>
+                            <span class="clear"></span>
+                        </span>
+                        <span class="clear"></span>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="content-block" id="block-pharmacies">
+                <a class="toSearch" href="/pharmacies/">{{ _('search-by-params') }}</a>
+                {% for item in pharmacies %}
+                <div class="preview {% if forloop.last %}lastPreview{% endif %}">
+                    <a class="link" href="{{ item.url }}">
+                        <img class="image" src="/static/{% if item.image %}{{ item.image }}{% else %}img/clinic_image.jpg{% endif %}" alt="{{ _('pharmacy') }} {{ item.name }}" />
+                        <span class="info">
+                            <span class="name">{{ item.name }}</span>
+                            <span class="city">{{ item.region }}</span>
+                            <span class="address">{{ item.region }} {{ item.address }}</span>
+                            <span class="list">
+                                <span>Пн-Пт {{ item.working_hours }}</span>
+                                <span>Сб {% if item.working_hours_sartuday %}{{ item.working_hours_sartuday }}{% else %}{{ _('not-working') }}{% endif %}</span>
+                                <span>Вс {% if item.working_hours_sanday %}{{ item.working_hours_sanday }}{% else %}{{ _('not-working') }}{% endif %}</span>
+                            </span>
+                            <span class="list lastList">
+                                {% for phone in item.phones_list %}<span>{{ phone }}</span>{% endfor %}
+                            </span>
+                            <span class="clear"></span>
+                        </span>
+                        <span class="clear"></span>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            <center>
+                <a class="bottomButton" href="/pharmacies/?region=2811">
+                    <span class="text">Киев - Ещё аптеки</span>
+                    <span class="icon"></span>
+                </a>
+            </center>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="contentBlock interesting">
+        <div class="headBlock">
+				Интересное
+            <div style="width: 330px;"><a href="#">Перейти в раздел</a></div>
+            <div class="clear"></div>
+        </div>
+        <div class="inner">
+            <div class="cats">
+                <a class="active" href="#">Новости</a>
+                <a href="#">События</a>
+                <a href="#">Выставки</a>
+                <a class="last" href="#">Полезные статьи</a>
+            </div>
+            <div class="preview">
+                <a class="link" href="#">
+                    <img class="image" src="/static/img/interesting_image.jpg" alt="" />
+                    <span class="info">
+                        <span class="name">Открыт первый сайт знакомств для собак <span>15 апреля 2012</span></span>
+                        <span class="prewText">В Великобритании на днях запустили первую социальную сеть - сайт знакомств для собак. Разумеется, он ориентирован на владельцев дорогих, элитных животных.<span></span></span>
+                    </span>
+                    <span class="clear"></span>
+                </a>
+            </div><!-- .preview -->
+            <div class="preview">
+                <a class="link" href="#">
+                    <img class="image" src="/static/img/interesting_image.jpg" alt="" />
+                    <span class="info">
+                        <span class="name">В Украине появилась социальная сеть для животных <span>15 апреля 2012</span></span>
+                        <span class="prewText">В Великобритании на днях запустили первую социальную сеть - сайт знакомств для собак. Разумеется, он ориентирован на владельцев дорогих, элитных животных.<span></span></span>
+                    </span>
+                    <span class="clear"></span>
+                </a>
+            </div><!-- .preview -->
+            <div class="preview lastPreview">
+                <a class="link" href="#">
+                    <img class="image" src="/static/img/interesting_image.jpg" alt="" />
+                    <span class="info">
+                        <span class="name">Социальная сеть для собак <span>15 апреля 2012</span></span>
+                        <span class="prewText">В Великобритании на днях запустили первую социальную сеть - сайт знакомств для собак. Разумеется, он ориентирован на владельцев дорогих, элитных животных.<span></span></span>
+                    </span>
+                    <span class="clear"></span>
+                </a>
+            </div><!-- .preview .lastPreview -->
+        </div><!-- .inner -->
+    </div><!-- .contentBlock -->
+
+    <div class="blockSeparator"></div>
+
+    <div class="contentBlock newsPrew">
+        <div class="headBlock">
+				Новинки
+        </div>
+        <div class="inner" style="height: 447px;">
+
+        </div><!-- .inner -->
+    </div><!-- .contentBlock -->
+
+    <div class="blockSeparator"></div>
+
+    <div class="contentBlock newUsers">
+        <div class="headBlock">
+				Новые пользователи
+        </div>
+        <div class="inner">
+            <div class="preview">
+                <a class="link" href="#">
+                    <img class="image" src="/static/img/board_image.jpg" alt="" />
+                    <span class="info">
+                        <span class="name">Саша Котенко</span>
+                        <span class="i">Питомцы: <span>Кошка</span></span>
+                        <span class="i">Город: <span>Днепропетровск</span></span>
+                        <span class="female"></span>
+                    </span>
+                    <span class="clear"></span>
+                </a>
+            </div><!-- .preview -->
+            <div class="preview">
+                <a class="link" href="#">
+                    <img class="image" src="/static/img/board_image.jpg" alt="" />
+                    <span class="info">
+                        <span class="name">Эсмиральда</span>
+                        <span class="i">Питомцы: <span>Кошка</span></span>
+                        <span class="i">Город: <span>Киев</span></span>
+                        <span class="male"></span>
+                    </span>
+                    <span class="clear"></span>
+                </a>
+            </div><!-- .preview -->
+            <div class="preview">
+                <a class="link" href="#">
+                    <img class="image" src="/static/img/board_image.jpg" alt="" />
+                    <span class="info">
+                        <span class="name">Саша Котенко</span>
+                        <span class="i">Питомцы: <span>Кошка</span></span>
+                        <span class="i">Город: <span>Киев</span></span>
+                        <span class="male"></span>
+                    </span>
+                    <span class="clear"></span>
+                </a>
+            </div><!-- .preview -->
+            <div class="preview lastPreview">
+                <a class="link" href="#">
+                    <img class="image" src="/static/img/board_image.jpg" alt="" />
+                    <span class="info">
+                        <span class="name">Варвара Николаевна</span>
+                        <span class="i">Питомцы: <span>Собака</span></span>
+                        <span class="i">Город: <span>Киев</span></span>
+                        <span class="male"></span>
+                    </span>
+                    <span class="clear"></span>
+                </a>
+            </div><!-- .preview -->
+
+        </div>
+    </div>
+    <div class="clear"></div>
+    {% banner "site-bottom" %}
+</div>
+{% endblock %}
+{% block main1 %}
+<div id="mainpage">
+    <div class="leftcol">
+        <!--
+        <div class="mp-block">
+            <div class="mp-block-header">
+                <h2><a href="/announcements/">Объявления</a></h2>
+                <ul class="tabs">
+                    <li class="active"><a href="#" rel="ann-sale"><span>Продам</span></a></li>
+                    <li><a href="#" rel="ann-buy"><span>Куплю</span></a></li>
+                    <li><a href="#" rel="ann-other"><span>Другое</span></a></li>
+                </ul>
+                <div id="content-ann-sale">
+                    <ul class="list infoblock">
+                    {% for item in announcements_buy %}
+                    <li class="info">
+                        <div>
+                            <a href="/announcements/show/{{ item.id }}" class="title">{{ item.title }}</a>
+                            <span class="price">{{ item.price }} грн</span>
+                        </div>
+                        <p>{{ item.description|safe }}</p>
+                        <div class="more">
+                            <a href="/users/{{ item.user.username }}" class="user">{{ item.user.full_name }}</a>
+                            <span class="region">{{ item.region }}</span>
+                            {{ item.created }}
+                        </div>
+                    </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        -->
+        <a href="/announcements/" class="topic">{{ _('announcements-buy') }}</a>
+        <div class="contentblock">
+            <ul class="list infoblock">
+                {% for item in announcements_buy %}
+                <li class="info">
+                    <div class="image right"><img src="/u/{{ item.image }}" width="66" alt="" /></div>
+                    <div>
+                        <a href="/announcements/show/{{ item.id }}" class="title">{{ item.title }}</a>
+                        <span class="price">{{ item.price }} грн</span>
+                    </div>
+                    <p>{{ item.description|safe }}</p>
+                    <div class="more">
+                        <a href="/users/{{ item.user.id }}" class="user">{{ item.user.full_name }}</a>
+                        <span class="region">{{ item.region }}</span>
+                        {{ item.created }}
+                    </div>
+                </li>
+                {% endfor %}
+
+            </ul>
+            <a href="/announcements/" class="more">{{ _('announcements-all') }}</a>
+        </div>
+        <a href="/events/" class="topic">События на ближайшее</a>
+        <div class="contentblock">
+            <ul class="list infoblock">
+                {% for item in exhibitions %}
+                <li>
+                    <a href="/exhibitions/show/{{ item.id }}" class="title">{{ item.name }}</a>
+                    <div>
+                        <span class="region">{{ item.region }}</span>
+                        <span class="date">{{ item.begin_date }}</span>
+                    </div>
+                    <small><b>{{ _('organizator') }}:</b> {{ item.organizator }}</small>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/events/" class="more">{{ _('events-all') }}</a>
+        </div>
+        <a href="/articles/" class="topic">{{ _('articles-fresh') }}</a>
+        <div class="contentblock">
+            <ul class="list infoblock">
+                {% for item in articles %}
+                <li class="info">
+                    <a href="/articles/{{ item.category.slug }}/{{ item.slug }}/" class="title">{{ item.title }}</a>
+                    <div>
+                        <span class="date">{{ item.created }}</span>
+                        <span class="show_count">{{ item.show_count }}</span>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/articles/" class="more">{{ _('articles-all') }}</a>
+        </div>
+        <a href="#" class="topic">{{ _('comments-fresh') }}</a>
+        <div class="contentblock">
+            <ul class="list infoblock">
+                {% for item in comments %}
+                <li class="info">
+                    <a href="/{{ item.entity }}/show/{{ item.entity_id }}#comment-{{ item.id }}" class="title">{{ item.comment }}</a>
+                    <div>
+                        <a href="/users/{{ item.user.id }}" class="user-link">{{ item.user.full_name }}</a>
+                        <span class="date">{{ item.created|timesince }}</span>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="rightcol">
+        <a href="/announcements/" class="topic">{{ _('annuncements-sale') }}</a>
+        <div class="contentblock">
+            <ul class="list infoblock">
+                {% for item in announcements_sale %}
+                <li class="info">
+                    <div class="image right"><img src="/u/{{ item.image }}" width="66" alt="" /></div>
+                    <div>
+                        <a href="/announcements/show/{{ item.id }}" class="title">{{ item.title }}</a>
+                        <span class="price">{{ item.price }} грн</span>
+                    </div>
+                    <p>{{ item.description|safe }}</p>
+                    <div class="more">
+                        <a href="/users/{{ item.user.id }}" class="user">{{ item.user.full_name }}</a>
+                        <span class="region">{{ item.region }}</span>
+                        {{ item.created|timesince }}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/announcements/" class="more">{{ _('announcements-all') }}</a>
+        </div>
+        <a href="/clinics/" class="topic">{{ _('photo-dayly') }}</a>
+        <div class="contentblock">
+            <img src="http://www.wedlife.ru/videos/dayvideos/2011/1410336364dd9706a16eab_450.jpg" />
+            <a href="/clinics/" class="more">{{ _('clinics-all') }}</a>
+        </div>
+        <a href="/clinics/" class="topic">{{ _('clinics') }}</a>
+        <div class="contentblock">
+            <ul class="list infoblock">
+                {% for item in clinics %}
+                <li class="info">
+                    <a href="/clinics/show/{{ item.id }}" class="title">{{ item.name }}</a>
+                    <div>
+                        <span class="region">{{ item.region }}</span>
+                        {% if item.address %}<span class="address">{{ _('address') }}: {{ item.address }}</span>{% endif %}
+                        {% if item.working_hours %}<span><b>{{ item.working_hours }}</b></span>{% endif %}
+                    </div>
+                    <div>
+                        {% if item.phones %}<span class="phones">{{ _('phones') }}: {{ item.phones }}</span>{% endif %}
+                    </div>
+                    <div>
+                        <small>{{ _('services') }}: {{ item.services.all|join:", " }}</small>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/clinics/" class="more">{{ _('clinics-all') }}</a>
+        </div>
+        <a href="/news/" class="topic">{{ _('news') }}</a>
+        <div class="contentblock">
+            <ul class="list infoblock">
+                {% for item in news %}
+                <li class="info">
+                    <a href="/news/show/{{ item.id }}" class="title">{{ item.title }}</a>
+                    <div>
+                        <span class="region">{{ item.created }}</span>
+                    </div>
+                    <div>
+                        <small>{{ item.description|safe }}</small>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/news/" class="more">{{ _('news-all') }}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

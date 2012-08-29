@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Авторизация &mdash; PetsNet - Сообщество владельцев домашних животных{% endblock %}
+
+{% block main %}
+<div class="navigation">
+    <div class="navigationBorder">
+        <div class="navigationInner">
+            <a href="/">Главная</a>
+            <span>Авторизация</span>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div class="contentBlock wideContentBlock">
+        <div class="headBlock">Авторизация</div>
+        <div class="inner authBlock">
+            {% if error %}
+            <div class="informer informer-error">{{ _('auth-failed') }}</div>
+            {% endif %}
+            <p>Авторизируйтесь через любимую социальную сеть</p>
+            <script src="http://loginza.ru/js/widget.js" type="text/javascript"></script>
+            <iframe src="http://loginza.ru/api/widget?overlay=loginza&lang=ru&token_url=http://{{ host }}/account/loginza/" style="width:335px;height:300px;" scrolling="no" frameborder="no"></iframe>
+            <div class="authInfoBlock">
+                <div class="head">Зачем мне авторизироваться?</div>
+                <span>Нам необходимо знать о Вас для того, чтобы:</span>
+                <ul>
+                    <li>Вы смогли оставлять отзывы о клиниках, питомниках</li>
+                    <li>Отвечать на вопросы пользователей и задавать свои</li>
+                    <li>Загружать фотографии и информацию о своих питомцах</li>
+                    <li>Покупать товары в наших магазинах</li>
+                    <li>И ещё что то вкусное</li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <div class="banner">{% banner "site-bottom" %}</div>
+</div>
+{% endblock %}
