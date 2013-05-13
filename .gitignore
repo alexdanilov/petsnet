@@ -1,12 +1,6 @@
-*.komodoproject
-htdocs/a
-htdocs/an
-htdocs/b
-htdocs/c
-htdocs/u
-htdocs/up
-htdocs/n
-
-old
-*.log
+.idea
 *.pyc
+_files
+media
+scripts
+manage.py
