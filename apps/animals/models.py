@@ -4,7 +4,7 @@ from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from tinymce import models as tinymce_models
 
-from apps.system.models import Regions
+from apps.system.models import Region
 from apps.users.models import UserProfile
 from apps.utils import StdImageField
 
@@ -26,6 +26,7 @@ class Breed(models.Model):
     name = models.CharField(max_length=255, verbose_name=_("name"))
     type = models.ForeignKey(AnimalType, verbose_name=_("type"))
     description = tinymce_models.HTMLField(blank=True, verbose_name=_("description"))
+    
     visibility = models.BooleanField(default=True, verbose_name=_("visibility"))
 
     def __unicode__(self):
@@ -44,9 +45,10 @@ ANIMAL_GENDERS = (
 class Animal(models.Model):
     type = models.ForeignKey(AnimalType, verbose_name=_("type"))
     user = models.ForeignKey(UserProfile, verbose_name=_("user"))
-    region = models.ForeignKey(Regions, verbose_name=_("region"))
+    region = models.ForeignKey(Region, verbose_name=_("region"))
     breed = models.ForeignKey(Breed, verbose_name=_("breed"))
     gender = models.CharField(max_length=1, choices=ANIMAL_GENDERS, verbose_name=_("gender"))
+    
     birth_day = models.DateField(verbose_name=_("birth_day"))
     name = models.CharField(max_length=255, verbose_name=_("name"))
     weight = models.CharField(max_length=255, verbose_name=_("animal-weight"))
@@ -54,6 +56,7 @@ class Animal(models.Model):
     color = models.CharField(max_length=255, verbose_name=_("animal-color"), blank=True)
     history = models.TextField(verbose_name=_("animal-history"))
     description = models.TextField(verbose_name=_("animal-description"))
+    
     it_like = models.CharField(max_length=255, verbose_name=_("animal-it-like"))
     it_not_like = models.CharField(max_length=255, verbose_name=_("animal-it-not-like"))
     loved_toy = models.CharField(max_length=255, verbose_name=_("animal-loved-toy"), blank=True)
@@ -61,11 +64,13 @@ class Animal(models.Model):
     can_do = models.CharField(max_length=255, verbose_name=_("animal-can-do"), blank=True)
     children = models.CharField(max_length=255, verbose_name=_("animal-children"))
     died = models.BooleanField(default=False, verbose_name=_("animal-died"))
+    
     energy_level = models.IntegerField(default=1)
     intellect_level = models.IntegerField(default=1, verbose_name=_("intellect_level"))
     energy_level = models.IntegerField(default=1, verbose_name=_("energy_level"))
     friendly_level = models.IntegerField(default=1, verbose_name=_("friendly_level"))
     game_level = models.IntegerField(default=1, verbose_name=_("game_level"))
+    
     visibility = models.BooleanField(default=True, verbose_name=_("visibility"))
     deleted = models.BooleanField(default=False)
 
@@ -102,6 +107,7 @@ class AnimalForm(ModelForm):
 
 class AnimalImage(models.Model):
     animal = models.ForeignKey(Animal, verbose_name=_('animal'))
+    
     image = StdImageField(upload_to='a/', verbose_name=_('photo'), sizes=((100, 100), (240, 240), (500, 500)))
 
     def __unicode__(self):

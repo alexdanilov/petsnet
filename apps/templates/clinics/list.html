@@ -26,7 +26,7 @@
                 <div class="state">
                     <select id="searchState" name="region">
                         <option value="">Все регионы</option>
-                        {% for region in regions %}<option value="{{ region.id }}"{% if filter.region == region.id %} selected{% endif %}>{{ region.region__region }}</option>{% endfor %}
+                        {% for region in regions %}<option value="{{ region.region_id }}"{% if filter.region == region.region_id %} selected{% endif %}>{{ region.region }}</option>{% endfor %}
                     </select>
                 </div>
                 <i class="sep">-</i>
@@ -56,18 +56,18 @@
                     </div>
                 </div>
                 
-                <a href="#" class="bottomButton">
+                <a href="#" class="bottomButton showPopup" rel="choiceServices">
                     <span class="text">Выбрать услуги</span>
                     <span class="icon"></span>
                 </a>
                 <div class="selectedServices">
                     <div>Вы выбрали услуги:</div>
                     <ul class="list">
-                        <li>первая мед помощь</li>
-                        <li>дермотология</li>
-                        <li>консультация</li>
+                        {% for service in filter.services %}<li>{{ service.name }}</li>{% endfor %}
                     </ul>
+                    <div class="hiddenCheck"></div>
                 </div>
+
                 <div class="clear"></div>
 
                 <button type="submit" name="searchButton"></button>
@@ -77,8 +77,9 @@
             <script type="text/javascript">
                 $(document).ready(function() {
                     $('#searchState').change(function() {
-                        alert($(this).val());
-                        $('#searchCity').load('/ajax/get-cities/', 'r='+$(this).val());
+                        $('#searchCity').load('/ajax/get-cities/?r='+$(this).val(), function() {
+                            cuSelRefresh(params);
+                        });
                     });
                 })
             </script>
@@ -93,7 +94,7 @@
                 {% for item in object_list %}
                 <div class="preview items-list{% if forloop.last %} lastPreview{% endif %}">
                     <div class="link" href="{{ item.url }}">
-                        <div class="image"><img class="image" src="/static/img/clinic_image.jpg" alt="Клиника {{ item.name }}" /></div>
+                        <div class="image"><img src="/media/{% if item.image %}{{ item.image }}{% else %}no-photo.png{% endif %}" alt="Клиника {{ item.name }}" /></div>
                         <div class="middle">
                             <a class="name" href="{{ item.url }}">{{ item.name }}</a>
                             {% if item.is_top %}<img align="top" src="/static/img/best_clinic.png" alt="{{ _('best') }}" />{% endif %}
@@ -110,8 +111,8 @@
                             {% endif %}
                             <ul>
                                 <li>Пн-Пт {{ item.working_hours }}</li>
-                                <li>Сб {{ item.working_hours_sartuday }}</li>
-                                <li>Вс {{ item.working_hours_sanday }}</li>
+                                <li>Суббота {% if item.working_hours_saturday %}{{ item.working_hours_saturday }}{% else %}не работает{% endif %}</li>
+                                <li>Воскресение {% if item.working_hours_sanday %}{{ item.working_hours_sanday }}{% else %}не работает{% endif %}</li>
                             </ul>
                             <ul class="last">
                                 {% for phone in item.phones_list %}<li>{{ phone }}</li>{% endfor %}
@@ -127,11 +128,10 @@
                                 <span class="clear"></span>
                             </div>
                             <ul>
-                                <li><a href="#">О клинике</a></li>
-                                <li><a href="#">Цены</a></li>
-                                <li><a href="#">Список услуг</a></li>
+                                <li><a href="{{ item.url }}#coworkers">Врачи</a></li>
+                                <li><a href="{{ item.url }}#prices">Цены</a></li>
+                                <li><a href="{{ item.url }}#services">Список услуг</a></li>
                             </ul>
-                            <div class="status open">Пн 10:00-19:00 Работает</div>
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -154,6 +154,7 @@
 {% endblock %}
 
 {% block popup %}
+<div id="mask"></div>
 <div id="popup">
 	<div id="popupInner">
 		<div class="close"></div>
@@ -162,7 +163,7 @@
                 {% for service in all_services %}
 				<div class="check">
 					<span class="checkbox">
-						<input type="checkbox" value="{{ service.id }}" name="service">
+						<input type="checkbox" value="{{ service.id }}" name="service" {% if service in filter.services %} checked="checked"{% endif %}>
 					</span>
 					<i class="checkLabel">{{ service.name }}</i>
 					<div class="clear"></div>

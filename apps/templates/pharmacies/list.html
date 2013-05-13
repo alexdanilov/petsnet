@@ -26,7 +26,7 @@
                 <div class="state">
                     <select id="searchState" name="region">
                         <option value="">Все регионы</option>
-                        {% for region in regions %}<option value="{{ region.id }}"{% if filter.region == region.id %} selected{% endif %}>{{ region.region__region }}</option>{% endfor %}
+                        {% for region in regions %}<option value="{{ region.region_id }}"{% if filter.region == region.region_id %} selected{% endif %}>{{ region.region }}</option>{% endfor %}
                     </select>
                 </div>
                 <i class="sep">-</i>
@@ -38,8 +38,6 @@
                 </div>
                 <div class="clear"></div>
 
-                <div class="clear"></div>
-
                 <button type="submit" name="searchButton"></button>
                 <div class="clear"></div>
             </form>
@@ -47,8 +45,9 @@
             <script type="text/javascript">
                 $(document).ready(function() {
                     $('#searchState').change(function() {
-                        alert($('#searchState').val());
-                        $('#searchCity').load('/ajax/get-cities/', 'r='+$(this).val());
+                        $('#searchCity').load('/ajax/get-cities/?r='+$(this).val(), function() {
+                            cuSelRefresh(params);
+                        });
                     });
                 })
             </script>
@@ -72,8 +71,8 @@
                             <div class="clear"></div>
                             <ul>
                                 <li>Пн-Пт {{ item.working_hours }}</li>
-                                <li>Сб {{ item.working_hours_sartuday }}</li>
-                                <li>Вс {{ item.working_hours_sanday }}</li>
+                                {% if item.working_hours_sartuday %}<li>Сб {{ item.working_hours_sartuday }}</li>{% endif %}
+                                {% if item.working_hours_sanday %}<li>Вс {{ item.working_hours_sanday }}</li>{% endif %}
                             </ul>
                             <ul class="last">
                                 {% for phone in item.phones_list %}<li>{{ phone }}</li>{% endfor %}

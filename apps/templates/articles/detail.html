@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}{{ item.title }} - {{ _('articles') }} &mdash; PetsNet - социальная сеть для владельцев домашних животных{% endblock %}
+{% block main %}
+<div class="navigation">
+    <div class="navigationBorder">
+        <div class="navigationInner">
+            <a href="/">Главная</a>
+            <a href="/articles/">{{ _('articles') }}</a>
+            <span>{{ item.title }}</span>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="mainLeft">
+        <div class="contentBlock clinicInfo questionInfo">
+            <div class="headBlock">
+                {{ item.title }}
+            </div>
+            <div class="inner">
+                <div class="page-content">{{ item.body|safe }}</div>
+                <div class="clear"></div>
+            </div>
+            <br />
+            <div class="tabs">
+                <a  class="active" href="#" rel="#answers">Комментарии</a>
+            </div>
+            <div class="inner tabsInner" id="comments">
+                <div id="answers" class="tabsContent show">
+                    {% if member.id %}
+                    <a href="#" class="bottomButton">
+                        <span class="text">Комментировать</span>
+                        <span class="icon"></span>
+                    </a>
+                    {% endif %}
+                    {% for comment in comments %}
+                    <div class="comment{% if forloop.last %} lastComment{% endif %}">
+                        <div class="date">{{ comment.created }}</div>
+                        <div class="info">
+                            <span class="name">{{ comment.user.name }}</span>
+                            <span class="rating"><span class="fill" style="width: 100%;"></span></span>
+                            <span class="grade">5/5</span>
+                            <p>{{ comment.text }}</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    {% endfor %}
+                    {% if member.id and item.allow_comment %}
+                    <div class="formWrapper">
+                        <form action="" method="post">{% csrf_token %}
+                            <div class="head">Добавить комментарий</div>
+                            <input type="text" name="name" value="Ваше имя" onfocus="if($(this).val() == 'Ваше имя') $(this).val('');" onblur="if($(this).val() == '') $(this).val('Ваше имя');" />
+                            <span class="clear"></span>
+                            <textarea name="text" cols="20" rows="5"></textarea>
+                            <div class="clear"></div>
+                            <button type="submit">Отправить</button>
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mainRight">
+        {% include "blocks/user-cabinet.html" %}
+        <div class="rightBanner">
+            {% banner "clinics-right" %}
+        </div>
+        {% include "blocks/social.html" %}
+    </div>
+    <div class="clear"></div>
+    <div class="banner">{% banner "site-bottom" %}</div>
+</div>
+{% endblock %}

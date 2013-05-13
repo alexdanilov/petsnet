@@ -2,8 +2,9 @@ import datetime
 from django.db import models
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
+
 from apps.utils import StdImageField
-from apps.system.models import Regions
+from apps.system.models import Region
 
 
 
@@ -15,7 +16,7 @@ class UserProfile(models.Model):
     email = models.EmailField()
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100, blank=True)
-    region = models.ForeignKey(Regions, verbose_name=_('region'), blank=True, db_index=True)
+    region = models.ForeignKey(Region, verbose_name=_('region'), blank=True, db_index=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, db_index=True)
     birth_day = models.DateField(verbose_name=_('birth_day'), blank=True)
     avatar = StdImageField(upload_to='u/', sizes=((60, 60), (100, 100), (200, 250)), blank=True)

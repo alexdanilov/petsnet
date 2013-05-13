@@ -6,12 +6,12 @@ from django.utils.translation import gettext_lazy as _
 from autocomplete.views import autocomplete, AutocompleteSettings
 from autocomplete.admin import AutocompleteAdmin
 
-from apps.system.models import Regions
+from apps.system.models import Region
 from apps.users.models import UserProfile
 
 
 class Meeting(models.Model):
-    region = models.ForeignKey(Regions, verbose_name=_("region"), db_index=True)
+    region = models.ForeignKey(Region, verbose_name=_("region"), db_index=True)
     user = models.ForeignKey(UserProfile, verbose_name=_("owner"), db_index=True)
 
     name = models.CharField(max_length=255, verbose_name=_("name"))
@@ -40,7 +40,7 @@ class Meeting(models.Model):
 
     class Meta:
         ordering = ['begin_date']
-        db_table = 'catalog_meetings'
+        db_table = 'meetings'
         verbose_name = _("meeting")
         verbose_name_plural = _("meetings")
 
@@ -59,7 +59,7 @@ class MeetingMember(models.Model):
         return self.meeting
 
     class Meta:
-        db_table = 'catalog_meetings_members'
+        db_table = 'meetings_members'
         verbose_name = _("meetings_member")
         verbose_name_plural = _("meetings_members")
 

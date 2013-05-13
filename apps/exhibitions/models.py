@@ -6,7 +6,7 @@ from autocomplete.views import autocomplete, AutocompleteSettings
 from autocomplete.admin import AutocompleteAdmin
 from tinymce import models as tinymce_models
 
-from apps.system.models import Regions
+from apps.system.models import Region
 
 
 
@@ -15,7 +15,7 @@ EXHIBITIONS_TYPES = (
     ('dogs', _('exhibitions-dogs')),
 )
 class Exhibition(models.Model):
-    region = models.ForeignKey(Regions, verbose_name=_("region"), db_index=True)
+    region = models.ForeignKey(Region, verbose_name=_("region"), db_index=True)
     type = models.CharField(max_length=16, choices=EXHIBITIONS_TYPES, verbose_name=_("type"), db_index=True)
 
     name = models.CharField(max_length=255, verbose_name=_("name"))
@@ -48,7 +48,7 @@ class Exhibition(models.Model):
 
     class Meta:
         ordering = ['begin_date']
-        db_table = 'catalog_exhibitions'
+        db_table = 'exhibitions'
         verbose_name = _("exhibition")
         verbose_name_plural = _("exhibitions")
 
@@ -63,6 +63,9 @@ class ExhibitionAdmin(AutocompleteAdmin, admin.ModelAdmin):
     list_display = ['name', 'type', 'region', 'begin_date', 'end_date', 'address', 'phones', 'email', 'website']
     list_filter = ['type']
     search_fields = ['name', 'email', 'phones', 'address']
+
+    class Media:
+        js = ['/static/admin/fckeditor/fckeditor.js', '/static/admin/fckeditor/fckeditor_init.js']
 
 admin.site.register(Exhibition, ExhibitionAdmin)
 autocomplete.register(Exhibition.region, RegionAutocomplete)

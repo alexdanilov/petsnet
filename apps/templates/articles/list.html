@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('articles') }} &mdash; PetsNet - Сообщество владельцев домашних животных{% endblock %}
+
+{% block main %}
+<div class="navigation">
+    <div class="navigationBorder">
+        <div class="navigationInner">
+            <a href="/">Главная</a>
+            <span>{{ _('articles') }}</span>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="mainLeft">
+        <div class="contentBlock">
+            <div class="headBlock">Поиск по статьям</div>
+            <form action="" method="get" class="inner search">
+                <a class="showHide" href="#">Свернуть блок поиска</a>
+
+                <div class="label">Название статьи:</div>
+                <input class="searchClinic" type="text" name="search" />
+                <div class="clear"></div>
+
+                <div class="label">Категория:</div>
+                <div class="state">
+                    <select id="searchState" name="category">
+                        <option value="">Все категории</option>
+                        {% for category in categories %}<option value="{{ category.id }}"{% if filter.category == category.id %} selected{% endif %}>{{ category.name }}</option>{% endfor %}
+                    </select>
+                </div>
+                <div class="clear"></div>
+
+                <button type="submit" name="searchButton"></button>
+                <div class="clear"></div>
+            </form>
+            <br />
+
+            <div class="headBlock">{{ _('articles') }}</div>
+            <div class="inner">
+                {% for item in object_list %}
+                <div class="preview items-list{% if forloop.last %} lastPreview{% endif %}">
+                    <div class="link" href="{{ item.url }}">
+                        <div class="middle">
+                            <a class="name" href="{{ item.url }}">{{ item.title }}</a>
+                            <div class="clear"></div>
+                            <div class="address"><a href="?category={{ item.category.id }}">{{ item.category.name }}</a></div>
+                            <div class="clear"></div>
+                            {{ item.description|safe }}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% if is_paginated %}{% include "blocks/paginator.html" %}{% endif %}
+            </div>
+        </div>
+    </div>
+    <div id="mainRight">
+        {% include "blocks/user-cabinet.html" %}
+        <div class="rightBanner">
+            {% banner "clinics-right" %}
+        </div>
+        {% include "blocks/social.html" %}
+    </div>
+    <div class="clear"></div>
+    <div class="banner">{% banner "site-bottom" %}</div>
+</div>
+{% endblock %}

@@ -3,13 +3,14 @@ from django.db import models
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 
-from apps.system.models import Regions
+from apps.system.models import Region
 from apps.users.models import UserProfile
-from apps.utils import StdImageField
+from apps.fields import StdImageField
 
 
 class AnnouncementCategory(models.Model):
     name = models.CharField(max_length=255, verbose_name=_("name"))
+    
     items_count = models.IntegerField()
 
     def __unicode__(self):
@@ -33,22 +34,25 @@ TYPE_CHOICES_DICT = dict(TYPE_CHOICES)
 
 
 class Announcement(models.Model):
-    user = models.ForeignKey(UserProfile, verbose_name=_("user"))
-    region = models.ForeignKey(Regions, verbose_name=_("region"))
-    category = models.ForeignKey(AnnouncementCategory, verbose_name=_("announcement-category"))
-    type = models.CharField(max_length=16, choices=TYPE_CHOICES, verbose_name=_("type"))
     title = models.CharField(max_length=255, verbose_name=_("title"))
     description = models.TextField(verbose_name=_("description"))
     address = models.CharField(max_length=255, verbose_name=_("address"), blank=True)
     phone = models.CharField(max_length=255, verbose_name=_("phone"), blank=True)
     price = models.IntegerField(verbose_name=_("price"), blank=True, default=0)
+    
     show_count = models.IntegerField(default=0, editable=False, blank=True)
     is_top = models.BooleanField(default=False, verbose_name=_("is_top"), blank=True)
     is_border = models.BooleanField(default=False, verbose_name=_("is_border"), blank=True)
     end_date = models.DateField(verbose_name=_("end_date"))
+    
     created = models.DateTimeField(auto_now_add=True)
     visibility = models.BooleanField(default=True, verbose_name=_("visibility"))
     deleted = models.BooleanField(default=False, verbose_name=_("deleted"))
+    
+    user = models.ForeignKey(UserProfile, verbose_name=_("user"))
+    region = models.ForeignKey(Region, verbose_name=_("region"))
+    category = models.ForeignKey(AnnouncementCategory, verbose_name=_("announcement-category"))
+    type = models.CharField(max_length=16, choices=TYPE_CHOICES, verbose_name=_("type"))
 
     @property
     def type_name(self):
@@ -87,9 +91,10 @@ class AnnouncementForm(ModelForm):
 
 
 class AnnouncementImage(models.Model):
-    announcement = models.ForeignKey(Announcement, verbose_name=_('image'))
     name = models.CharField(max_length=255, blank=True)
     image = StdImageField(upload_to='an/', verbose_name=_('photo'), sizes=((100, 100), (200, 200), (500, 500)))
+    
+    announcement = models.ForeignKey(Announcement, verbose_name=_('image'))
 
     def __unicode__(self):
         return 'an/%s-1.jpg' % self.id

@@ -7,7 +7,6 @@ urlpatterns = patterns('',
     (r'signin/$', 'apps.users.account.signin'),
     (r'signup/$', 'apps.users.account.signup'),
     (r'signout/$', 'apps.users.account.signout'),
-    (r'loginza/$', 'apps.users.account.loginza'),
 
     # profile urls
     #(r'^(?P<user>\w+)/$', 'apps.users.profile.profile'),

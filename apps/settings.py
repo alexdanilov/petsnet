@@ -47,12 +47,12 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.realpath(os.path.join(ROOT_PATH, 'htdocs', 'u'))
+MEDIA_ROOT = os.path.realpath(os.path.join(ROOT_PATH, 'media'))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = '/u/'
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -71,7 +71,7 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.realpath(os.path.join(ROOT_PATH, 'htdocs')),
+    os.path.realpath(os.path.join(ROOT_PATH, 'static')),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -138,9 +138,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # Thirdparty apps
-    'admin_tools.theming',
-    'admin_tools.menu',
-    'admin_tools.dashboard',
+    #'admin_tools.theming',
+    #'admin_tools.menu',
+    #'admin_tools.dashboard',
     'autocomplete',
     'debug_toolbar',
     'tinymce',
@@ -148,15 +148,18 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.humanize',
 
+    'south',
+
     # Petsnet
     'apps.animals',
     'apps.announcements',
     'apps.blogs',
     'apps.clinics',
-    'apps.exhibitions',
-    'apps.meetings',
-    'apps.nurseries',
     'apps.content',
+    'apps.exhibitions',
+    'apps.news',
+    'apps.nurseries',
+    'apps.photoalbums',
     'apps.system',
     'apps.users',
     'apps.questions',

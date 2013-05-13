@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}{{ item.name }} - {{ _('clinics') }} &mdash; PetsNet - социальная сеть для владельцев домашних животных{% endblock %}
+{% block title %}{{ _('announcements') }} &mdash; PetsNet - социальная сеть для владельцев домашних животных{% endblock %}
 {% block main %}
 <div class="navigation">
     <div class="navigationBorder">
         <div class="navigationInner">
-            <a href="/">Главная</a>
-            <a href="/clinics/">Каталог клиник</a>
-            <span>{% if item.id %}Редактирование{% else %}Добавление{% endif %} объявления</span>
+            <a href="/">{{ _('mainpage') }}</a>
+            <a href="/announcements/">{{ _('announcements') }}</a>
+            <span>{% if item.id %}{{ _('editing') }}{% else %}{{ _('adding') }}{% endif %}</span>
         </div>
     </div>
 </div>
@@ -15,10 +15,10 @@
     <div id="mainLeft">
         <div class="contentBlock clinicInfo">
             <div class="headBlock">
-		{% if item.id %}Редактирование{% else %}Добавление{% endif %} объявления
+			{% if item.id %}{{ _('edit') }}{% else %}{{ _('adding') }}{% endif %}
             </div>
             <div class="inner">
-		{{ form.errors }}
+			{{ form.errors }}
                 <form action="" method="post" class="edit-form validate" enctype="multipart/form-data">{% csrf_token %}
                     <label for="title">{{ _('title') }}</label>
 		    <input type="text" name="title" id="title" class="txt" size="50" value="{{ form.title.value|default:"" }}" />
@@ -43,12 +43,16 @@
 		    <div class="clear"></div>
 		    
 		    <label for="price">{{ _('price') }}</label>
-		    <input type="text" name="price" id="price" class="txt" size="10" value="{{ form.price.value|default:"" }}" /> грн
+		    <input type="text" name="price" id="price" class="txt" size="10" value="{{ form.price.value|default:"" }}" />
 		    <div class="clear"></div>
 		    
 		    <label for="region">{{ _('region') }}</label>
-		    <input type="text" name="region" id="region" class="txt required" size="20" value="1" />
+		    <input type="text" name="region_name" id="region_name" class="txt required" size="20" value="{{ item.region.city }}" />
+			<input type="hidden" name="region" id="region_id" value="{{ item.region.id }}" />
 		    <div class="clear"></div>
+			<script type="text/javascript">
+				bindAutoComplite('#region_name', '/ajax/search-cities/', '#region_id');
+			</script>
 		    
 		    <label for="photo">{{ _('photo') }}</label>
 		    <input type="file" name="photo" id="photo" class="txt" size="40" value="" />

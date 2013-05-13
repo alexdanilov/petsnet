@@ -43,7 +43,7 @@ class UserCreateView(CreateView):
         return context
     
     def dispatch(self, request, *args, **kwargs):
-        if not equest.member:
+        if not request.member:
             return redirect('/account/signin/')
             
         return super(UserCreateView, self).dispatch(request, *args, **kwargs)

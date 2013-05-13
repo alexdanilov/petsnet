@@ -6,7 +6,7 @@
     <div class="navigationBorder">
         <div class="navigationInner">
             <a href="/">Главная</a>
-            <a href="/clinics/">Каталог новостей</a>
+            <a href="/news/">{{ _('news-list') }}</a>
             <span>{{ item.title }}</span>
         </div>
     </div>
@@ -19,7 +19,7 @@
                 <a class="toFav" href="#"></a>
             </div>
             <div class="inner">
-                <div class="info">
+                <div class="page-content">
                     {{ item.body|safe }}
                 </div>
                 <div class="clear"></div>

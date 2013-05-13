@@ -22,7 +22,7 @@
                     <a{% if filter.order_by == 'name' %} class="active"{% endif %} href="?{{ url }}&sort=name">По ответам</a>
                 </div>
                 {% for item in object_list %}
-                <div class="preview items-list{% if forloop.last %} lastPreview{% endif %}">
+                <div class="preview items-list questions-list{% if forloop.last %} lastPreview{% endif %}">
                     <div class="link" href="{{ item.url }}">
                         <div class="middle">
                             <a class="name" href="{{ item.url }}">{{ item.title }}</a>
@@ -44,7 +44,7 @@
                         <div class="right">
                             <div class="ratingBlock">
                                 <span class="ratingLable">Рейтинг</span>
-                                <span class="grade">{{ item.rating }}/5</span>
+                                <span class="grade">{{ item.rating|default:0 }}/5</span>
                                 <span class="clear"></span>
                             </div>
                             <div class="status open">Ответов: {{ item.answers_count }}</div>

@@ -3,7 +3,8 @@ from django.views.generic.list import ListView
 
 from apps.pharmacies.models import *
 from apps.content.models import Comment
-from apps.news.models import CatalogNews
+from apps.news.models import News
+from apps.system.models import Region
 
 
 class PharmaciesList(ListView):
@@ -16,6 +17,8 @@ class PharmaciesList(ListView):
 
         if self.request.GET.get('q'):
             objects = objects.filter(name__icontains=self.request.GET.get('q'))
+        if self.request.GET.get('region'):
+            objects = objects.filter(region__region_id=int(self.request.GET['region']))
 
         if self.request.GET.get('sort') in ['rating', 'name']:
             objects = objects.order_by(self.request.GET.get('sort'))
@@ -27,10 +30,15 @@ class PharmaciesList(ListView):
 
         context['menu'] = 'catalog'
         context['submenu'] = 'pharmacies'
-        context['filter'] = {'order_by': self.request.GET.get('sort', '')}
+        context['filter'] = {
+            'order_by': self.request.GET.get('sort', ''),
+            'city': self.request.GET.get('city', 0),
+            'region': self.request.GET.get('region', 0),
+        }
 
-        items = self.model.objects.filter(visibility=True)
-        context['regions'] = items.values('region__region').distinct()
+        context['regions'] = Region.objects.filter(country_id=2).values('region_id', 'region').distinct()
+        if self.request.GET.get('region'):
+            context['cities'] = Region.objects.filter(region_id=int(self.request.GET.get('region'))).order_by('city')
 
         return context
 
@@ -55,8 +63,10 @@ class PharmacyPage(DetailView):
             new_comment.save()
             return redirect(object.url)
 
+        context['menu'] = 'catalog'
+        context['submenu'] = 'pharmacies'
         context['other'] = self.model.objects.select_related().filter(visibility=True).exclude(pk=object.id)[0:5]
-        context['news'] = CatalogNews.objects.select_related().filter(entity='pharmacies', id_entities=object.id, visibility=True).order_by('-created')[0:3]
+        context['news'] = News.objects.select_related().filter(entity='pharmacies', id_entities=object.id, visibility=True).order_by('-created')[0:3]
         context['comments'] = Comment.objects.select_related().filter(entity='pharmacies', id_entities=object.id, visibility=True).order_by('-created')[0:3]
 
         return context

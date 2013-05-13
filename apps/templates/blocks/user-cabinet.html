@@ -1,16 +1,18 @@
 <div class="userCab">
-    <div class="name">Кнопик Плюшкин Пуговочкин</div>
+    <div class="name">{{ member.name }}</div>
     <form action="" method="" class="avatar" enctype="multipart/form-data">
-        <img src="/static/img/no_avatar.jpg" alt="" />
+        {% if member.avatar %}<img src="/static/img/no_avatar.jpg" alt="" />{% endif %}
         <input type="file" name="avatar" />
     </form>
     <ul class="userMenu">
-        <li><a href="#">Мой профиль</a></li>
-        <li><a href="#">Сообщения <span>12</span></a></li>
-        <li><a href="#">Друзья</a></li>
-        <li><a href="#">Мои объявления</a></li>
-        <li><a href="#">Баланс</a></li>
-        <li><a href="#">Мои настройки</a></li>
-        <li><a href="#">Выход</a></li>
+        <!--
+        <li><a href="/account/profile/">Мой профиль</a></li>
+        <li><a href="/account/messages/">Сообщения <span>12</span></a></li>
+        <li><a href="/account/friends/">Друзья</a></li>
+        -->
+        <li><a href="/announcements/my/">Мои объявления</a></li>
+        <li><a href="/questions/my/">Мои вопросы</a></li>
+        <li><a href="/account/settings/">Мои настройки</a></li>
+        <li><a href="/account/logout/">Выход</a></li>
     </ul>
 </div>

@@ -5,7 +5,6 @@ from django.shortcuts import redirect
 
 from apps.announcements.models import *
 from apps.content.models import Comment
-from apps.news.models import CatalogNews
 from apps.users.generic import UserListView, UserCreateView, UserUpdateView, UserDeleteView
 
 

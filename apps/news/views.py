@@ -1,12 +1,12 @@
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
-from apps.news.models import CatalogNews
+from apps.news.models import News
 from apps.content.models import Comment
 
 
-class CatalogNewsList(ListView):
-    model = CatalogNews
+class NewsList(ListView):
+    model = News
     paginate_by = 10
     template_name = 'news/list.html'
 
@@ -22,7 +22,7 @@ class CatalogNewsList(ListView):
         return objects
 
     def get_context_data(self, **kwargs):
-        context = super(CatalogNewsList, self).get_context_data(**kwargs)
+        context = super(NewsList, self).get_context_data(**kwargs)
 
         context['menu'] = 'events'
         context['submenu'] = 'news'
@@ -31,14 +31,14 @@ class CatalogNewsList(ListView):
         return context
 
 
-class CatalogNewsPage(DetailView):
-    model = CatalogNews
+class NewsPage(DetailView):
+    model = News
     context_object_name = 'item'
     template_name = 'news/detail.html'
 
     def get_context_data(self, **kwargs):
         object = self.get_object()
-        context = super(CatalogNewsPage, self).get_context_data(**kwargs)
+        context = super(NewsPage, self).get_context_data(**kwargs)
 
         if self.request.method == 'POST':
             new_comment = Comment(**{

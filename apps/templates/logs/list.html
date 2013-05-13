@@ -1,0 +1,23 @@
+{% regroup items by action_time|date:"Y-m-d" as items_by_day %}
+{% for day in items_by_day %}
+<h3>{{ day.grouper }}</h3>
+<table border="1" cellpadding="5" cellspacing="0" bordercolor="#999">
+    <tr>
+        <td><b>Пользователь</b></td>
+        <td><b>Тип</b></td>
+        <td><b>Сущность</b></td>
+        <td><b>Действие</b></td>
+        <td><b>Дата и время</b></td>
+    <tr>
+    {% for item in day.list %}
+    <tr>
+        <td>{{ item.user }}</td>
+        <td>{{ item.content_type }}</td>
+        <td>{{ item.object_repr }}</td>
+        <td>{{ item.change_message }}</td>
+        <td>{{ item.action_time }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<hr />
+{% endfor %}

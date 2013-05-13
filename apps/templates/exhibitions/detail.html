@@ -6,7 +6,7 @@
     <div class="navigationBorder">
         <div class="navigationInner">
             <a href="/">Главная</a>
-            <a href="/clinics/">Каталог выставок</a>
+            <a href="/clinics/">{{ _('exhibitions') }}</a>
             <span>{{ item.name }}</span>
         </div>
     </div>
@@ -21,40 +21,38 @@
             <div class="inner">
                 <div class="imagesBlock">
                     <div class="image">
-                        &nbsp;<img align="middle" src="/static/img/clinic_image.png" alt="" />
+                        &nbsp;<img align="middle" src="/media/{% if item.image %}{{ img.image.image2 }}{% else %}no-photo.png{% endif %}" alt="Питомник {{ item.name }}" />                        
                     </div>
+                    {% if item.images_list %}
                     <div class="carouselWrapper">
                         <div class="carousel">
                             <ul>
-                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
-                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
-                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
-                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
-                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
+                                {% for img in item.images_list %}
+                                <li><a href="/media/{{ img.image.image2 }}"><img src="/media/{{ img.image.image1 }}" alt="" /></a></li>
+                                {% endfor %}
                             </ul>
                         </div>
                         <span class="carouseleBack"></span>
                         <span class="carouseleNext"></span>
                     </div>
+                    {% endif %}
                 </div>
                 <div class="info">
                     <div class="address">{{ item.region }} {{ item.address }}</div>
                     <a class="showOnMap" href="#" rel="{{ item.region.name }} {{ item.address }}">посмотреть на карте</a><br />
-                    <ul class="contacts">
+                    <ul class="params">
                         <li>{{ item.begin_date }} &mdash; {{ item.end_date }}</li>
                         <li>{{ item.working_hours }}</li>
-                        {% for phone in item.phones_list %}<li>{{ phone }}</li>{% endfor %}
-                        <li>{% if item.enter_price %}{{ item.enter_price }} грн{% else %}{{ _('free-entrence') }}{% endif %}</li>
-                    </ul>
-                    <ul class="workHours">
-                        {% if item.email %}<li>{{ item.email }}</li>{% endif %}
-                        {% if item.website %}<li>{{ item.website }}</li>{% endif %}
-                        {% if item.system %}<li>{{ item.system }}</li>{% endif %}
-                        {% if item.organizator %}<li>{{ item.organizator }}</li>{% endif %}
+                        <li><strong>Телефоны:</strong> {% for phone in item.phones_list %}{{ phone }}, {% endfor %}</li>
+                        {% if item.enter_price %}<li><strong>Вход:</strong> {{ item.enter_price }} грн{% else %}{{ _('free-entrence') }}</li>{% endif %}
+                        {% if item.email %}<li><strong>E-mail:</strong> {{ item.email }}</li>{% endif %}
+                        {% if item.system %}<li><strong>Система:</strong> {{ item.system }}</li>{% endif %}
+                        {% if item.organizator %}<li><strong>Организатор:</strong> {{ item.organizator }}</li>{% endif %}
+                        {% if item.website %}<li><a href="{{ item.website }}" target="_blank" rel="nofollow">веб-сайт выставки</a></li>{% endif %}
                     </ul>
                     <div class="clear"></div>
                     <div class="ratingBlock">
-                        <a href="#">Отзывы (5)</a>
+                        <a href="#comments">Отзывы ({{ comments.count }})</a>
                         <span class="clear"></span>
                     </div>
                     {{ item.description|safe }}
@@ -67,7 +65,7 @@
                 <a href="#" rel="#about">О выставке</a>
                 <a href="#" rel="#members">Участники</a>
                 <a href="#" rel="#news">Новости	</a>
-                <a href="#" rel="#comments">Отзывы</a>
+                <a href="#" rel="#comments">Отзывы ({{ comments.count }})</a>
             </div>
             <div class="inner tabsInner">
                 <div id="program" class="tabsContent show">{{ item.program|safe }}</div>
@@ -75,42 +73,7 @@
                 <div id="members" class="tabsContent">{{ item.experts|safe }}</div>
                 <div id="news" class="tabsContent">Новости</div>
                 <div id="comments" class="tabsContent">
-                    <a href="#" class="bottomButton">
-                        <span class="text">Добавить отзыв</span>
-                        <span class="icon"></span>
-                    </a>
-                    {% for comment in comments %}
-                    <div class="comment{% if forloop.last %} lastComment{% endif %}">
-                        <div class="date">{{ comment.created }}</div>
-                        <div class="info">
-                            <span class="name">{{ comment.user.name }}</span>
-                            <span class="rating"><span class="fill" style="width: 100%;"></span></span>
-                            <span class="grade">5/5</span>
-                            <p>{{ comment.comment }}</p>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                    {% endfor %}
-                    {% include "blocks/comments_paginator.html" %}
-                    {% if member.id %}
-                    <div class="formWrapper">
-                        <form action="" method="post">
-                            <div class="head">Добавить отзыв</div>
-                            <input type="text" name="name" value="Ваше имя" onfocus="if($(this).val() == 'Ваше имя') $(this).val('');" onblur="if($(this).val() == '') $(this).val('Ваше имя');" />
-                            <span class="ratingLabel">Ваша оценка</span>
-                            <span class="rating">
-                                <span class="fill">
-                                    <input type="hidden" name="grade" value="" />
-                                </span>
-                            </span>
-                            <span class="grade"></span>
-                            <span class="clear"></span>
-                            <textarea name="comment" cols="20" rows="5"></textarea>
-                            <div class="clear"></div>
-                            <button type="submit">Отправить</button>
-                        </form>
-                    </div>
-                    {% endif %}
+                    {% include "blocks/comments.html" %}
                 </div>
             </div>
         </div>

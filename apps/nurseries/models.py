@@ -1,3 +1,4 @@
+#-*-coding: utf-8 -*-
 from django.db import models
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
@@ -6,8 +7,8 @@ from autocomplete.views import autocomplete, AutocompleteSettings
 from autocomplete.admin import AutocompleteAdmin
 
 from tinymce import models as tinymce_models
-from apps.utils import StdImageField
-from apps.system.models import Regions
+from apps.fields import StdImageField
+from apps.system.models import Region
 from apps.animals.models import Breed
 
 
@@ -21,7 +22,7 @@ class NurseryService(models.Model):
 
     class Meta:
         ordering = ['name']
-        db_table = 'catalog_nursery_services'
+        db_table = 'nursery_services'
         verbose_name = _("nursery-service")
         verbose_name_plural = _("nursery-services")
 
@@ -32,8 +33,13 @@ NURSERIES_TYPES = (
 )
 NURSERIES_TYPES_DICT = dict(NURSERIES_TYPES)
 
+CALL_STATUSES = (
+    ('call', u'Позвонить'),
+    ('recall', u'Перезвонить'),
+    ('called', u'Уже позвонили'),
+)
 class Nursery(models.Model):
-    region = models.ForeignKey(Regions, verbose_name=_("region"), blank=True, db_index=True)
+    region = models.ForeignKey(Region, verbose_name=_("region"), blank=True, db_index=True)
     type = models.CharField(max_length=16, choices=NURSERIES_TYPES, verbose_name=_("type"), db_index=True)
 
     name = models.CharField(max_length=255, verbose_name=_("name"))
@@ -41,6 +47,7 @@ class Nursery(models.Model):
     email = models.EmailField(max_length=255, verbose_name=_("email"), blank=True)
     address = models.CharField(max_length=255, verbose_name=_("address"), blank=True)
     phones = models.CharField(max_length=255, verbose_name=_("phones"))
+    description = tinymce_models.HTMLField(verbose_name=_("description"))
 
     breeds = models.ManyToManyField(Breed, verbose_name=_("breeds"), blank=True)
     services = models.ManyToManyField(NurseryService, verbose_name=_("nursery-services"))
@@ -51,8 +58,10 @@ class Nursery(models.Model):
 
     is_top = models.BooleanField(default=False, verbose_name=_("is_top"))
     is_sale = models.BooleanField(default=False, verbose_name=_("is_sale"))
+    
+    last_call_date = models.DateTimeField(verbose_name=_("last_call_date"), blank=True)
+    call_status = models.CharField(max_length=10, verbose_name=_('call_status'), choices=CALL_STATUSES)
 
-    description = tinymce_models.HTMLField(verbose_name=_("description"))
     order_num = models.IntegerField(verbose_name=_("order_num"))
     visibility = models.BooleanField(default=True, verbose_name=_("visibility"), db_index=True)
 
@@ -84,7 +93,7 @@ class Nursery(models.Model):
 
     class Meta:
         ordering = ['order_num']
-        db_table = 'catalog_nurseries'
+        db_table = 'nurseries'
         verbose_name = _("nursery")
         verbose_name_plural = _("nurseries")
 
@@ -97,7 +106,7 @@ class NurseryImage(models.Model):
 
     class Meta:
         ordering = ['order_num']
-        db_table = 'catalog_nurseries_images'
+        db_table = 'nurseries_images'
         verbose_name = _("image")
 
 
@@ -125,9 +134,12 @@ class NurseryAdmin(AutocompleteAdmin, admin.ModelAdmin):
     class Media:
         js = ['/js/admin.js', ]
     inlines = [NurseryImageInline, ]
-    list_display = ['name', 'type', 'region', 'address', 'phones', 'email', 'website', 'order_num']
-    list_filter = ['type']
-    search_fields = ['name', 'email', 'phones', 'address']
+    list_display = ['name', 'type', 'region', 'address', 'phones', 'email', 'website', 'last_call_date', 'call_status']
+    list_filter = ['type', 'call_status']
+    search_fields = ['name', 'phones', 'address', 'email', 'about']
+
+    class Media:
+        js = ['/static/admin/fckeditor/fckeditor.js', '/static/admin/fckeditor/fckeditor_init.js']
 
 admin.site.register(Nursery, NurseryAdmin)
 autocomplete.register(Nursery.breeds, BreedAutocomplete)

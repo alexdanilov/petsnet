@@ -26,7 +26,7 @@
                 <div class="state">
                     <select id="searchState" name="region">
                         <option value="">Все регионы</option>
-                        {% for region in regions %}<option value="{{ region.id }}"{% if filter.region == region.id %} selected{% endif %}>{{ region.region__region }}</option>{% endfor %}
+                        {% for region in regions %}<option value="{{ region.region_id }}"{% if filter.region == region.region_id %} selected{% endif %}>{{ region.region }}</option>{% endfor %}
                     </select>
                 </div>
                 <i class="sep">-</i>
@@ -38,18 +38,18 @@
                 </div>
                 <div class="clear"></div>
 
-                <div class="label">Тип вставки:</div>
+                <div class="label">Тип выставки:</div>
                 <div class="checkboxs">
                     <div class="check">
                         <span class="checkbox">
-                            <input type="checkbox" value="dogs" name="type">
+                            <input type="checkbox" value="dogs" name="type" {% if 'dogs' in filter.type %} checked="checked" {% endif %}>
                         </span>
                         <i class="checkLabel">Собаки</i>
                         <div class="clear"></div>
                     </div>
                     <div class="check">
                         <span class="checkbox">
-                            <input type="checkbox" value="cats" name="type">
+                            <input type="checkbox" value="cats" name="type" {% if 'cats' in filter.type %} checked="checked" {% endif %}>
                         </span>
                         <i class="checkLabel">Кошки</i>
                         <div class="clear"></div>
@@ -65,8 +65,9 @@
             <script type="text/javascript">
                 $(document).ready(function() {
                     $('#searchState').change(function() {
-                        alert($(this).val());
-                        $('#searchCity').load('/ajax/get-cities/', 'r='+$(this).val());
+                        $('#searchCity').load('/ajax/get-cities/?r='+$(this).val(), function() {
+                            cuSelRefresh(params);
+                        });
                     });
                 })
             </script>
@@ -81,7 +82,7 @@
                 {% for item in object_list %}
                 <div class="preview items-list{% if forloop.last %} lastPreview{% endif %}">
                     <div class="link" href="{{ item.url }}">
-                        <div class="image"><img src="/static/img/clinic_image.jpg" alt="Выставка {{ item.name }}" /></div>
+                        <div class="image"><img src="/media/{% if item.image %}{{ item.image }}{% else %}no-photo.png{% endif %}" alt="Выставка {{ item.name }}" /></div>
                         <div class="middle">
                             <a class="name" href="{{ item.url }}">{{ item.name }}</a>
                             <div class="clear"></div>
@@ -94,7 +95,7 @@
                             </ul>
                             <ul>
                                 {% if item.email %}<li>{{ item.email }}</li>{% endif %}
-                                {% if item.website %}<li>{{ item.website }}</li>{% endif %}
+                                {% if item.website %}<li><a href="{{ item.website }}" target="_blank" rel="nofollow">перейти на сайт</a></li>{% endif %}
                                 {% if item.system %}<li>{{ item.system }}</li>{% endif %}
                                 {% if item.organizator %}<li>{{ item.organizator }}</li>{% endif %}
                             </ul>

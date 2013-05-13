@@ -10,7 +10,7 @@ from django.template import RequestContext
 
 from apps.animals.models import *
 from apps.content.models import Comment
-from apps.system.models import Regions
+from apps.system.models import Region
 from apps.system.views import get_monthes
 
 

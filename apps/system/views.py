@@ -2,12 +2,18 @@ from django.http import HttpResponse
 #from django.shortcuts import render_to_response
 from django.utils.translation import ugettext_lazy as _
 
-from apps.system.models import Regions
+from apps.system.models import Region
 
 
 def ajax_get_cities(request):
-    objects = Regions.objects.filter(region_id=request.GET.get('r', 0))
+    objects = Region.objects.filter(region_id=int(request.GET.get('r', 0)))
     output = "\n".join(["<option value='%s'>%s</option>" % (o.id, o.city) for o in objects])
+    return HttpResponse(output)
+
+
+def search_cities(request):
+    objects = Region.objects.filter(city__istartswith=request.GET.get('q', ''))
+    output = "\n".join(["%s|%s" % (o.id, o.city) for o in objects])
     return HttpResponse(output)
 
 

@@ -415,7 +415,7 @@ msgstr "Объявление"
 #: templates/announcements/list.html:3
 #: templates/announcements/list.html:5
 msgid "announcements"
-msgstr "Обяъвления"
+msgstr "Объявления"
 
 #: announcements/models.py:86
 #: catalog/models.py:274

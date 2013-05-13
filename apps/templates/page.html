@@ -1,19 +1,38 @@
 {% extends "base.html" %}
 
+{% block title %}{{ item.name }} &mdash; PetsNet - социальная сеть для владельцев домашних животных{% endblock %}
 {% block main %}
-                <div id="leftcol">
-                    {% include "users/user-menu.html" %}
-                    {% block leftcol %}{% endblock %}
+<div class="navigation">
+    <div class="navigationBorder">
+        <div class="navigationInner">
+            <a href="/">Главная</a>
+            <span>{{ item.title }}</span>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="mainLeft">
+        <div class="contentBlock">
+            <div class="headBlock">
+                {{ item.title }}
+            </div>
+            <div class="inner">
+                <div class="info">
+                    <p>{{ item.body|safe }}</p>
                 </div>
-
-                <div id="rightcol">
-                    {% block rightcol %}{% endblock %}
-                    {% include "blocks/social.html" %}
-                </div>
-
-                <div id="centercol" class="borders">
-                    <div id="centercol-cont">
-                        {% block centercol %}{% endblock %}
-                    </div>
-                </div>
+                <div class="clear"></div>
+            </div>
+            <br />
+        </div>
+    </div>
+    <div id="mainRight">
+        {% include "blocks/user-cabinet.html" %}
+        <div class="rightBanner">
+            {% banner "clinics-right" %}
+        </div>
+        {% include "blocks/social.html" %}
+    </div>
+    <div class="clear"></div>
+    <div class="banner">{% banner "site-bottom" %}</div>
+</div>
 {% endblock %}

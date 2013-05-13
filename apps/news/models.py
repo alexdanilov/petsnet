@@ -6,7 +6,7 @@ from tinymce import models as tinymce_models
 
 
 
-class CatalogNews(models.Model):
+class News(models.Model):
     entity = models.CharField(max_length=64, db_index=True, verbose_name=_("entity"))
     id_entities = models.IntegerField(db_index=True, verbose_name=_("entity_id"))
 
@@ -28,15 +28,15 @@ class CatalogNews(models.Model):
 
     class Meta:
         ordering = ['-created']
-        db_table = 'catalog_news'
+        db_table = 'news'
         verbose_name = _("news")
         verbose_name_plural = _("news")
 
 
 # Admin classes
-class CatalogNewsAdmin(admin.ModelAdmin):
+class NewsAdmin(admin.ModelAdmin):
     list_display = ['title', 'entity', 'id_entities', 'created', 'visibility']
     list_filter = ['entity', 'visibility']
     search_fields = ['title']
 
-admin.site.register(CatalogNews, CatalogNewsAdmin)
+admin.site.register(News, NewsAdmin)

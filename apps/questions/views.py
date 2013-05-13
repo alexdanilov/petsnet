@@ -18,6 +18,10 @@ class QuestionsList(ListView):
 
         if self.request.GET.get('q'):
             objects = objects.filter(name__icontains=self.request.GET.get('q'))
+        if self.request.GET.get('type'):
+            objects = objects.filter(animal_type__id=self.request.GET.get('type'))
+        if self.request.GET.get('category'):
+            objects = objects.filter(category__id=self.request.GET.get('category'))
 
         if self.request.GET.get('sort') in ['begin_date', 'name']:
             objects = objects.order_by(self.request.GET.get('sort'))
@@ -30,8 +34,12 @@ class QuestionsList(ListView):
         context['menu'] = 'catalog'
         context['submenu'] = 'questions'
         context['types'] = AnimalType.objects.all()
-        context['filter'] = {'order_by': self.request.GET.get('sort', '')}
         context['categories'] = Category.objects.all().order_by('order_num')
+        context['filter'] = {
+            'type': self.request.GET.get('type'),
+            'category': self.request.GET.get('category'),
+            'order_by': self.request.GET.get('sort', '')
+        }
 
         return context
 

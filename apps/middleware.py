@@ -17,7 +17,8 @@ class PetsnetMiddleware(object):
         request.__class__.site_id = SITES.get(host.replace('www.', ''), 1)
         
         if settings.DEBUG:
-            request.session['user'] = 1
+            #request.session['user'] = 1
+            pass
         if request.session.get('user'):
             request.__class__.member = UserProfile.objects.get(pk=request.session['user'])
         else:

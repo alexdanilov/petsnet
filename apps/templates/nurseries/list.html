@@ -26,7 +26,7 @@
                 <div class="state">
                     <select id="searchState" name="region">
                         <option value="">Все регионы</option>
-                        {% for region in regions %}<option value="{{ region.id }}"{% if filter.region == region.id %} selected{% endif %}>{{ region.region__region }}</option>{% endfor %}
+                        {% for region in regions %}<option value="{{ region.region_id }}"{% if filter.region == region.region_id %} selected{% endif %}>{{ region.region }}</option>{% endfor %}
                     </select>
                 </div>
                 <i class="sep">-</i>
@@ -42,18 +42,30 @@
                 <div class="checkboxs">
                     <div class="check">
                         <span class="checkbox">
-                            <input type="checkbox" value="dogs" name="type">
+                            <input type="checkbox" value="dogs" name="type" {% if 'dogs' in filter.type %} checked="checked" {% endif %}>
                         </span>
                         <i class="checkLabel">Собаки</i>
                         <div class="clear"></div>
                     </div>
                     <div class="check">
                         <span class="checkbox">
-                            <input type="checkbox" value="cats" name="type">
+                            <input type="checkbox" value="cats" name="type" {% if 'cats' in filter.type %} checked="checked" {% endif %}>
                         </span>
                         <i class="checkLabel">Кошки</i>
                         <div class="clear"></div>
                     </div>
+                </div>
+
+                <a href="#" class="bottomButton showPopup" rel="choiceServices">
+                    <span class="text">Выбрать услуги</span>
+                    <span class="icon"></span>
+                </a>
+                <div class="selectedServices">
+                    <div>Вы выбрали услуги:</div>
+                    <ul class="list">
+                        {% for service in filter.services %}<li>{{ service.name }}</li>{% endfor %}
+                    </ul>
+                    <div class="hiddenCheck"></div>
                 </div>
                 
                 <div class="clear"></div>
@@ -65,8 +77,9 @@
             <script type="text/javascript">
                 $(document).ready(function() {
                     $('#searchState').change(function() {
-                        alert($(this).val());
-                        $('#searchCity').load('/ajax/get-cities/', 'r='+$(this).val());
+                        $('#searchCity').load('/ajax/get-cities/?r='+$(this).val(), function() {
+                            cuSelRefresh(params);
+                        });
                     });
                 })
             </script>
@@ -81,7 +94,7 @@
                 {% for item in object_list %}
                 <div class="preview items-list{% if forloop.last %} lastPreview{% endif %}">
                     <div class="link" href="{{ item.url }}">
-                        <div class="image"><img src="/static/{{ item.image }}" alt="Питомник {{ item.name }}" /></div>
+                        <div class="image"><img src="/media/{% if item.image %}{{ item.image }}{% else %}no-photo.png{% endif %}" alt="Питомник {{ item.name }}" /></div>
                         <div class="middle">
                             <a class="name" href="{{ item.url }}">{{ item.name }}</a>
                             {% if item.is_top %}<img align="top" src="/static/img/best_clinic.png" alt="{{ _('best') }}" />{% endif %}
@@ -98,18 +111,18 @@
                             {% endif %}
                             <ul class="last">
                                 {% for phone in item.phones_list %}<li>{{ phone }}</li>{% endfor %}
-                                {% if item.website %}<li>{{ item.website }}</li>{% endif %}
                                 {% if item.system %}<li>{{ item.system }}</li>{% endif %}
+                                {% if item.website %}<li><a href="{{ item.website }}" rel="nofollow" target="_blank">перейти на сайт</a></li>{% endif %}
                             </ul>
                             <div class="clear"></div>
                         </div>
-                        <div class="right">
+                        <!--div class="right">
                             <ul>
                                 <li><a href="{{ item.url }}#program">Программа</a></li>
                                 <li><a href="{{ item.url }}#about">О выставке</a></li>
                                 <li><a href="{{ item.url }}#members">Участники</a></li>
                             </ul>
-                        </div>
+                        </div-->
                         <div class="clear"></div>
                     </div>
                 </div>
@@ -127,5 +140,30 @@
     </div>
     <div class="clear"></div>
     <div class="banner">{% banner "site-bottom" %}</div>
+</div>
+{% endblock %}
+
+{% block popup %}
+<div id="mask"></div>
+<div id="popup">
+    <div id="popupInner">
+        <div class="close"></div>
+        <div id="choiceServices">
+            <div class="column">
+                {% for service in all_services %}
+                <div class="check">
+                    <span class="checkbox">
+                        <input type="checkbox" value="{{ service.id }}" name="service" {% if service in filter.services %} checked="checked"{% endif %}>
+                    </span>
+                    <i class="checkLabel">{{ service.name }}</i>
+                    <div class="clear"></div>
+                </div>
+                {% if forloop.counter|divisibleby:12 %}</div><div class="column">{% endif %}
+                {% endfor %}
+            </div>
+            <div class="clear"></div>
+            <a href="#"><span>Выбрать услуги</span></a>
+        </div>
+    </div>
 </div>
 {% endblock %}

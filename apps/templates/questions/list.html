@@ -7,7 +7,7 @@
     <div class="navigationBorder">
         <div class="navigationInner">
             <a href="/">Главная</a>
-            <span>Каталог вопросов</span>
+            <span>{{ _('qa') }}</span>
         </div>
     </div>
 </div>
@@ -22,7 +22,7 @@
                 <input class="searchClinic" type="text" name="search" />
                 <div class="clear"></div>
 
-                <div class="label">Укажите категорию:</div>
+                <div class="label">Категория:</div>
                 <div class="state">
                     <select id="searchState" name="category">
                         <option value="">Все категории</option>
@@ -31,12 +31,18 @@
                 </div>
                 <i class="sep">-</i>
                 <div class="city">
-                    <select id="searchCity" name="city">
-                        <option value="0">Все типы</option>
-                        {% for city in cities %}<option value="{{ city.id }}"{% if filter.city == city.id %} selected{% endif %}>{{ city.city }}</option>{% endfor %}
+                    <select id="searchCity" name="type">
+                        <option value="">Все типы</option>
+                        {% for type in types %}<option value="{{ type.id }}"{% if filter.type == type.id %} selected{% endif %}>{{ type.name }}</option>{% endfor %}
                     </select>
                 </div>
                 <div class="clear"></div>
+                <center>
+                    <a class="bottomButton addButton" href="/questions/add/">
+                        <span class="text">Задать вопрос</span>
+                        <span class="icon"></span>
+                    </a>
+                </center>
 
                 <button type="submit" name="searchButton"></button>
                 <div class="clear"></div>
@@ -50,17 +56,17 @@
                     <a{% if filter.order_by == 'name' %} class="active"{% endif %} href="?{{ url }}&sort=name">По ответам</a>
                 </div>
                 {% for item in object_list %}
-                <div class="preview items-list{% if forloop.last %} lastPreview{% endif %}">
+                <div class="preview items-list questions-list{% if forloop.last %} lastPreview{% endif %}">
                     <div class="link" href="{{ item.url }}">
                         <div class="middle">
                             <a class="name" href="{{ item.url }}">{{ item.title }}</a>
                             <div class="clear"></div>
-			    {% if item.animal_type or item.category %}
-			    <div class="info">
-				{% if item.animal_type %}<a href="?category={{ item.animal_type.id }}">{{ item.animal_type.name }}</a>{% endif %}
-				{% if item.category %}<a href="?category={{ item.category.id }}">{{ item.category.name }}</a>{% endif %}
-			    </div>
-			    {% endif %}
+							{% if item.animal_type or item.category %}
+							<div class="info">
+							{% if item.animal_type %}<a href="?type={{ item.animal_type.id }}">{{ item.animal_type.name }}</a>{% endif %}
+							{% if item.category %}<a href="?category={{ item.category.id }}">{{ item.category.name }}</a>{% endif %}
+							</div>
+							{% endif %}
                             <div class="address">{{ item.created }}</div>
                             <div class="clear"></div>
                             <p>{{ item.text }}</p>
@@ -68,7 +74,7 @@
                         <div class="right">
                             <div class="ratingBlock">
                                 <span class="ratingLable">Рейтинг</span>
-                                <span class="grade">{{ item.rating }}/5</span>
+                                <span class="grade">{{ item.rating|default:0 }}/5</span>
                                 <span class="clear"></span>
                             </div>
                             <div class="status open">Ответов: {{ item.answers_count }}</div>

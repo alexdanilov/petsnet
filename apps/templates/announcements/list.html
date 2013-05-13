@@ -58,7 +58,7 @@
                 {% for item in object_list %}
                 <div class="preview items-list announcements{% if forloop.last %} lastPreview{% endif %}">
                     <div class="link" href="{{ item.url }}">
-                        {% if item.images_list %}<img class="image" src="/static/{{ item.image }}" alt="{{ item.title }}" />{% endif %}
+                        {% if item.images_list %}<img class="image" src="/media/{% if item.image %}{{ item.image }}{% else %}no-photo.png{% endif %}" alt="{{ item.title }}" />{% endif %}
                         <div class="middle{% if not item.images_list %} middle-noimage{% endif %}">
                             <a class="name" href="{{ item.url }}">{{ item.title }}</a>
                             {% if item.is_top %}<img align="top" src="/static/img/best_clinic.png" alt="{{ _('best') }}" />{% endif %}

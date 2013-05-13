@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="css/cusel.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="css/jquery.fancybox-1.3.4.css" type="text/css" media="screen, projection" />
+	<!--[if IE 7]><link rel="stylesheet" href="css/ie7.css" type="text/css" media="screen, projection" /><![endif]-->
+	<!--[if IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="screen, projection" /><![endif]-->
+
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/cusel-min-2.4.1.js"></script>
+	<script src="js/jquery.mousewheel.js"></script>
+	<script src="js/jScrollPane.js"></script>
+	<script src="js/jquery.fancybox-1.3.4.pack.js"></script>
+	<script src="js/main.js"></script>
+
+	<!--[if IE 6]><script src="js/DD_belatedPNG_0.0.8a-min.js"></script><![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<div id="header">
+		<div id="headerBg">
+			<div id="headerInner">
+				<a id="logo" href="#"><img src="img/logo.png" alt="" /></a>
+				<span class="siteInfo">Социальная сеть для владельцев домашних животных</span>
+				<a class="favorites" href="#">Избранное</a>
+				<div class="signBlock">
+					<a class="reg" href="#">Регистрация</a>
+					<a class="enter" href="#">Войти</a>
+					<div class="clear"></div>
+				</div>
+
+				<form action="" method="" class="regions">
+					<div class="head">Ваш регион:</div>
+					<div class="state">
+						<select id="regionsState" name="state">
+							<option value="1">Киевская область</option>
+							<option value="1">Киевская область</option>
+							<option value="1">Киевская область</option>
+						</select>
+					</div>
+					<i>-</i>
+					<div class="city">
+						<select id="regionsCity" name="city">
+							<option value="1">Киев</option>
+							<option value="1">Киев</option>
+							<option value="1">Киев</option>
+						</select>
+					</div>
+					<div class="clear"></div>
+				</form><!-- .regions -->
+
+				<form action="" method="" class="searchForm">
+					<input type="text" name="searchWords" value="Поиск" />
+					<select id="searchSelect" name="searchFrom">
+						<option value="1">По разделам</option>
+						<option value="1">По разделам</option>
+						<option value="1">По разделам</option>
+					</select>
+					<button type="submit"name="searchButton"></button>
+					<div class="clear"></div>
+				</form><!-- .searchForm -->
+                <div class="subMenuPosition">
+					<ul class="menu">
+						<li><a class="active" href="#" rel="#board"><span>ОБЪЯВЛЕНИЯ</span></a></li>
+						<li><a href="#" rel="#catalog"><span>КАТАЛОГ</span></a></li>
+						<li><a href="#" rel="#events"><span>СОБЫТИЯ</span></a></li>
+						<li><a href="#" rel="#interesting"><span>ИНТЕРЕСНО</span></a></li>
+					</ul>
+					<ul id="board" class="subMenu show">
+						<li class="first"><a href="#">Продажа</a></li>
+						<li><a href="#">Покупка</a></li>
+						<li><a href="#">Вязка</a></li>
+						<li><a href="#">Возьму в дар</a></li>
+						<li><a href="#">Отдам в дар</a></li>
+						<li><a href="#">Другое</a></li>
+					</ul>
+					<ul id="catalog" class="subMenu">
+						<li class="first"><a href="#">Продажа</a></li>
+						<li><a href="#">Покупка</a></li>
+						<li><a href="#">Вязка</a></li>
+						<li><a href="#">Возьму в дар</a></li>
+						<li><a href="#">Отдам в дар</a></li>
+					</ul>
+					<ul id="events" class="subMenu">
+						<li class="first"><a href="#">Продажа</a></li>
+						<li><a href="#">Покупка</a></li>
+						<li><a href="#">Вязка</a></li>
+						<li><a href="#">Возьму в дар</a></li>
+					</ul>
+					<ul id="interesting" class="subMenu">
+						<li class="first"><a href="#">Продажа</a></li>
+						<li><a href="#">Покупка</a></li>
+						<li><a href="#">Вязка</a></li>
+					</ul>
+				</div>
+
+			</div><!-- #headerInner-->
+		</div><!-- #headerBg-->
+	</div><!-- #header-->
+
+	<div id="content">
+		<div class="contentBlock dayPhoto">
+			<div class="headBlock">Фото дня</div>
+			<div class="inner">
+				<a class="image" href="img/day_photo.jpg">
+					<img src="img/day_photo.jpg" alt="" />
+					<span></span>
+				</a>
+				<div class="author">Автор: <a href="#">Дмитрий Сорокин</a></div>
+				<div class="rating"><div class="fill" style="width: 80%"></div></div>
+				<div class="clear"></div>
+			</div><!-- .inner -->
+		</div><!-- .dayPhoto -->
+
+		<div class="blockSeparator"></div>
+
+		<div class="noReg cabinet">
+			<div class="inner">
+				<div class="head">Что такое PetsNet?</div>
+				<span>В Великобритании на днях запустили первую социальную сеть - сайт знакомств для собак. Разумеется, он ориентирован на владельцев дорогих, элитных животных.</span>
+				<ul>
+					<li>Информация о клиниках и аптеках</li>
+					<li>Поиск партнеров</li>
+					<li>Выставки и награды</li>
+					<li>Бла бла бла</li>
+					<li>И ещё что то вкусное</li>
+				</ul>
+				<a class="registration" href="#"></a>
+			</div>
+		</div>
+
+		<!--<div class="cabinet">
+			<div class="inner">
+				<div class="name">Alexandriya</div>
+				<form action="" method="" class="avatar" enctype="multipart/form-data">
+					<img src="img/no_avatar.jpg" alt="" />
+					<input type="file" name="avatar" />
+				</form>
+				<ul class="userMenu">
+					<li><a href="#">Мой профиль</a></li>
+					<li><a href="#">Сообщения <span>12</span></a></li>
+					<li><a href="#">Друзья</a></li>
+					<li><a href="#">Мои объявления</a></li>
+					<li><a href="#">Баланс</a></li>
+					<li><a href="#">Мои настройки</a></li>
+					<li><a href="#">Выход</a></li>
+				</ul>
+				<div class"clear"></div>
+			</div>
+		</div>-->
+
+
+		<div class="clear"></div>
+
+
+		<div class="contentBlock board">
+			<div class="headBlock">
+				Объявления
+				<div style="width: 329px;"><a href="#">Перейти в раздел</a></div>
+                <div class="clear"></div>
+			</div>
+			<div class="inner">
+				<div class="cats">
+					<a class="active" href="#">Продажа</a>
+					<a href="#">Покупка</a>
+					<a href="#">Вязка</a>
+					<a href="#">Возьму в дар</a>
+					<a href="#">Отдам в дар</a>
+					<a class="last" href="#">Другое</a>
+				</div>
+				<div class="preview">
+					<a class="link" href="#">
+						<img class="image" src="img/board_image.jpg" alt="" />
+						<span class="info">
+							<span class="name">Элитный клубный плюшевый шотландский вислоухий мальчик</span>
+							<span class="price">7897 грн</span>
+						</span>
+						<span class="date">
+							Воскресенье<br />15 апрель 2012,
+							<span class="city">Киев</span>
+						</span>
+						<span class="clear"></span>
+					</a>
+					<a class="toFav" href="#">В избранное</a>
+				</div><!-- .preview -->
+				<div class="preview">
+					<a class="link" href="#">
+						<img class="image" src="img/board_image.jpg" alt="" />
+						<span class="info">
+							<span class="name">Срочно! Великолепные детки от отличных родителей КСУ, Позняки </span>
+							<span class="price">897 грн</span>
+						</span>
+						<span class="date">
+							Воскресенье<br />15 апрель 2012,
+							<span class="city">Киев</span>
+						</span>
+						<span class="clear"></span>
+					</a>
+					<a class="toFav" href="#">В избранное</a>
+				</div><!-- .preview -->
+				<div class="preview lastPreview">
+					<a class="link" href="#">
+						<img class="image" src="img/board_image.jpg" alt="" />
+						<span class="info">
+							<span class="name">Шотландская плюшевая девочка и мальчик голубого окраса, Оболонь</span>
+							<span class="price">7897 грн</span>
+						</span>
+						<span class="date">
+							Воскресенье<br />15 апрель 2012,
+							<span class="city">Киев</span>
+						</span>
+						<span class="clear"></span>
+					</a>
+					<a class="toFav" href="#">В избранное</a>
+				</div><!-- .preview .lastPreview -->
+				<center>
+					<a class="bottomButton" href="#">
+						<span class="text">Добавить объявление</span>
+						<span class="icon"></span>
+					</a>
+				</center>
+			</div><!-- .inner -->
+		</div><!-- .contentBlock -->
+
+		<div class="blockSeparator"></div>
+
+		<div class="contentBlock clinic">
+			<div class="headBlock">
+				Клиники
+				<div style="width: 368px;"><a href="#">Перейти в раздел</a></div>
+				<div class="clear"></div>
+			</div>
+			<div class="inner">
+				<div class="cats">
+					<a class="active" href="#">Клиники</a>
+					<a href="#">Аптеки</a>
+					<a class="last" href="#">Питомники</a>
+				</div>
+				<a class="toSearch" href="#">Поиск по параметрам</a>
+				<div class="preview">
+					<a class="link" href="#">
+						<img class="image" src="img/clinic_image.jpg" alt="" />
+						<span class="info">
+							<span class="name">Lakeside Eye Clinic</span>
+							<span class="city">Киев</span>
+							<span class="address">Киев, ул. Красноармейская, 55а</span>
+							<span class="list">
+								<span>первая мед помощь</span>
+								<span>дермотология</span>
+								<span>консультация</span>
+							</span>
+							<span class="list">
+								<span>Пн-Пт 10:00-19:00</span>
+								<span>Сб 10:00-17:00</span>
+								<span>Вс 10:00-15:00</span>
+							</span>
+							<span class="list lastList">
+								<span>0-44-247-70-60</span>
+								<span>0-44- 354-08-38</span>
+							</span>
+							<span class="clear"></span>
+						</span>
+						<span class="clear"></span>
+					</a>
+				</div><!-- .preview -->
+				<div class="preview">
+					<a class="link" href="#">
+						<img class="image" src="img/clinic_image.jpg" alt="" />
+						<span class="info">
+							<span class="name">Lakeside Eye Clinic</span>
+							<span class="city">Киев</span>
+							<span class="address">Киев, ул. Красноармейская, 55а</span>
+							<span class="list">
+								<span>Пн-Пт 10:00-19:00</span>
+								<span>Сб 10:00-17:00</span>
+								<span>Вс 10:00-15:00</span>
+							</span>
+							<span class="list lastList">
+								<span>0-44-247-70-60</span>
+								<span>0-44- 354-08-38</span>
+							</span>
+							<span class="clear"></span>
+						</span>
+						<span class="clear"></span>
+					</a>
+				</div><!-- .preview -->
+				<div class="preview lastPreview">
+					<a class="link" href="#">
+						<img class="image" src="img/clinic_image.jpg" alt="" />
+						<span class="info">
+							<span class="name">Lakeside Eye Clinic</span>
+							<span class="city">Киев</span>
+							<span class="address">Киев, ул. Красноармейская, 55а</span>
+							<span class="list">
+								<span>Пн-Пт 10:00-19:00</span>
+								<span>Сб 10:00-17:00</span>
+								<span>Вс 10:00-15:00</span>
+							</span>
+							<span class="list lastList">
+								<span>0-44-247-70-60</span>
+								<span>0-44- 354-08-38</span>
+							</span>
+							<span class="clear"></span>
+						</span>
+						<span class="clear"></span>
+					</a>
+				</div><!-- .preview .lastPreview -->
+				<center>
+					<a class="bottomButton" href="#">
+						<span class="text">Киев - Ещё клиники</span>
+						<span class="icon"></span>
+					</a>
+				</center>
+			</div><!-- .inner -->
+		</div><!-- .contentBlock -->
+		<div class="clear"></div>
+
+		<div class="contentBlock interesting">
+			<div class="headBlock">
+				Интересное
+				<div style="width: 330px;"><a href="#">Перейти в раздел</a></div>
+				<div class="clear"></div>
+			</div>
+			<div class="inner">
+				<div class="cats">
+					<a class="active" href="#">Новости</a>
+					<a href="#">События</a>
+					<a href="#">Выставки</a>
+					<a class="last" href="#">Полезные статьи</a>
+				</div>
+				<div class="preview">
+					<a class="link" href="#">
+						<img class="image" src="img/interesting_image.jpg" alt="" />
+						<span class="info">
+							<span class="name">Открыт первый сайт знакомств для собак <span>15 апреля 2012</span></span>
+							<span class="prewText">В Великобритании на днях запустили первую социальную сеть - сайт знакомств для собак. Разумеется, он ориентирован на владельцев дорогих, элитных животных.<span></span></span>
+						</span>
+						<span class="clear"></span>
+					</a>
+				</div><!-- .preview -->
+				<div class="preview">
+					<a class="link" href="#">
+						<img class="image" src="img/interesting_image.jpg" alt="" />
+						<span class="info">
+							<span class="name">В Украине появилась социальная сеть для животных <span>15 апреля 2012</span></span>
+							<span class="prewText">В Великобритании на днях запустили первую социальную сеть - сайт знакомств для собак. Разумеется, он ориентирован на владельцев дорогих, элитных животных.<span></span></span>
+						</span>
+						<span class="clear"></span>
+					</a>
+				</div><!-- .preview -->
+				<div class="preview lastPreview">
+					<a class="link" href="#">
+						<img class="image" src="img/interesting_image.jpg" alt="" />
+						<span class="info">
+							<span class="name">Социальная сеть для собак <span>15 апреля 2012</span></span>
+							<span class="prewText">В Великобритании на днях запустили первую социальную сеть - сайт знакомств для собак. Разумеется, он ориентирован на владельцев дорогих, элитных животных.<span></span></span>
+						</span>
+						<span class="clear"></span>
+					</a>
+				</div><!-- .preview .lastPreview -->
+			</div><!-- .inner -->
+		</div><!-- .contentBlock -->
+
+		<div class="blockSeparator"></div>
+
+		<div class="contentBlock newsPrew">
+			<h1 class="headBlock">
+				Новинки
+			</h1>
+			<div class="inner" style="height: 447px;">
+
+			</div><!-- .inner -->
+		</div><!-- .contentBlock -->
+
+		<div class="blockSeparator"></div>
+
+		<div class="contentBlock newUsers">
+			<h2 class="headBlock">
+				Новые пользователи
+			</h2>
+			<div class="inner">
+				<div class="preview">
+					<a class="link" href="#">
+						<img class="image" src="img/board_image.jpg" alt="" />
+						<span class="info">
+							<span class="name">Саша Котенко</span>
+							<span class="i">Питомцы: <span>Кошка</span></span>
+							<span class="i">Город: <span>Днепропетровск</span></span>
+							<span class="female"></span>
+						</span>
+						<span class="clear"></span>
+					</a>
+				</div><!-- .preview -->
+				<div class="preview">
+					<a class="link" href="#">
+						<img class="image" src="img/board_image.jpg" alt="" />
+						<span class="info">
+							<span class="name">Эсмиральда</span>
+							<span class="i">Питомцы: <span>Кошка</span></span>
+							<span class="i">Город: <span>Киев</span></span>
+							<span class="male"></span>
+						</span>
+						<span class="clear"></span>
+					</a>
+				</div><!-- .preview -->
+				<div class="preview">
+					<a class="link" href="#">
+						<img class="image" src="img/board_image.jpg" alt="" />
+						<span class="info">
+							<span class="name">Саша Котенко</span>
+							<span class="i">Питомцы: <span>Кошка</span></span>
+							<span class="i">Город: <span>Киев</span></span>
+							<span class="male"></span>
+						</span>
+						<span class="clear"></span>
+					</a>
+				</div><!-- .preview -->
+				<div class="preview lastPreview">
+					<a class="link" href="#">
+						<img class="image" src="img/board_image.jpg" alt="" />
+						<span class="info">
+							<span class="name">Варвара Николаевна</span>
+							<span class="i">Питомцы: <span>Собака</span></span>
+							<span class="i">Город: <span>Киев</span></span>
+							<span class="male"></span>
+						</span>
+						<span class="clear"></span>
+					</a>
+				</div><!-- .preview -->
+
+			</div><!-- .inner -->
+		</div><!-- .contentBlock -->
+
+		<div class="clear"></div>
+
+		<div class="banner"><img src="img/banner.gif" alt="" /></div>
+	</div><!-- #content-->
+
+</div><!-- #wrapper -->
+
+<div id="footer">
+	<div id="footerBg">
+		<div id="footerInner">
+			<dl>
+				<dt>Объявления</dt>
+				<dd><a href="#">Продажа</a></dd>
+				<dd><a href="#">Покупка</a></dd>
+				<dd><a href="#">Вязка</a></dd>
+				<dd><a href="#">Возьму в дар</a></dd>
+				<dd><a href="#">Отдам в дар</a></dd>
+				<dd><a href="#">Другое</a></dd>
+			</dl>
+			<dl>
+				<dt>Каталог</dt>
+				<dd><a href="#">Продажа</a></dd>
+				<dd><a href="#">Покупка</a></dd>
+				<dd><a href="#">Вязка</a></dd>
+				<dd><a href="#">Возьму в дар</a></dd>
+				<dd><a href="#">Отдам в дар</a></dd>
+				<dd><a href="#">Другое</a></dd>
+			</dl>
+			<dl>
+				<dt>События</dt>
+				<dd><a href="#">Продажа</a></dd>
+				<dd><a href="#">Покупка</a></dd>
+				<dd><a href="#">Вязка</a></dd>
+				<dd><a href="#">Возьму в дар</a></dd>
+				<dd><a href="#">Отдам в дар</a></dd>
+				<dd><a href="#">Другое</a></dd>
+			</dl>
+			<dl>
+				<dt>Интересное</dt>
+				<dd><a href="#">Продажа</a></dd>
+				<dd><a href="#">Покупка</a></dd>
+				<dd><a href="#">Вязка</a></dd>
+				<dd><a href="#">Возьму в дар</a></dd>
+				<dd><a href="#">Отдам в дар</a></dd>
+				<dd><a href="#">Другое</a></dd>
+			</dl>
+			<div class="clear"></div>
+
+			<div class="copyright">&copy; PetsNet 2012</div>
+			<div class="socialIcons">
+				<a class="vk" href="#"></a>
+				<a class="tw" href="#"></a>
+				<a class="fb" href="#"></a>
+				<a class="gp" href="#"></a>
+				<div class="clear"></div>
+			</div>
+			<div class="bottomLinks">
+				<a href="#">О проекте</a> |
+				<a href="#">Соглашение пользователя</a> |
+				<a href="#">Реклама</a>
+			</div>
+			<div class="produce">Проект студии <a href="#">Stylepix</a></div>
+		</div><!-- #footerInner -->
+	</div><!-- #footerBg -->
+</div><!-- #footer -->
+<!--[if IE 6]><script src="js/fix.js"></script><![endif]-->
+</body>
+</html>

@@ -23,21 +23,21 @@
             <div class="inner">
                 <div class="imagesBlock">
                     <div class="image">
-                        &nbsp;<img align="middle" src="/static/img/clinic_image.png" alt="Клиника {{ item.name }}" />
+                        &nbsp;<img align="middle" src="/media/{% if item.image %}{{ img.image.image2 }}{% else %}no-photo.png{% endif %}" alt="Питомник {{ item.name }}" />                        
                     </div>
+                    {% if item.images_list %}
                     <div class="carouselWrapper">
                         <div class="carousel">
                             <ul>
-                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
-                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
-                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
-                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
-                                <li><a href="/static/img/clinic_image.png"><img src="/static/img/clinic_image_min.png" alt="" /></a></li>
+                                {% for img in item.images_list %}
+                                <li><a href="/media/{{ img.image.image2 }}"><img src="/media/{{ img.image.image1 }}" alt="" /></a></li>
+                                {% endfor %}
                             </ul>
                         </div>
                         <span class="carouseleBack"></span>
                         <span class="carouseleNext"></span>
                     </div>
+                    {% endif %}
                 </div>
                 <div class="info">
                     <div class="address">{{ item.region }} {{ item.address }}</div>

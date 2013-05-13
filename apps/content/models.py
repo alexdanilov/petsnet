@@ -10,8 +10,13 @@ class ArticleCategory(models.Model):
     name = models.CharField(max_length=255, verbose_name=_("name"))
     slug = models.SlugField(max_length=255, verbose_name=_("slug"))
     description = models.TextField(verbose_name=_("description"))
+
     items_count = models.IntegerField(default=0, verbose_name=_("items_count"))
     visibility = models.BooleanField(default=True, db_index=True, verbose_name=_("visibility"))
+
+    @property
+    def url(self):
+        return '/articles/%s/' % self.category.slug
 
     def __unicode__(self):
         return self.name
@@ -32,17 +37,24 @@ admin.site.register(ArticleCategory, ArticleCategoryAdmin)
 
 class Article(models.Model):
     category = models.ForeignKey(ArticleCategory, verbose_name=_("category"))
+
     title = models.CharField(max_length=255, verbose_name=_("title"))
     slug = models.SlugField(max_length=255, verbose_name=_("slug"))
     description = models.TextField(verbose_name=_("description"))
     body = models.TextField(verbose_name=_("body"))
+
     page_title = models.CharField(max_length=255, verbose_name=_("page_title"))
     page_description = models.CharField(max_length=255, verbose_name=_("page_description"))
     page_keywords = models.TextField(verbose_name=_("page_keywords"))
+    
     comments_count = models.IntegerField(default=0, verbose_name=_("comments_count"))
     allow_comment = models.BooleanField(default=True, verbose_name=_("allow_comment"))
     visibility = models.BooleanField(default=True, db_index=True, verbose_name=_("visibility"))
     created = models.DateTimeField(auto_now_add=True, verbose_name=_("created"))
+
+    @property
+    def url(self):
+        return '/articles/%s/%s/' % (self.id, self.slug)
 
     def __unicode__(self):
         return '%s (%s)' % (self.title, self.category)
@@ -65,8 +77,10 @@ class Comment(models.Model):
     user = models.ForeignKey(UserProfile, verbose_name=_("user"))
     entity = models.CharField(max_length=32, db_index=True, verbose_name=_("entity"))
     id_entities = models.IntegerField(db_index=True, verbose_name=_("entity_id"))
+
     subject = models.CharField(max_length=255, verbose_name=_("subject"))
     comment = models.CharField(max_length=255, verbose_name=_("comment"))
+    
     visibility = models.BooleanField(default=True, db_index=True, verbose_name=_("visibility"))
     created = models.DateTimeField(auto_now_add=True, verbose_name=_("created"))
 
@@ -92,9 +106,11 @@ class Page(models.Model):
     slug = models.SlugField(max_length=255, verbose_name=_("slug"))
     description = models.TextField(verbose_name=_("description"))
     body = models.TextField(verbose_name=_("body"))
+
     page_title = models.CharField(max_length=255, verbose_name=_("page_title"))
     page_description = models.CharField(max_length=255, verbose_name=_("page_description"))
     page_keywords = models.TextField(verbose_name=_("page_keywords"))
+    
     visibility = models.BooleanField(default=True, db_index=True, verbose_name=_("visibility"))
     created = models.DateTimeField(auto_now_add=True, verbose_name=_("created"))
 

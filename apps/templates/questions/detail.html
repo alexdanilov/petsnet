@@ -6,28 +6,26 @@
     <div class="navigationBorder">
         <div class="navigationInner">
             <a href="/">Главная</a>
-            <a href="/questions/">Каталог клиник</a>
+            <a href="/questions/">{{ _('questions') }}</a>
             <span>{{ item.title }}</span>
         </div>
     </div>
 </div>
 <div id="content">
     <div id="mainLeft">
-        <div class="contentBlock clinicInfo">
+        <div class="contentBlock clinicInfo questionInfo">
             <div class="headBlock">
                 {{ item.title }}
             </div>
             <div class="inner">
                 {% if item.animal_type or item.category %}
                 <div class="info">
-                    {% if item.animal_type %}<a href="?category={{ item.animal_type.id }}">{{ item.animal_type.name }}</a>{% endif %}
-                    {% if item.category %}<a href="?category={{ item.category.id }}">{{ item.category.name }}</a>{% endif %}
+                    {% if item.animal_type %}{{ _('animal-type') }}: <a href="?category={{ item.animal_type.id }}">{{ item.animal_type.name }}</a>{% endif %}
+                    {% if item.category %}{{ _('category') }}: <a href="?category={{ item.category.id }}">{{ item.category.name }}</a>{% endif %}
                 </div>
                 <div class="clear"></div>
                 {% endif %}
-                <div class="textBlock">
-                    {{ item.text|safe }}
-                </div>
+                {{ item.text|safe }}
                 <div class="clear"></div>
             </div>
             <br />

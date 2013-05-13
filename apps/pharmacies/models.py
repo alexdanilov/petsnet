@@ -6,11 +6,11 @@ from tinymce import models as tinymce_models
 from autocomplete.views import autocomplete, AutocompleteSettings
 from autocomplete.admin import AutocompleteAdmin
 
-from apps.system.models import Regions
+from apps.system.models import Region
 
 
 class Pharmacy(models.Model):
-    region = models.ForeignKey(Regions, verbose_name=_("region"), db_index=True)
+    region = models.ForeignKey(Region, verbose_name=_("region"), db_index=True)
 
     name = models.CharField(max_length=255, verbose_name=_("name"))
     description = tinymce_models.HTMLField(verbose_name=_("description"))
@@ -42,7 +42,7 @@ class Pharmacy(models.Model):
 
     class Meta:
         ordering = ['order_num']
-        db_table = 'catalog_pharmacies'
+        db_table = 'pharmacies'
         verbose_name = _("pharmacy")
         verbose_name_plural = _("pharmacies")
 

@@ -94,7 +94,7 @@ class Setting(models.Model):
 
 
 
-class Regions(models.Model):
+class Region(models.Model):
     city = models.CharField(max_length=200)
     city_order = models.IntegerField()
     region_id = models.IntegerField()

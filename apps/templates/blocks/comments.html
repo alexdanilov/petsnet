@@ -1,0 +1,38 @@
+{% if member.id %}
+<a href="#" class="bottomButton">
+    <span class="text">Добавить отзыв</span>
+    <span class="icon"></span>
+</a>
+{% endif %}
+{% for comment in comments %}
+<div class="comment{% if forloop.last %} lastComment{% endif %}">
+    <div class="date">{{ comment.created }}</div>
+    <div class="info">
+        <span class="name">{{ comment.user.name }}</span>
+        <span class="rating"><span class="fill" style="width: 100%;"></span></span>
+        <span class="grade">5/5</span>
+        <p>{{ comment.comment }}</p>
+    </div>
+    <div class="clear"></div>
+</div>
+{% endfor %}
+{% include "blocks/comments_paginator.html" %}
+{% if member.id %}
+<div class="formWrapper">
+    <form action="" method="post">{% csrf_token %}
+        <div class="head">Добавить отзыв</div>
+        <input type="text" name="name" value="Ваше имя" onfocus="if($(this).val() == 'Ваше имя') $(this).val('');" onblur="if($(this).val() == '') $(this).val('Ваше имя');" />
+        <span class="ratingLabel">Ваша оценка</span>
+        <span class="rating">
+            <span class="fill">
+                <input type="hidden" name="grade" value="" />
+            </span>
+        </span>
+        <span class="grade"></span>
+        <span class="clear"></span>
+        <textarea name="comment" cols="20" rows="5"></textarea>
+        <div class="clear"></div>
+        <button type="submit">Отправить</button>
+    </form>
+</div>
+{% endif %}
